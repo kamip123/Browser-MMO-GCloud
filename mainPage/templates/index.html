@@ -1,0 +1,52 @@
+{% extends 'registerPanel.html' %}
+
+{% block registerPanel %}
+    <div class="col-12">
+        <h1>Register</h1>
+        <p>Please fill in this form to create an account.</p>
+        <hr>
+        <form class="site-from" action="" method="post" >
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" value="Signup" name="SignUpForm">
+        </form>
+    </div>
+{% endblock %}
+
+{% block loginPanel %}
+    <div class="col-12">
+        <h1>Login</h1>
+        <hr>
+    </div>
+    <div class="col-12">
+        {% if loginForm.errors %}
+            <p>Your username and password didn't match. Please try again.</p>
+        {% endif %}
+        <form class="site-from" action="" method="post" >
+            {% csrf_token %}
+            {{ loginForm }}
+            <input type="submit" value="Login" name="LogInForm">
+        </form>
+    </div>
+{% endblock %}
+
+{% block logOutPanel %}
+
+    <div class="col-12">
+        <h1>Welcome {{ user.username }}</h1>
+    </div>
+    <div class="col-12">
+        <h3>Servers</h3>
+        {% for server in servers %}
+            <div class="col-12 serverList">
+                <a href="/miasto">{{ server.name }}</a>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="col-12">
+        <form class="logout-link" action="" method="post">
+            {% csrf_token %}
+            <button type="submit" name="LogOutForm">Logout</button>
+        </form>
+    </div>
+{% endblock %}

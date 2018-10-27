@@ -1,0 +1,72 @@
+body {
+    background-image:url('sci_fi_space_station_wallpaper.jpg');
+    background-repeat: no-repeat;
+	background-size: cover;
+	background-position: top;
+}
+
+#containerDiv {
+
+}
+
+.headerContent {
+    color: rgb(200,0,0);
+    font-family: 'Lobster';
+}
+
+.infoPanel {
+    padding: 0px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    color: #FCA205;
+    font-family: 'Lobster';
+    background: rgb(0,0,0,0.7);
+}
+
+.announcementPost{
+    border-bottom-style: solid;
+    border-width: 2px;
+    border-color: black;
+}
+
+.registerPanel {
+    background-image:url('registerPanel.png');
+    background-repeat: no-repeat;
+	background-size: 100% 100%;
+	background-position: top;
+    color: white;
+    font-family: 'Lobster';
+    padding: 0px;
+    padding-bottom: 30px;
+    padding-top: 50px;
+}
+
+.regLogPanels {
+    padding: 0px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.loginPanel {
+    background-image:url('registerPanel.png');
+    background-repeat: no-repeat;
+	background-size: 100% 100%;
+	background-position: top;
+    color: white;
+    font-family: 'Lobster';
+    padding: 0px;
+    padding-bottom: 30px;
+    padding-top: 50px;
+}
+
+.linksPanel {
+    padding: 0px;
+    padding-top: 10px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    color: #FCA205;
+    font-family: 'Lobster';
+    background: rgb(0,0,0,0.7);
+}
