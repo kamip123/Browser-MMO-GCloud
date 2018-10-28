@@ -30,7 +30,7 @@ def main_page(request):
                               {'servers': servers, 'posts': posts, 'form': form, 'loginForm': loginForm})
             else:
                 return render(request, 'index.html', {'posts': posts, 'form': form, 'loginForm': loginForm})
-                
+
         elif 'LogOutForm' in request.POST:
             logout(request)
             form = UserCreationForm()

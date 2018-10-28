@@ -1,8 +1,63 @@
 {% extends 'cityMap.html' %}
 
 {% block cityPanel %}
+    <div class="row">
+        <div class="col-12">
+            <h1>Welcome <span style="color:darkred">{{ user.username }}</span> in your city <span style="color:darkblue"> {{ city.cityName }} </span></h1>
+        </div>
+        <div class="col-12">
+            <h1>Budynki w miescie</h1>
+            <h2>Ratusz = {{ city.ratusz }} </h2>
+            {% if city.ratuszBudowaTrwa == 1 %}
+                <h4>Trwa rozbudowa: {{ city.ratuszBudowa }} </h4>
+            {% else %}
 
-    <div class="col-12">
-        <h1>Welcome {{ user.username }}</h1>
+            {% endif %}
+            <h2>Koszary = {{ city.koszary }}</h2>
+            <h2>Drogi = {{ city.drogi }}</h2>
+            <h2>Kopalnia = {{ city.kopalnia }}</h2>
+            <h2>Elektrownia = {{ city.elektrownia }}</h2>
+            <h2>Farmy = {{ city.farmy }}</h2>
+            <h1>Pozycja miasta</h1>
+            <h2>X: {{ city.pozX }}</h2>
+            <h2>Y: {{ city.pozY }}</h2>
+            <script type="text/javascript">
+               var buildTime = "{{ rozbudowaRatuszaTimestamp }}";
+               var timeInMs = Date.now();
+               timeInMs = timeInMs/1000;
+               //updatePage();
+               function updatePage(){
+                   timeInMs = Date.now();
+                   timeInMs = timeInMs/1000;
+                   if(timeInMs > buildTime){
+                        window.location.replace(window.location.href);
+                   }
+                   else{
+                        interval = buildTime - timeInMs;
+                        setTimeout(function(){ updatePage(); }, interval*1000+100);
+                   }
+               }
+            </script>
+        </div>
+        <div class="col-12" id="cityRenderDiv">
+
+        </div>
     </div>
+
+{% endblock %}
+
+{% block errorNotLogIn %}
+    <div class="col-12">
+        <h1>You are not loged in</h1>
+        <p>Please visit this site: <a href="{% url 'main_page' %}">main page</a></p>
+        <hr>
+    </div>
+{% endblock %}
+
+{% block createCity %}
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Submit">
+    </form>
 {% endblock %}

@@ -1,7 +1,8 @@
 <!doctype html>
+
 <html lang="en">
   <head>
-      {% load staticfiles %}
+      {% load static %}
 
       <!-- Required meta tags -->
       <meta charset="utf-8">
@@ -9,26 +10,81 @@
 
       <!-- Bootstrap CSS -->
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-      <link rel="stylesheet" href="/static/mainPageCss.css">
+      <link rel="stylesheet" href="{% static 'cityMap/cityMapCss.css' %}">
+      <script src="{% static 'cityMap/js/phaser.js' %}"></script>
+      <script src="{% static 'cityMap/js/testMiasta.js' %}"></script>
       <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
       <title>CCPX</title>
+      <script>
+          var background = "{% static 'cityMap/assets/background.png' %}"
+          var barracks_1 = "{% static 'cityMap/assets/barracks_1.png' %}"
+          var barracks_2 = "{% static 'cityMap/assets/barracks_2.png' %}"
+          var energy_1 = "{% static 'cityMap/assets/energy_1.png' %}"
+          var energy_2 = "{% static 'cityMap/assets/energy_2.png' %}"
+          var farms_1 = "{% static 'cityMap/assets/farms_1.png' %}"
+          var farms_2 = "{% static 'cityMap/assets/farms_2.png' %}"
+          var housing_1 = "{% static 'cityMap/assets/housing_1.png' %}"
+          var housing_2 = "{% static 'cityMap/assets/housing_2.png' %}"
+          var mine_1 = "{% static 'cityMap/assets/mine_1.png' %}"
+          var mine_2 = "{% static 'cityMap/assets/mine_2.png' %}"
+          var roads_1 = "{% static 'cityMap/assets/roads_1.png' %}"
+          var roads_2 = "{% static 'cityMap/assets/roads_2.png' %}"
+          var town_hall_1 = "{% static 'cityMap/assets/town_hall_1.png' %}"
+          var town_hall_2 = "{% static 'cityMap/assets/town_hall_2.png' %}"
+          var town_hall_3 = "{% static 'cityMap/assets/town_hall_3.png' %}"
+          var poziomfarms = {{city.farmy}}
+          var poziomroads = {{city.drogi}}
+          var poziomtownHall = {{city.ratusz}}
+          var poziombarracks = {{city.koszary}}
+          var poziompowerPlant = {{city.elektrownia}}
+          //var poziomhousing = {{city.domy}}
+          var poziommine = {{city.kopalnia}}
+
+      </script>
   </head>
   <body>
-    <div class="container" id="containerDiv">
-        <div class="row">
-            <h1>AWEAEAEAEAEWAAWEAEEAEAWEAEA</h1>
-        </div>
-        {% block cityPanel %}
+    <div class="container errorNotLoged" id="containerDiv">
+        {% if user.is_authenticated %}
+            {% if brakMiasta == 1 %}
+                {% block createCity %}
+                {% endblock %}
+            {% else %}
+                <div class="row">
+                    <h1>This is your city. Will you change it into New York or Detroit ?</h1>
+                    <!--<div id="like_button_container">Test</div>-->
 
-            <div class="col-12">
-                <h1>brak miasta</h1>
-            </div>
-        {% endblock %}
+                    <!--<div id="app">
+                      {% verbatim %} {{ message }} {% endverbatim %}
+                    </div>-->
+
+                </div>
+                {% block cityPanel %}
+                    <div class="col-12">
+                        <h1>brak miasta</h1>
+                    </div>
+                {% endblock %}
+            {% endif %}
+        {% else %}
+            {% block errorNotLogIn %}
+            {% endblock %}
+        {% endif %}
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    <!-- Load React.
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+
+    <script src="/static/cityMap/testReact.js"></script>
+    -->
+
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="/static/cityMap/testVue.js"></script>
+
   </body>
 </html>
