@@ -5,8 +5,8 @@ body {
 	background-position: top;
 }
 
-#containerDiv {
-
+.helptext{
+  visibility: hidden;
 }
 
 .headerContent {

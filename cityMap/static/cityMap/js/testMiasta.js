@@ -40,7 +40,7 @@ class townHall{
 		}
 		if(lvl < 40){
 			this.buildingIcon = "town_hall_1";
-			this.sprite = game.add.sprite(530, 130, this.buildingIcon);
+			this.sprite = game.add.sprite(530, 230, this.buildingIcon);
 		}
 	}
 }
