@@ -5,6 +5,11 @@ import random
 # Create your views here.
 
 
+def main_page_city_list(request):
+    user = request.user
+    cityList = CityOwned.objects.all().filter(cityOwner=user.id)
+    return render(request, 'indexCityList.html', {'cityList': cityList})
+
 def main_page_city(request):
     user = request.user
     if request.method == 'POST':

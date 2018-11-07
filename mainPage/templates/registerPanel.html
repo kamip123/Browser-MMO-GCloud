@@ -11,42 +11,143 @@
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
       <link rel="stylesheet" href="{% static 'mainPage/mainPageCss.css' %}">
       <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+      <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
       <title>CCPX</title>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js" crossorigin="anonymous"></script>
+      <script>
+          $(document).ready(function(){
+
+                $("#formButton").click(function(){
+                    $("#loginFormPanel").toggle();
+                    $("#loginFormPanel2").toggle();
+                });
+
+                $("#span1").click(function () {
+                    $("#span1").toggle();
+                    $("#span2").toggle();
+                });
+                $("#span2").click(function () {
+                    $("#span1").toggle();
+                    $("#span2").toggle();
+                });
+
+                $("#span3").click(function () {
+                    $("#span3").toggle();
+                    $("#span4").toggle();
+                });
+                $("#span4").click(function () {
+                    $("#span3").toggle();
+                    $("#span4").toggle();
+                });
+
+                $("#span5").click(function () {
+                    $("#span5").toggle();
+                    $("#span6").toggle();
+                });
+                $("#span6").click(function () {
+                    $("#span5").toggle();
+                    $("#span6").toggle();
+                });
+
+                $("#span7").click(function () {
+                    $("#span7").toggle();
+                    $("#span8").toggle();
+                });
+                $("#span8").click(function () {
+                    $("#span7").toggle();
+                    $("#span8").toggle();
+                });
+          });
+      </script>
   </head>
   <body>
-    <div class="container" id="containerDiv">
-        <div class="row">
-            <div class="row col-12 headerContent">
-                <h1 class="col-8">Witaj na Planecie X ! To niebezpieczne lecz interesujace miejsce. Przygoda czeka tu na ciebie</h1>
-                <h6 class="col-4">Kup premium, od 5zl</h6>
-            </div>
+    <span id="span2"><img src="{% static 'mainPage/mainPageImage1.png' %}" style="height: 800px; width:800px;"></span>
+    <span id="span4"><img src="{% static 'mainPage/mainPageImage2.png' %}" style="height: 800px; width:800px;"></span>
+    <span id="span6"><img src="{% static 'mainPage/sci_fi_space_station_wallpaper.jpg' %}" style="height: 800px; width:800px;"></span>
+    <span id="span8"><img src="{% static 'mainPage/mainPageImage4.png' %}" style="height: 800px; width:800px;"></span>
 
+    <nav class="navbar navbar-expand-md navbar-dark">
+        <div class="container">
+            <!-- Brand -->
+            <img src="{% static 'mainPage/CCPXLogo3.png' %}" style="padding:1px;height: 70px; width:150px;border-right: 1px solid black;border-left: 1px solid black;">
+
+            <!-- Toggler/collapsibe Button -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar links -->
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item liBorderRight">
+                        <a class="nav-link" href="#"><i class="fa fa-language"></i> Language</a>
+                    </li>
+                    <li class="nav-item liBorderRight">
+                        <a class="nav-link" href="#"><i class="fa fa-ioxhost"></i> Forum</a>
+                    </li>
+                    <li class="nav-item liBorderRight">
+                        <a class="nav-link" href="#"><i class="fa fa-info"></i> Regulations</a>
+                    </li>
+                    <li class="nav-item liBorderRight">
+                        <a class="nav-link" href="#"><i class="fa fa-question-circle"></i> Support</a>
+                    </li>
+                    <li class="nav-item liBorderRight">
+                        <a class="nav-link" href="#"><i class="fa fa-headset"></i> Live FAQ</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" id="containerDiv">
+
+        <div class="row">
             <div class="row col-12 regLogPanels text-center">
                 <div class="row col-md-7 registerPanel ">
-
                     {% block registerPanel %}
                         <h1>register</h1>
                     {% endblock %}
                 </div>
 
-                <div class="row col-0 col-md-2">
+                <div class="row col-0 col-md-1">
                 </div>
 
-                <div class="row col-md-3 loginPanel ">
-                    {% if user.is_authenticated %}
-                        {% block logOutPanel %}
-                            <h1>logout</h1>
-                        {% endblock %}
-                    {% else %}
-                        {% block loginPanel %}
-                            <h1>login</h1>
-                        {% endblock %}
-                    {% endif %}
+                <div id="loginFormPanel" class="row col-md-4 loginPanel">
+
+
+                </div>
+                <div id="loginFormPanel2" class="row col-md-4">
+                        <div class="col-12">
+                            <h3 style="padding-top:50px;">Welcome to the Planet X! It's dangerous but very interesting place. Are you brave enought to explore it ?</h3>
+                            <h5>Images from game:</h5>
+                            <table width="100%">
+                                <tr>
+                                    <th width="50%"><span id="span1"><img src="{% static 'mainPage/mainPageImage1t.png' %}" style="height: 100px; width:100px;"></span></th>
+                                    <th width="50%"><span id="span3"><img src="{% static 'mainPage/mainPageImage2t.png' %}" style="height: 100px; width:100px;"></span></th>
+                                </tr>
+                                <tr>
+                                    <th width="50%"><span id="span5"><img src="{% static 'mainPage/sci_fi_space_station_wallpapert.jpg' %}" style="height: 100px; width:100px;"></span></th>
+                                    <th width="50%"><span id="span7"><img src="{% static 'mainPage/mainPageImage4t.png' %}" style="height: 100px; width:100px;"></span></th>
+                                </tr>
+                            </table>
+                            {% if user.is_authenticated %}
+                                {% block logOutPanel %}
+                                    <h1>logout</h1>
+                                {% endblock %}
+                            {% else %}
+                                {% block loginPanel %}
+                                    <h1>login</h1>
+                                {% endblock %}
+                            {% endif %}
+                            <div>
+                                <p></p>
+                            </div>
+                        </div>
 
                 </div>
             </div>
 
-            <div class="row col-6 infoPanel">
+            <div class="row col-12 col-sm-6 infoPanel">
             {% for post in posts %}
                 <div class="col-12 announcementPost">
                     <h1><a href="">{{ post.title }}</a></h1>
@@ -56,10 +157,10 @@
             {% endfor %}
             </div>
 
-            <div class="row col-0 col-md-1">
+            <div class="row col-0 col-sm-1">
             </div>
 
-            <div class="row col-5 linksPanel">
+            <div class="row col-12 col-sm-5 linksPanel">
                  <div class="col-12">
                      <a href="#">Forum</a>
                  </div>
@@ -77,6 +178,7 @@
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>

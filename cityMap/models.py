@@ -18,21 +18,33 @@ class CityOwned(models.Model):
 
     koszary = models.IntegerField(default=1)
     koszaryBudowa = models.DateTimeField(blank=True, null=True)
+    koszaryBudowaTrwa = models.IntegerField(default=0)
 
     drogi = models.IntegerField(default=1)
     drogiBudowa = models.DateTimeField(blank=True, null=True)
+    drogiBudowaTrwa = models.IntegerField(default=0)
 
     kopalnia = models.IntegerField(default=1)
     kopalniaBudowa = models.DateTimeField(blank=True, null=True)
+    kopalniaBudowaTrwa = models.IntegerField(default=0)
 
     elektrownia = models.IntegerField(default=1)
     elektrowniaBudowa = models.DateTimeField(blank=True, null=True)
+    elektrowniaBudowaTrwa = models.IntegerField(default=0)
 
     farmy = models.IntegerField(default=1)
     farmyBudowa = models.DateTimeField(blank=True, null=True)
+    farmyBudowaTrwa = models.IntegerField(default=0)
 
     #def changeToGhostCity(self):
     #    self.cityOwner = 0
+
+    infantry = models.IntegerField(default=0)
+    hinfantry = models.IntegerField(default=0)
+    planes = models.IntegerField(default=0)
+    ltanks = models.IntegerField(default=0)
+    htanks = models.IntegerField(default=0)
+    motorized = models.IntegerField(default=0)
 
     def __str__(self):
         return self.cityName

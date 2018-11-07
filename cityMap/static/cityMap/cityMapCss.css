@@ -1,3 +1,115 @@
 body {
-    background-color: lightblue;
+    background-color: #d8ac1d;
+    background-image:url('../cityMap/assets/yellowBackground2.png');
+	background-position: top;
 }
+
+.liBorderRight {
+
+}
+
+nav {
+    background-color: #785800;
+    background-image:url('../cityMap/assets/yellowBackground3.png');
+	background-position: top;
+}
+
+nav div {
+    float:left;
+    width:7em; /*Fixes the width of all elements*/
+    padding-right:10px;
+}
+
+nav div a{
+    color: white;
+}
+
+nav div a:link {
+    display: block;
+    width: 100%;
+    text-align:center;
+    padding: 8px 8px 8px 0.8em;
+    background-color: #000;
+    color: white;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+nav div a:hover {
+    background-color: #1c1c1c;
+    color: #5d5d5d;
+}
+
+.navbar .navbar-collapse {
+  text-align: center;
+}
+
+#borderimg1 {
+    border: 10px solid transparent;
+    padding: 15px;
+    -webkit-border-image: url('../cityMap/assets/border.png') 30 round; /* Safari 3.1-5 */
+    -o-border-image: url('../cityMap/assets/border.png') 30 round; /* Opera 11-12.1 */
+    border-image: url('../cityMap/assets/border2.png') 30 round;
+}
+
+#cityWelcomeDiv {
+    width:1120px;
+    height:50px;
+    float:left;
+    margin: 5px;
+    background-color: #cc9a16;
+    border: 10px solid transparent;
+    -webkit-border-image: url('../cityMap/assets/border.png') 30 round; /* Safari 3.1-5 */
+    -o-border-image: url('../cityMap/assets/border.png') 30 round; /* Opera 11-12.1 */
+    border-image: url('../cityMap/assets/border3.png') 30 round;
+}
+
+#cityInfoDiv {
+    width:250px;
+    height:700px;
+    float:left;
+    margin: 5px;
+    padding: 5px;
+    background-color: #cc9a16;
+    border: 10px solid transparent;
+    -webkit-border-image: url('../cityMap/assets/border.png') 30 round; /* Safari 3.1-5 */
+    -o-border-image: url('../cityMap/assets/border.png') 30 round; /* Opera 11-12.1 */
+    border-image: url('../cityMap/assets/border3.png') 30 round;
+}
+
+#cityRenderDiv {
+    width:950px;
+    height:650px;
+    float:left;
+}
+
+#cityRenderDiv canvas{
+    border: 10px solid transparent;
+    padding: 0px;
+    -webkit-border-image: url('../cityMap/assets/border.png') 30 round; /* Safari 3.1-5 */
+    -o-border-image: url('../cityMap/assets/border.png') 30 round; /* Opera 11-12.1 */
+    border-image: url('../cityMap/assets/border8.png') 30 round;
+}
+#centerDiv{
+    width:1300px;
+    height:850px;
+    display: table;
+    margin: 0 auto;
+    background-image:url('../cityMap/assets/yellowBackground3.png');
+	background-position: top;
+}
+#containerDiv {
+    width:1300px;
+    height:850px;
+    overflow:hiddecityInfoDivn;
+    float:left;
+    background-color: #a37908;
+    border: 10px solid transparent;
+    padding: 15px;
+    -webkit-border-image: url('../cityMap/assets/border.png') 30 round; /* Safari 3.1-5 */
+    -o-border-image: url('../cityMap/assets/border.png') 30 round; /* Opera 11-12.1 */
+    border-image: url('../cityMap/assets/border2.png') 30 round;
+}
+
+
+

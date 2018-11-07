@@ -10,10 +10,13 @@
 
       <!-- Bootstrap CSS -->
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+      <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js" crossorigin="anonymous"></script>
+
       <link rel="stylesheet" href="{% static 'cityMap/cityMapCss.css' %}">
       <script src="{% static 'cityMap/js/phaser.js' %}"></script>
       <script src="{% static 'cityMap/js/testMiasta.js' %}"></script>
-      <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
       <title>CCPX</title>
       <script>
           var background = "{% static 'cityMap/assets/background.png' %}"
@@ -43,21 +46,12 @@
       </script>
   </head>
   <body>
-    <div class="container errorNotLoged" id="containerDiv">
         {% if user.is_authenticated %}
             {% if brakMiasta == 1 %}
                 {% block createCity %}
                 {% endblock %}
             {% else %}
-                <div class="row">
-                    <h1>This is your city. Will you change it into New York or Detroit ?</h1>
-                    <!--<div id="like_button_container">Test</div>-->
-
-                    <!--<div id="app">
-                      {% verbatim %} {{ message }} {% endverbatim %}
-                    </div>-->
-
-                </div>
+                <script src="/static/cityMap/testVue.js"></script>
                 {% block cityPanel %}
                     <div class="col-12">
                         <h1>brak miasta</h1>
@@ -68,7 +62,7 @@
             {% block errorNotLogIn %}
             {% endblock %}
         {% endif %}
-    </div>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -78,13 +72,9 @@
     <!-- Load React.
     <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
-
     <script src="/static/cityMap/testReact.js"></script>
     -->
-
-    <!-- development version, includes helpful console warnings -->
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="/static/cityMap/testVue.js"></script>
-
+    <!-- development version, includes helpful console warnings
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>-->
   </body>
 </html>

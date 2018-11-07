@@ -1,5 +1,6 @@
 //alert("zaladowalo");
-var game = new Phaser.Game(1155, 800, Phaser.CANVAS, 'cityRenderDiv', { preload: preload, create: create, update: update, render: render });
+var game = new Phaser.Game(950, 650, Phaser.CANVAS, 'cityRenderDiv', { preload: preload, create: create, update: update, render: render });
+
 
 function preload() {
     game.load.image('background', background); // ready
@@ -25,6 +26,8 @@ var cursors;
 var cityListInfo = [];
 var infoPanel;
 var text;
+
+
 
 class townHall{
 	constructor(lvl) {
@@ -157,8 +160,7 @@ function create() {
 	
 	
     cursors = game.input.keyboard.createCursorKeys();
-	//game.camera.scale.x += 1;
-    //game.camera.scale.y += 1;
+    game.world.scale.set(0.82)
 }
 
 function listenerClickBuilding() {

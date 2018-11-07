@@ -5,6 +5,29 @@ body {
 	background-position: top;
 }
 
+nav {
+    background-color: #785800;
+    background-image:url('../cityMap/assets/yellowBackground3.png');
+	background-position: top;
+
+}
+nav .container {
+    border: 10px solid transparent;
+    padding: 0px;
+
+    -webkit-border-image: url('../cityMap/assets/border.png') 30 round; /* Safari 3.1-5 */
+    -o-border-image: url('../cityMap/assets/border.png') 30 round; /* Opera 11-12.1 */
+    border-image: url('../cityMap/assets/border8.png') 30 round;
+}
+
+nav .container .collapse {
+    background-color: #785800;
+}
+
+nav li:hover{
+    background-color: #a57a03;
+}
+
 .helptext{
   visibility: hidden;
 }
@@ -12,6 +35,8 @@ body {
 .headerContent {
     color: rgb(200,0,0);
     font-family: 'Lobster';
+    background-color: #785800;
+    border-radius: 0px 0px 35px 35px;
 }
 
 .infoPanel {
@@ -58,6 +83,8 @@ body {
     padding: 0px;
     padding-bottom: 30px;
     padding-top: 50px;
+    display:table;
+    margin:0 auto;
 }
 
 .linksPanel {
@@ -69,4 +96,119 @@ body {
     color: #FCA205;
     font-family: 'Lobster';
     background: rgb(0,0,0,0.7);
+}
+
+.btn-fb{
+    color: #fff;
+    background-color:#3b5998;
+}
+.btn-fb:hover{
+    color: #fff;
+    background-color:#496ebc;
+}
+
+.btn-tw{
+    color: #fff;
+    background-color:#55acee;
+}
+.btn-tw:hover{
+    color: #fff;
+    background-color:#7bc2f7;
+}
+
+
+.registerPanelSoldier {
+    background-image:url('mainMenuSoldier.png');
+    background-repeat: no-repeat;
+	background-size: 100% 100%;
+	background-position: top;
+    padding: 0px;
+}
+
+#loginFormPanel {
+    display:none;
+}
+
+#loginFormPanel2 {
+    background-image:url('registerPanel.png');
+    background-repeat: no-repeat;
+	background-size: 100% 100%;
+	background-position: top;
+    color: white;
+    font-family: 'Lobster';
+
+}
+
+#loginFormPanel2 table, th, td {
+    border: 2px solid black;
+}
+
+#loginFormPanel2 table {
+
+}
+
+#span1, #span3, #span5, #span7 {
+    cursor: pointer;
+    display: block;
+    border: 2px solid black;
+}
+
+#span1 img, #span3 img, #span5 img, #span7 img {
+    border: 2px solid black;
+}
+
+#span2, #span4, #span6, #span8 {
+      display: none;
+      position: fixed;
+      background-color: rgb(0, 0, 0, 0.8);
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 98;
+      cursor: pointer;
+}
+
+#span2 img, #span4 img, #span6 img, #span8 img {
+    position: absolute;
+    z-index: 99;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.liBorderRight {
+    border-right: 1px solid black;
+}
+
+input[type=submit] {
+    background-color: darkred;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    margin:10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+input[type=submit]:hover {
+    background-color: #bc0101;
+}
+
+button {
+    background-color: #8b0000;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    margin:10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #bc0101;
 }

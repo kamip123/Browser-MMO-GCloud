@@ -1,63 +1,138 @@
 {% extends 'cityMap.html' %}
 
 {% block cityPanel %}
-    <div class="row">
-        <div class="col-12">
-            <h1>Welcome <span style="color:darkred">{{ user.username }}</span> in your city <span style="color:darkblue"> {{ city.cityName }} </span></h1>
-        </div>
-        <div class="col-12">
-            <h1>Budynki w miescie</h1>
-            <h2>Ratusz = {{ city.ratusz }} </h2>
-            {% if city.ratuszBudowaTrwa == 1 %}
-                <h4>Trwa rozbudowa: {{ city.ratuszBudowa }} </h4>
-            {% else %}
 
-            {% endif %}
-            <h2>Koszary = {{ city.koszary }}</h2>
-            <h2>Drogi = {{ city.drogi }}</h2>
-            <h2>Kopalnia = {{ city.kopalnia }}</h2>
-            <h2>Elektrownia = {{ city.elektrownia }}</h2>
-            <h2>Farmy = {{ city.farmy }}</h2>
-            <h1>Pozycja miasta</h1>
-            <h2>X: {{ city.pozX }}</h2>
-            <h2>Y: {{ city.pozY }}</h2>
-            <script type="text/javascript">
-               var buildTime = "{{ rozbudowaRatuszaTimestamp }}";
-               var timeInMs = Date.now();
-               timeInMs = timeInMs/1000;
-               //updatePage();
-               function updatePage(){
-                   timeInMs = Date.now();
-                   timeInMs = timeInMs/1000;
-                   if(timeInMs > buildTime){
-                        window.location.replace(window.location.href);
-                   }
-                   else{
-                        interval = buildTime - timeInMs;
-                        setTimeout(function(){ updatePage(); }, interval*1000+100);
-                   }
-               }
-            </script>
-        </div>
-        <div class="col-12" id="cityRenderDiv">
+    <nav class="navbar navbar-expand-md navbar-dark" >
+        <div class="container" id="borderimg1">
+            <!-- Toggler/collapsibe Button -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Navbar links -->
+            <div class="collapse navbar-collapse nav-fill w-100" id="collapsibleNavbar">
 
+                   <a class="nav-link" href="/miasto/cityList/"><i class="fa fa-list-ul"></i> City List</a>
+
+                    <a class="nav-link" href="../mapa/"><i class="fa fa-globe"></i> Map</a>
+
+                    <a class="nav-link" href="../wiadomosci"><i class="fa fa-envelope"></i> Messages</a>
+
+                    <a class="nav-link" href="../raporty"><i class="fa fa-envelope-square"></i> Raports</a>
+
+                    <a class="nav-link" href="../sojusz"><i class="fa fa-rebel"></i> Alliance</a>
+
+                    <a class="nav-link" href="../rankingi"><i class="fa fa-align-justify"></i> Rankings</a>
+
+                    <a class="nav-link" href="../profil"><i class="fa fa-user-circle"></i> Profil</a>
+
+                    <a class="nav-link" href="../premium"><i class="fas fa-yen-sign"></i> Premium</a>
+
+            </div>
+        </div>
+    </nav>
+    <div style="width:100%;">
+        <div id="centerDiv">
+            <div id="containerDiv">
+                <div id="cityWelcomeDiv">
+                    <h3>Welcome <span style="color:darkred">{{ user.username }}</span> in your city <span style="color:darkblue"> {{ city.cityName }} </span></h3>
+                </div>
+                <div id="cityInfoDiv">
+                        <h4>Budynki w miescie</h4>
+                        <h5>Ratusz = {{ city.ratusz }} </h5>
+                        {% if city.ratuszBudowaTrwa == 1 %}
+                            <h6>Trwa rozbudowa: {{ city.ratuszBudowa }} </h6>
+                        {% else %}
+
+                        {% endif %}
+                        <h5>Koszary = {{ city.koszary }}</h5>
+                        {% if city.koszaryBudowaTrwa == 1 %}
+                            <h6>Trwa rozbudowa: {{ city.koszaryBudowa }} </h6>
+                        {% else %}
+
+                        {% endif %}
+                        <h5>Drogi = {{ city.drogi }}</h5>
+                        {% if city.drogiBudowaTrwa == 1 %}
+                            <h6>Trwa rozbudowa: {{ city.drogiBudowa }} </h6>
+                        {% else %}
+
+                        {% endif %}
+                        <h5>Kopalnia = {{ city.kopalnia }}</h5>
+                        {% if city.kopalniaBudowaTrwa == 1 %}
+                            <h6>Trwa rozbudowa: {{ city.kopalniaBudowa }} </h6>
+                        {% else %}
+
+                        {% endif %}
+                        <h5>Elektrownia = {{ city.elektrownia }}</h5>
+                        {% if city.elektrowniaBudowaTrwa == 1 %}
+                            <h6>Trwa rozbudowa: {{ city.elektrowniaBudowa }} </h6>
+                        {% else %}
+
+                        {% endif %}
+                        <h5>Farmy = {{ city.farmy }}</h5>
+                        {% if city.farmyBudowaTrwa == 1 %}
+                            <h6>Trwa rozbudowa: {{ city.farmyBudowa }} </h6>
+                        {% else %}
+
+                        {% endif %}
+
+                        <h5>City position</h5>
+                        <h6>X: {{ city.pozX }}</h6>
+                        <h6>Y: {{ city.pozY }}</h6>
+                        <h5>Army</h5>
+
+                        <h6>Infantry: {{ city.infantry }}</h6>
+                        <h6>Heavy Infantry: {{ city.hinfantry }}</h6>
+                        <h6>Motorised: {{ city.motorized }}</h6>
+                        <h6>Light Tanks: {{ city.ltanks }}</h6>
+                        <h6>Heavy Tanks: {{ city.htanks }}</h6>
+                        <h6>Planes: {{ city.planes }}</h6>
+                        <a href="../">Main Page</a>
+                        <script type="text/javascript">
+                           var buildTime = "{{ rozbudowaRatuszaTimestamp }}";
+                           var timeInMs = Date.now();
+                           timeInMs = timeInMs/1000;
+                           //updatePage();
+                           function updatePage(){
+                               timeInMs = Date.now();
+                               timeInMs = timeInMs/1000;
+                               if(timeInMs > buildTime){
+                                    window.location.replace(window.location.href);
+                               }
+                               else{
+                                    interval = buildTime - timeInMs;
+                                    setTimeout(function(){ updatePage(); }, interval*1000+100);
+                               }
+                           }
+                        </script>
+                    </div>
+                <div id="cityRenderDiv"></div>
+            </div>
         </div>
     </div>
-
 {% endblock %}
 
 {% block errorNotLogIn %}
-    <div class="col-12">
-        <h1>You are not loged in</h1>
-        <p>Please visit this site: <a href="{% url 'main_page' %}">main page</a></p>
-        <hr>
+    <div class="container errorNotLoged" id="containerDiv">
+        <div class="row">
+            <div class="col-12">
+                <h1>You are not loged in</h1>
+                <p>Please visit this site: <a href="{% url 'main_page' %}">main page</a></p>
+                <hr>
+            </div>
+        </div>
     </div>
 {% endblock %}
 
 {% block createCity %}
-    <form action="" method="post">
-        {% csrf_token %}
-        {{ form }}
-        <input type="submit" value="Submit">
-    </form>
+    <div class="container" id="containerDiv">
+        <div class="row">
+            <div class="col-12">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    {{ form }}
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+    </div>
 {% endblock %}

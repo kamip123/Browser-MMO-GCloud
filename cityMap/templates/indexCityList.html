@@ -1,0 +1,36 @@
+{% extends 'cityList.html' %}
+
+{% block cityListPanel %}
+    <div class="row col-12 cityListPanel">
+        <h1 class="col-12">City List<hr></h1>
+
+        <table style="width:100%">
+            <tr>
+                <th>Name</th>
+                <th>Points</th>
+                <th>Town Hall</th>
+                <th>Barracks</th>
+                <th>Roads</th>
+                <th>Mines</th>
+                <th>Power Plant</th>
+                <th>Farms</th>
+                <th>Pos X</th>
+                <th>Pos Y</th>
+            </tr>
+            {% for city in cityList %}
+            <tr>
+                <th><a href="../">{{ city.cityName }}</a></th>
+                <th>10</th>
+                <th>{{ city.ratusz }}</th>
+                <th>{{ city.koszary }}</th>
+                <th>{{ city.drogi }}</th>
+                <th>{{ city.kopalnia }}</th>
+                <th>{{ city.elektrownia }}</th>
+                <th>{{ city.farmy }}</th>
+                <th>{{ city.pozX }}</th>
+                <th>{{ city.pozY }}</th>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

@@ -1,17 +1,31 @@
 {% extends 'registerPanel.html' %}
 
 {% block registerPanel %}
-    <div class="col-12">
+    <div class="col-0 col-sm-6 registerPanelSoldier"></div>
+    <div class="col-12 col-sm-6">
         <h1>Register</h1>
         <p>Please fill in this form to create an account.</p>
         <hr>
         <form class="site-from" action="" method="post" >
             {% csrf_token %}
-            <p>Username: {{ form.username }}</p>
-            <p>Password: {{ form.password1 }}</p>
-            <p>Repeat Password:{{ form.password2 }}</p>
-            <p>Email: {{ form.email }}</p>
+            <p>Username:</p>
+            <p>{{ form.username }}</p>
+
+            <p>Password:</p>
+            <p>{{ form.password1 }}</p>
+
+            <p>Repeat Password:</p>
+            <p>{{ form.password2 }}</p>
+
+            <p>Email:</p>
+            <p>{{ form.email }}</p>
+
             <input type="submit" value="Signup" name="SignUpForm">
+            <p>Or register with:</p>
+            <div class="social-buttons">
+                <a href="#fb" class="btn btn-fb" style="width:100px"><i class="fa fa-facebook"></i> Facebook</a>
+                <a href="#tw" class="btn btn-tw" style="width:100px"><i class="fa fa-twitter"></i> Twitter</a>
+            </div>
         </form>
     </div>
 {% endblock %}
@@ -19,15 +33,15 @@
 {% block loginPanel %}
     <div class="col-12">
         <h1>Login</h1>
-        <hr>
-    </div>
-    <div class="col-12">
         {% if loginForm.errors %}
             <p>Your username and password didn't match. Please try again.</p>
         {% endif %}
         <form class="site-from" action="" method="post" >
             {% csrf_token %}
-            {{ loginForm }}
+            <p>User name:</p>
+            <p>{{ loginForm.username }}</p>
+            <p>Password:</p>
+            <p>{{ loginForm.password }}</p>
             <input type="submit" value="Login" name="LogInForm">
         </form>
     </div>
