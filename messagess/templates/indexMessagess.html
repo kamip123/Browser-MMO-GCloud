@@ -1,0 +1,18 @@
+{% extends 'messagess.html' %}
+
+{% block showMessages %}
+    <table>
+        <tr>
+            <th>Author</th>
+            <th>Title</th>
+            <th>Date</th>
+        </tr>
+        {% for message in messages %}
+            <tr>
+                <td>{{ message.author }}</td>
+                <td><a href='{{ message.id }}'>{{ message.title }}</a></td>
+                <td>{{ message.created_date }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

@@ -42,6 +42,9 @@ INSTALLED_APPS = [
     'mainPage',
     'rankings',
     'worldMap',
+    'messagess',
+    'alliance',
+    'raports',
 ]
 
 MIDDLEWARE = [

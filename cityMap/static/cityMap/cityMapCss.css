@@ -57,7 +57,7 @@ nav div a:hover {
     height:50px;
     float:left;
     margin: 5px;
-    background-color: #cc9a16;
+    background-color: #dfcea2;
     border: 10px solid transparent;
     -webkit-border-image: url('../cityMap/assets/border.png') 30 round; /* Safari 3.1-5 */
     -o-border-image: url('../cityMap/assets/border.png') 30 round; /* Opera 11-12.1 */
@@ -70,7 +70,7 @@ nav div a:hover {
     float:left;
     margin: 5px;
     padding: 5px;
-    background-color: #cc9a16;
+    background-color: #dfcea2;
     border: 10px solid transparent;
     -webkit-border-image: url('../cityMap/assets/border.png') 30 round; /* Safari 3.1-5 */
     -o-border-image: url('../cityMap/assets/border.png') 30 round; /* Opera 11-12.1 */
@@ -103,7 +103,7 @@ nav div a:hover {
     height:850px;
     overflow:hiddecityInfoDivn;
     float:left;
-    background-color: #a37908;
+    background-color: #eac376;
     border: 10px solid transparent;
     padding: 15px;
     -webkit-border-image: url('../cityMap/assets/border.png') 30 round; /* Safari 3.1-5 */

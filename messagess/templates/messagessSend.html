@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+      {% load static %}
+
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+      <link rel="stylesheet" href="{% static 'messagess/messagessCss.css' %}">
+      <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+      <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+      <title>CCPX</title>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark" >
+        <div class="container" id="borderimg1">
+            <!-- Toggler/collapsibe Button -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Navbar links -->
+            <div class="collapse navbar-collapse nav-fill w-100" id="collapsibleNavbar">
+
+                   <a class="nav-link" href="../../miasto/cityList/"><i class="fa fa-list-ul"></i> City List</a>
+
+                    <a class="nav-link" href="../../mapa/"><i class="fa fa-globe"></i> Map</a>
+
+                    <a class="nav-link" href="../../wiadomosci"><i class="fa fa-envelope"></i> Messages</a>
+
+                    <a class="nav-link" href="../../raporty"><i class="fa fa-envelope-square"></i> Raports</a>
+
+                    <a class="nav-link" href="../../sojusz"><i class="fa fa-rebel"></i> Alliance</a>
+
+                    <a class="nav-link" href="../../rankingi"><i class="fa fa-align-justify"></i> Rankings</a>
+
+                    <a class="nav-link" href="../../profil"><i class="fa fa-user-circle"></i> Profil</a>
+
+                    <a class="nav-link" href="../../premium"><i class="fas fa-yen-sign"></i> Premium</a>
+
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" id="containerDiv">
+
+        <div class="row">
+            <div class="col-2 messagesPanel text-center">
+                <div class="col-2 messagesPanel text-center">
+                    <h1><a href="">New Message</a></h1>
+                    <h1><a href="../">Received Messages</a></h1>
+                    <h1><a href="../wyslane/">Your messages</a></h1>
+                </div>
+            </div>
+            <div class="col-10 messagesPanel text-center">
+                <form class="site-from" action="" method="post" >
+                    {% csrf_token %}
+                    <p>Username:</p>
+                    <p>{{ messageForm.toWho }}</p>
+                    <p>Title</p>
+                    <p>{{ messageForm.title }}</p>
+                    <p>Text</p>
+                    <p>{{ messageForm.text }}</p>
+                    <input type="submit" value="Send" name="MessageContent">
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+</html>

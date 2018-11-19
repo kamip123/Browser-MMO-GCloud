@@ -1,0 +1,17 @@
+{% extends 'alliance.html' %}
+
+{% block showAlliance %}
+    <table>
+        <tr>
+            <th>Name: {{ alliance.name }}</th>
+            <th>Members: {{ alliance.members.count }}</th>
+        </tr>
+    </table>
+    <table>
+        {% for member in alliance.members.all %}
+            <tr>
+                <td>{{ member.username }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

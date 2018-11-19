@@ -5,10 +5,51 @@ from datetime import datetime, timedelta
 # Create your models here.
 
 
+class Infantry(models.Model):
+    hp = models.IntegerField(default=10)
+    attack = models.IntegerField(default=10)
+    speed = models.IntegerField(default=20)
+    capacity = models.IntegerField(default=30)
+
+class HInfantry(models.Model):
+    hp = models.IntegerField(default=30)
+    attack = models.IntegerField(default=30)
+    speed = models.IntegerField(default=10)
+    capacity = models.IntegerField(default=10)
+
+class LTanks(models.Model):
+    hp = models.IntegerField(default=100)
+    attack = models.IntegerField(default=100)
+    speed = models.IntegerField(default=80)
+    capacity = models.IntegerField(default=100)
+
+
+class HTanks(models.Model):
+    hp = models.IntegerField(default=200)
+    attack = models.IntegerField(default=100)
+    speed = models.IntegerField(default=30)
+    capacity = models.IntegerField(default=150)
+
+
+class Motorized(models.Model):
+    hp = models.IntegerField(default=50)
+    attack = models.IntegerField(default=50)
+    speed = models.IntegerField(default=100)
+    capacity = models.IntegerField(default=250)
+
+
+class Planes(models.Model):
+    hp = models.IntegerField(default=100)
+    attack = models.IntegerField(default=200)
+    speed = models.IntegerField(default=300)
+    capacity = models.IntegerField(default=150)
+
+
 class CityOwned(models.Model):
     # techniczne
     cityOwner = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     cityName = models.CharField(max_length=100, default="City")
+    is_capital = models.BooleanField(default=False)
     pozX = models.IntegerField(default=1)
     pozY = models.IntegerField(default=1)
     # budynki

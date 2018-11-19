@@ -1,0 +1,78 @@
+{% extends 'raports.html' %}
+
+{% block showRaports %}
+    <table>
+        <tr>
+            <th>City</th>
+            <th>Title</th>
+            <th>Date</th>
+        </tr>
+        {% for battleraport in battleraports %}
+            <tr>
+                <td>{{ battleraport.cityD }}</td>
+                <td><a href='{{ battleraport.id }}/0'>{{ battleraport.name }}</a></td>
+                <td>{{ battleraport.created_date }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <table>
+        <tr>
+            <th>Sender</th>
+            <th>Title</th>
+            <th>Date</th>
+        </tr>
+        {% for alliancereport in alliancereports %}
+            <tr>
+                <td>{{ alliancereport.sender }}</td>
+                <td><a href='{{ alliancereport.id }}/1'>{{ alliancereport.name }}</a></td>
+                <td>{{ alliancereport.created_date }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <table>
+        <tr>
+            <th>Sender</th>
+            <th>Title</th>
+            <th>Date</th>
+        </tr>
+        {% for helpraport in helpraports %}
+            <tr>
+                <td>{{ helpraport.sender }}</td>
+                <td><a href='{{ helpraport.id }}/2'>{{ helpraport.name }}</a></td>
+                <td>{{ helpraport.created_date }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <table>
+        <tr>
+            <th>Sender</th>
+            <th>Title</th>
+            <th>Date</th>
+        </tr>
+        {% for specialresourceraport in specialresourceraports %}
+            <tr>
+                <td>{{ specialresourceraport.sender }}</td>
+                <td><a href='{{ specialresourceraport.id }}/3'>{{ specialresourceraport.name }}</a></td>
+                <td>{{ specialresourceraport.created_date }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <table>
+        <tr>
+            <th>Sender</th>
+            <th>Title</th>
+            <th>Date</th>
+        </tr>
+        {% for tradeeraport in tradeeraports %}
+            <tr>
+                <td>{{ tradeeraport.sender }}</td>
+                <td><a href='{{ tradeeraport.id }}/4'>{{ tradeeraport.name }}</a></td>
+                <td>{{ tradeeraport.created_date }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

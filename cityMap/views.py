@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import CityOwned
 from .forms import CityOwnedForm
 import random
@@ -9,6 +9,13 @@ def main_page_city_list(request):
     user = request.user
     cityList = CityOwned.objects.all().filter(cityOwner=user.id)
     return render(request, 'indexCityList.html', {'cityList': cityList})
+
+
+def main_page_city_id(request, idOfCity):
+    brakMiasta = 0
+    user = request.user
+    city = CityOwned.objects.get(cityOwner=user.id, id=idOfCity)
+    return render(request, 'indexCityMap.html', {'brakMiasta': brakMiasta, 'city': city})
 
 def main_page_city(request):
     user = request.user
@@ -29,6 +36,7 @@ def main_page_city(request):
                 city.kopalnia = 1
                 city.elektrownia = 1
                 city.farmy = 1
+                city.is_Capital = True
                 city.save()
                 brakMiasta = 0
                 return render(request, 'indexCityMap.html', {'city': city, 'brakMiasta': brakMiasta})
@@ -39,13 +47,13 @@ def main_page_city(request):
 
     elif user.is_authenticated:
         try:
-            city = CityOwned.objects.get(cityOwner=user.id)
+            city = CityOwned.objects.get(cityOwner=user.id, is_capital=True)
         except CityOwned.DoesNotExist:
             brakMiasta = 1
             form = CityOwnedForm()
             return render(request, 'indexCityMap.html', {'brakMiasta': brakMiasta, 'form': form})
 
-        city = CityOwned.objects.get(cityOwner=user.id)
+        city = CityOwned.objects.get(cityOwner=user.id, is_capital=True)
         brakMiasta = 0
 
         #city.updateBuildings()
@@ -59,5 +67,5 @@ def main_page_city(request):
             return render(request, 'indexCityMap.html', {'city': city, 'brakMiasta': brakMiasta})
 
         return render(request, 'indexCityMap.html', {'city': city, 'brakMiasta': brakMiasta, 'rozbudowaRatuszaTimestamp': rozbudowaRatuszaTimestamp})
-
-    return render(request, 'indexCityMap.html')
+    else:
+        return redirect('../')
