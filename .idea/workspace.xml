@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ea2b1214-f616-4858-b4c1-b71e812d2c62" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cityMap/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/cityMap/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cityMap/static/cityMap/cityMapCss.css" beforeDir="false" afterPath="$PROJECT_DIR$/cityMap/static/cityMap/cityMapCss.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cityMap/templates/indexCityList.html" beforeDir="false" afterPath="$PROJECT_DIR$/cityMap/templates/indexCityList.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cityMap/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/cityMap/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cityMap/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/cityMap/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainPage/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/mainPage/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainPage/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/mainPage/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektNaChmureDJango/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/projektNaChmureDJango/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektNaChmureDJango/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/projektNaChmureDJango/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/worldMap/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/worldMap/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/worldMap/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/worldMap/views.py" afterDir="false" />
-    </list>
+    <list default="true" id="ea2b1214-f616-4858-b4c1-b71e812d2c62" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -135,7 +121,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="x" value="150" />
     <option name="y" value="60" />
     <option name="width" value="1769" />
@@ -230,7 +216,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="150" y="60" width="1769" height="958" extended-state="0" />
+    <frame x="150" y="60" width="1769" height="958" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22703937" />
