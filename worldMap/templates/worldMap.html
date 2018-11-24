@@ -27,6 +27,9 @@
           var cityListOwnerNames = []
           var cityListX = []
           var cityListY = []
+          var cityListY = []
+          var cityListId = []
+          var cityListPoints = []
           var i = 0
       </script>
   </head>
@@ -70,6 +73,8 @@
                 cityListOwnerNames[i] = "{{city.cityOwner}}"
                 cityListX[i] = "{{ city.pozX }}"
                 cityListY[i] = "{{ city.pozY }}"
+                cityListId[i] = "{{ city.id }}"
+                cityListPoints[i] = "{{ city.points }}"
                 i = i + 1
 
             {% endfor %}

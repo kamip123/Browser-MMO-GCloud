@@ -18,12 +18,9 @@ function preload() {
     cityListXq = cityListX;
     cityListYq = cityListY;
     liczbaMiast = cityListNamesq.length;
-
 }
 
 var cursors;
-var x = 400;
-var y = 400;
 var pozX = 450;
 var pozY = 450;
 var cityList = [];
@@ -37,12 +34,13 @@ var liczbaMiast = 0;
 
 
 class cityInfoPanelClass{
-	constructor(x, y, nazwaWioski, wlasciciel, punkty) {
+	constructor(x, y, nazwaWioski, wlasciciel, punkty, id) {
 		this.x = x;
 		this.y = y;
 		this.nazwaWioski = nazwaWioski;
 		this.wlasciciel = wlasciciel;
 		this.punkty = punkty;
+		this.id = id;
 		if(punkty > 3999){
 			this.cityIcon = "cityIcon5";
 		}
@@ -71,13 +69,13 @@ function create() {
 	game.world.setBounds(-0, -0, 3200, 2400);
 
 	game.add.sprite(0, 0, 'backgroundMap');
-	text = game.add.text(x+50, y, '', { font:"10px Arial", fill: 'black' });
+	text = game.add.text(50, 0, '', { font:"10px Arial", fill: 'black' });
 
 	for(var i=0; i<liczbaMiast;i++){
-		cityListInfo[i] = new cityInfoPanelClass(parseInt(cityListXq[i]), parseInt(cityListYq[i]), cityListNamesq[i], cityListOwnerNamesq[i], 10+i*1000);
+		cityListInfo[i] = new cityInfoPanelClass(parseInt(cityListXq[i]), parseInt(cityListYq[i]), cityListNamesq[i], cityListOwnerNamesq[i], cityListPoints[i], cityListId[i]);
 		cityListInfo[i].sprite.events.onInputOver.add(listenerOverCity, this, 0, cityListInfo[i].x, cityListInfo[i].y, cityListInfo[i].nazwaWioski, cityListInfo[i].wlasciciel, cityListInfo[i].punkty);
 		cityListInfo[i].sprite.events.onInputOut.add(listenerOverCityDelete);
-		cityListInfo[i].sprite.events.onInputDown.add(listenerClickCity, this);
+		cityListInfo[i].sprite.events.onInputDown.add(listenerClickCity, this, 0, cityListId[i]);
 		cityListInfo[i].sprite.inputEnabled = true;
 	}
 	//game.camera.scale.x += 1;
@@ -87,8 +85,8 @@ function create() {
 
 }
 
-function listenerClickCity() {
-
+function listenerClickCity(one, two, idOfCity) {
+    window.location.href = idOfCity;
 }
 
 function listenerOverCity(one, two, xx, yy, nazwaWioski, wlasciciel, punkty) {

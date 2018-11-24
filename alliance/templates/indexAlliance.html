@@ -1,6 +1,9 @@
 {% extends 'alliance.html' %}
 
 {% block showAlliance %}
+    {% if alliance == 1%}
+        <h1>You don't have and alliance. Join one by searching in alliance list.</h1>
+    {% else %}
     <table>
         <tr>
             <th>Name: {{ alliance.name }}</th>
@@ -10,8 +13,9 @@
     <table>
         {% for member in alliance.members.all %}
             <tr>
-                <td>{{ member.username }}</td>
+                <td><a href='{{ member.id }}'>{{ member.username }}</td>
             </tr>
         {% endfor %}
     </table>
+    {% endif %}
 {% endblock %}

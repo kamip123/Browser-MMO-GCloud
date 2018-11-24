@@ -37,6 +37,8 @@ class Server(models.Model):
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     alliance = models.OneToOneField(alliance.models.Alliance, on_delete=models.CASCADE, blank=True, null=True)
+    bio = models.TextField(null=True, blank=True)
+    profilePic = models.FileField(null=True, blank=True)
 
     def __str__(self):
         return str(self.alliance)

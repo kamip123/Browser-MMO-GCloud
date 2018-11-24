@@ -8,7 +8,7 @@ class Alliance(models.Model):
     creator = models.ForeignKey(User, related_name='creator', on_delete=models.CASCADE)
     vicecreator = models.ForeignKey(User, related_name='vicecreator', on_delete=models.CASCADE, null=True, blank=True)
     vicevicecreator = models.ForeignKey(User, related_name='vicevicecreator', on_delete=models.CASCADE, null=True, blank=True)
-    allianceLogo = models.FileField(null=True, blank=True)
+    allianceLogo = models.FileField(null=True)
     members = models.ManyToManyField(User)
 
     def maxMembers(self):

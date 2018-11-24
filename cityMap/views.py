@@ -39,7 +39,7 @@ def main_page_city(request):
                 city.is_Capital = True
                 city.save()
                 brakMiasta = 0
-                return render(request, 'indexCityMap.html', {'city': city, 'brakMiasta': brakMiasta})
+                return redirect('cityList/')
             else:
                 city = CityOwned.objects.filter(cityOwner=user.id)
                 brakMiasta = 1

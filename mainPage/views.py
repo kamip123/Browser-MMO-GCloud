@@ -6,6 +6,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout
 from .forms import ExtendedUserCreationForm
 
+
 def main_page(request):
     if request.method == 'POST':
         if 'SignUpForm' in request.POST:

@@ -1,0 +1,25 @@
+{% extends 'premium.html' %}
+
+{% block showOptions %}
+    <table>
+        <tr>
+            <th>Czas</th>
+            <th>Cena</th>
+        </tr>
+        <tr>
+            <td>1 month</td>
+            <td>{{premiumOptions.priceOneMonth}}</td>
+            <td><button onclick='zaplacZaPremium(1);'>Kup</button></td>
+        </tr>
+        <tr>
+            <td>6 months</td>
+            <td>{{premiumOptions.priceHalfYear}}</td>
+            <td><button onclick='zaplacZaPremium(2);'>Kup</button></td>
+        </tr>
+        <tr>
+            <td>1 year</td>
+            <td>{{premiumOptions.priceYear}}</td>
+            <td><button onclick='zaplacZaPremium(3);'>Kup</button></td>
+        </tr>
+    </table>
+{% endblock %}

@@ -8,6 +8,7 @@
         <hr>
         <form class="site-from" action="" method="post" >
             {% csrf_token %}
+            <p>{{ form.errors }}</p>
             <p>Username:</p>
             <p>{{ form.username }}</p>
 
@@ -56,7 +57,7 @@
         <h3>Servers</h3>
         {% for server in servers %}
             <div class="col-12 serverList">
-                <a href="/miasto">{{ server.name }}</a>
+                <a href="/miasto/cityList/">{{ server.name }}</a>
             </div>
         {% endfor %}
     </div>

@@ -5,17 +5,58 @@ from datetime import datetime, timedelta
 # Create your models here.
 
 
+class Barracks(models.Model):
+    productionSpeed = models.IntegerField(default=1)
+    pointsPerLvl = models.IntegerField(default=5)
+
+
+class TownHall(models.Model):
+    productionSpeed = models.IntegerField(default=1)
+    lvlToUnlockPlanes = models.IntegerField(default=25)
+    lvlToUnlockHtanks = models.IntegerField(default=20)
+    lvlToUnlockLtanks = models.IntegerField(default=15)
+    lvlToUnlockMotorized = models.IntegerField(default=10)
+    lvlToUnlockHinfantry = models.IntegerField(default=5)
+    pointsPerLvl = models.IntegerField(default=10)
+
+
+class Roads(models.Model):
+    productionSpeed = models.IntegerField(default=1)
+    pointsPerLvl = models.IntegerField(default=3)
+
+
+class Mines(models.Model):
+    resourceProduction = models.IntegerField(default=10)
+    pointsPerLvl = models.IntegerField(default=2)
+
+
+class PowerPlant(models.Model):
+    resourceProduction = models.IntegerField(default=10)
+    pointsPerLvl = models.IntegerField(default=2)
+
+
+class Farms(models.Model):
+    resourceProduction = models.IntegerField(default=10)
+    pointsPerLvl = models.IntegerField(default=2)
+
+
+class Housing(models.Model):
+    population = models.IntegerField(default=100)
+    pointsPerLvl = models.IntegerField(default=1)
+
 class Infantry(models.Model):
     hp = models.IntegerField(default=10)
     attack = models.IntegerField(default=10)
     speed = models.IntegerField(default=20)
     capacity = models.IntegerField(default=30)
 
+
 class HInfantry(models.Model):
     hp = models.IntegerField(default=30)
     attack = models.IntegerField(default=30)
     speed = models.IntegerField(default=10)
     capacity = models.IntegerField(default=10)
+
 
 class LTanks(models.Model):
     hp = models.IntegerField(default=100)
@@ -77,8 +118,8 @@ class CityOwned(models.Model):
     farmyBudowa = models.DateTimeField(blank=True, null=True)
     farmyBudowaTrwa = models.IntegerField(default=0)
 
-    #def changeToGhostCity(self):
-    #    self.cityOwner = 0
+#    def changeToGhostCity(self):
+#        self.cityOwner = 0
 
     infantry = models.IntegerField(default=0)
     hinfantry = models.IntegerField(default=0)
@@ -86,6 +127,22 @@ class CityOwned(models.Model):
     ltanks = models.IntegerField(default=0)
     htanks = models.IntegerField(default=0)
     motorized = models.IntegerField(default=0)
+
+    infantrySupport = models.IntegerField(default=0)
+    hinfantrySupport = models.IntegerField(default=0)
+    planesSupport = models.IntegerField(default=0)
+    ltanksSupport = models.IntegerField(default=0)
+    htanksSupport = models.IntegerField(default=0)
+    motorizedSupport = models.IntegerField(default=0)
+
+    food = models.IntegerField(default=0)
+    electrity = models.IntegerField(default=0)
+    ore = models.IntegerField(default=0)
+    population = models.IntegerField(default=100)
+    points = models.IntegerField(default=100)
+
+    def updatePoints(self, building):
+        self.points += building.pointsPerLvl
 
     def __str__(self):
         return self.cityName

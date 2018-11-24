@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'messagess',
     'alliance',
     'raports',
+    'premium',
+    'profileUser',
 ]
 
 MIDDLEWARE = [
@@ -127,4 +129,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+#MEDIA_ROOT = 'https://console.cloud.google.com/storage/solwit-pjatk-arc-2018-gr1.appspot.com'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 # LOGIN_REDIRECT_URL = '/mainPage/templates/index.html'

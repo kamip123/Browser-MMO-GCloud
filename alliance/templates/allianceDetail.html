@@ -64,7 +64,7 @@
                 <table>
                     {% for member in alliance.members.all %}
                     <tr>
-                        <td>{{ member.username }}</td>
+                        <td><a href='{{ member.id }}'>{{ member.username }}</td>
                     </tr>
                     {% endfor %}
                 </table>
