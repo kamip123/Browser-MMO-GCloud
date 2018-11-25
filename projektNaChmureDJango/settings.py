@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'raports',
     'premium',
     'profileUser',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

@@ -17,6 +17,16 @@ def main_page_city_id(request, idOfCity):
     city = CityOwned.objects.get(cityOwner=user.id, id=idOfCity)
     return render(request, 'indexCityMap.html', {'brakMiasta': brakMiasta, 'city': city})
 
+
+def town_hall_city_id(request, idOfCity):
+    return render(request, 'townhall.html', {'idOfCity': idOfCity})
+
+
+def barracks_city_id(request, idOfCity):
+    return render(request, 'barracks.html', {'idOfCity': idOfCity})
+
+
+
 def main_page_city(request):
     user = request.user
     if request.method == 'POST':

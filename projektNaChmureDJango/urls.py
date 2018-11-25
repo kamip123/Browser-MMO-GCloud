@@ -17,6 +17,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
+from .routers import router
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
@@ -29,6 +30,8 @@ urlpatterns = [
     path('sojusz/', include('alliance.urls')),
     path('premium/', include('premium.urls')),
     path('profil/', include('profileUser.urls')),
+    path('api/', include(router.urls))
+
 ]
 
 if settings.DEBUG:
