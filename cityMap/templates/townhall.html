@@ -1,21 +1,23 @@
 <!doctype html>
 <html lang="en">
-  <head>
-      {% load static %}
+<head>
+    {% load static %}
 
-      <!-- Required meta tags -->
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-      <!-- Bootstrap CSS -->
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-      <link rel="stylesheet" href="{% static 'premium/premiumCss.css' %}">
-      <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-      <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-      <title>CCPX</title>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  </head>
-  <body>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'premium/premiumCss.css' %}">
+    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+    <title>CCPX</title>
+</head>
+<body>
     <nav class="navbar navbar-expand-md navbar-dark" >
         <div class="container" id="borderimg1">
             <!-- Toggler/collapsibe Button -->
@@ -25,38 +27,396 @@
             <!-- Navbar links -->
             <div class="collapse navbar-collapse nav-fill w-100" id="collapsibleNavbar">
 
-                   <a class="nav-link" href="/miasto/cityList/"><i class="fa fa-list-ul"></i> City List</a>
+                <a class="nav-link" href="/miasto/cityList/"><i class="fa fa-list-ul"></i> City List</a>
 
-                    <a class="nav-link" href="../mapa/"><i class="fa fa-globe"></i> Map</a>
+                <a class="nav-link" href="../mapa/"><i class="fa fa-globe"></i> Map</a>
 
-                    <a class="nav-link" href="../wiadomosci"><i class="fa fa-envelope"></i> Messages</a>
+                <a class="nav-link" href="../wiadomosci"><i class="fa fa-envelope"></i> Messages</a>
 
-                    <a class="nav-link" href="../raporty"><i class="fa fa-envelope-square"></i> Raports</a>
+                <a class="nav-link" href="../raporty"><i class="fa fa-envelope-square"></i> Raports</a>
 
-                    <a class="nav-link" href="../sojusz"><i class="fa fa-rebel"></i> Alliance</a>
+                <a class="nav-link" href="../sojusz"><i class="fa fa-rebel"></i> Alliance</a>
 
-                    <a class="nav-link" href="../rankingi"><i class="fa fa-align-justify"></i> Rankings</a>
+                <a class="nav-link" href="../rankingi"><i class="fa fa-align-justify"></i> Rankings</a>
 
-                    <a class="nav-link" href="../profil"><i class="fa fa-user-circle"></i> Profil</a>
+                <a class="nav-link" href="../profil"><i class="fa fa-user-circle"></i> Profil</a>
 
-                    <a class="nav-link" href="../premium"><i class="fas fa-yen-sign"></i> Premium</a>
+                <a class="nav-link" href="../premium"><i class="fas fa-yen-sign"></i> Premium</a>
 
             </div>
         </div>
     </nav>
 
-    <div class="container" id="containerDiv">
-        <h1>it worked</h1>
-        <div class="row">
-            <div class="col-12">
+    <div id="townhall">
+        <div class="container" id="containerDiv">
+            <div class="row">
+                <div class="col-sm-8">
+                    <h2>Expand The City</h2>
+                    <table class="table table-bordered table-dark table-hover">
+                        <thead>
+                        <tr>
+                            <th>Building Name</th>
+                            <th>Level</th>
+                            <th>Add Level</th>
+                            <th>Requirements For Expand</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Ratusz</td>
+                            <td>[[ city.ratusz ]]</td>
+                            <td>
+                                <form @submit.prevent="AddRatuszLevel">
+                                    <input type="number" class="form-control" v-model.number="ratuszLevelToAdd" placeholder="Add Ratusz Level" />
+                                    <button type="submit" class="btn btn-primary"><i class="fa fa-plus-circle"></i></button>
+                                </form>
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>15 population</li>
+                                    <li>15 food</li>
+                                    <li>5 ore</li>
+                                    <li>4 electricity</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Koszary</td>
+                            <td>[[ city.koszary ]]</td>
+                            <td>
+                                <form @submit.prevent="AddKoszaryLevel">
+                                    <input type="number" class="form-control" v-model.number="koszaryLevelToAdd" placeholder="Add Koszary Level" />
+                                    <button type="submit" class="btn btn-primary"><i class="fa fa-plus-circle"></i></button>
+                                </form>
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>12 population</li>
+                                    <li>12 food</li>
+                                    <li>2 ore</li>
+                                    <li>2 electricity</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Drogi</td>
+                            <td>[[ city.drogi ]]</td>
+                            <td>
+                                <form @submit.prevent="AddDrogiLevel">
+                                    <input type="number" class="form-control" v-model.number="drogiLevelToAdd" placeholder="Add Drogi Level" />
+                                    <button type="submit" class="btn btn-primary"><i class="fa fa-plus-circle"></i></button>
+                                </form>
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>3 population</li>
+                                    <li>3 food</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Kopalnia</td>
+                            <td>[[ city.kopalnia ]]</td>
+                            <td>
+                                <form @submit.prevent="AddKopalniaLevel">
+                                    <input type="number" class="form-control" v-model.number="kopalniaLevelToAdd" placeholder="Add Kopalnia Level" />
+                                    <button type="submit" class="btn btn-primary"><i class="fa fa-plus-circle"></i></button>
+                                </form>
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>10 population</li>
+                                    <li>10 food</li>
+                                    <li>4 ore</li>
+                                    <li>3 electricity</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Elektrownia</td>
+                            <td>[[ city.elektrownia ]]</td>
+                            <td>
+                                <form @submit.prevent="AddElektrowniaLevel">
+                                    <input type="number" class="form-control" v-model.number="elektrowniaLevelToAdd" placeholder="Add Elektrownia Level" />
+                                    <button type="submit" class="btn btn-primary"><i class="fa fa-plus-circle"></i></button>
+                                </form>
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>10 population</li>
+                                    <li>10 food</li>
+                                    <li>3 ore</li>
+                                    <li>5 electricity</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Farmy</td>
+                            <td>[[ city.farmy ]]</td>
+                            <td>
+                                <form @submit.prevent="AddFarmyLevel">
+                                    <input type="number" class="form-control" v-model.number="farmyLevelToAdd" placeholder="Add Farmy Level" />
+                                    <button type="submit" class="btn btn-primary"><i class="fa fa-plus-circle bg-primary"></i></button>
+                                </form>
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>5 population</li>
+                                    <li>5 food</li>
+                                    <li>1 ore</li>
+                                    <li>1 electricity</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-sm-4">
+                    <h2>Available Resources</h2>
+                    <table class="table table-borderless table-dark table-hover">
+                        <thead>
+                        <tr>
+                            <th>Resource Name</th>
+                            <th>Quantity</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Food</td>
+                            <td>[[ city.food ]]</td>
+                        </tr>
+                        <tr>
+                            <td>Electricity</td>
+                            <td>[[ city.electrity ]]</td>
+                        </tr>
+                        <tr>
+                            <td>Ore</td>
+                            <td>[[ city.ore ]]</td>
+                        </tr>
+                        <tr>
+                            <td>Population</td>
+                            <td>[[ city.population ]]</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
+
+    <script>
+        Vue.http.headers.common['X-CSRFToken'] = "{{ csrf_token }}";
+        const cityId = parseInt({{idOfCity}});
+
+        new Vue({
+            delimiters: ['[[', ']]'],
+            el: '#townhall',
+            data: {
+                ratuszLevelToAdd: null,
+                koszaryLevelToAdd: null,
+                drogiLevelToAdd: null,
+                kopalniaLevelToAdd: null,
+                elektrowniaLevelToAdd: null,
+                farmyLevelToAdd: null,
+                city: {},
+            },
+            mounted: function () {
+                this.getData()
+            },
+            methods: {
+                getData() {
+                    this.$http.get('/api/city/' + cityId)
+                        .then(response => {
+                            this.city = response.data;
+                            console.log(response)
+                        })
+                        .catch(error => {
+                            console.error(error)
+                        })
+                },
+                AddRatuszLevel() {
+                    const requirementPopulation = this.ratuszLevelToAdd * 15;
+                    const requirementFood = this.ratuszLevelToAdd * 15;
+                    const requirementOre = this.ratuszLevelToAdd * 5;
+                    const requirementElectricity = this.ratuszLevelToAdd * 4;
+                    if (this.ratuszLevelToAdd <= 0 || this.ratuszLevelToAdd === null) {
+                        this.ratuszLevelToAdd = 0;
+                    }
+                    else if (requirementPopulation > this.city.population || requirementFood > this.city.food || requirementOre > this.city.ore || requirementElectricity > this.city.electrity) {
+                        this.ratuszLevelToAdd = 0;
+                    }
+                    else {
+                        this.city.ratusz += this.ratuszLevelToAdd;
+                        this.city.population -= requirementPopulation;
+                        this.city.food -= requirementFood;
+                        this.city.ore -= requirementOre;
+                        this.electrity -= requirementElectricity;
+                        this.$http.put('/api/city/' + cityId + '/', this.city)
+                            .then(response => {
+                                this.ratuszLevelToAdd = 0;
+                                this.getData();
+                                console.log(response)
+                            })
+                            .catch(error => {
+                                this.ratuszLevelToAdd = 0;
+                                this.getData();
+                                console.error(error)
+                            })
+                    }
+                },
+                AddKoszaryLevel() {
+                    const requirementPopulation = this.koszaryLevelToAdd * 12;
+                    const requirementFood = this.koszaryLevelToAdd * 12;
+                    const requirementOre = this.kopalniaLevelToAdd * 2;
+                    const requirementElectricity = this.kopalniaLevelToAdd * 2;
+                    if (this.koszaryLevelToAdd <= 0 || this.koszaryLevelToAdd === null) {
+                        this.koszaryLevelToAdd = 0;
+                    }
+                    else if (requirementPopulation > this.city.population || requirementFood > this.city.population || requirementOre > this.city.ore || requirementElectricity > this.city.electrity) {
+                        this.koszaryLevelToAdd = 0;
+                    }
+                    else {
+                        this.city.koszary += this.koszaryLevelToAdd;
+                        this.city.population -= requirementPopulation;
+                        this.city.food -= requirementFood;
+                        this.city.ore -= requirementOre;
+                        this.electrity -= requirementElectricity;
+                        this.$http.put('/api/city/' + cityId + '/', this.city)
+                            .then(response => {
+                                this.koszaryLevelToAdd = 0;
+                                this.getData();
+                                console.log(response)
+                            })
+                            .catch(error => {
+                                this.koszaryLevelToAdd = 0;
+                                this.getData();
+                                console.error(error)
+                            })
+                    }
+                },
+                AddDrogiLevel() {
+                    const requirementPopulation = this.drogiLevelToAdd * 3;
+                    const requirementFood = this.drogiLevelToAdd * 3;
+                    if (this.drogiLevelToAdd <= 0 || this.drogiLevelToAdd === null) {
+                        this.drogiLevelToAdd = 0;
+                    }
+                    else if (requirementPopulation > this.city.population || requirementFood > this.city.food) {
+                        this.drogiLevelToAdd = 0;
+                    }
+                    else {
+                        this.city.drogi += this.drogiLevelToAdd;
+                        this.city.population -= requirementPopulation;
+                        this.city.food -= requirementFood;
+                        this.$http.put('/api/city/' + cityId + '/', this.city)
+                            .then(response => {
+                                this.drogiLevelToAdd = 0;
+                                this.getData();
+                                console.log(response)
+                            })
+                            .catch(error => {
+                                this.drogiLevelToAdd = 0;
+                                this.getData();
+                                console.error(error)
+                            })
+                    }
+                },
+                AddKopalniaLevel() {
+                    const requirementPopulation = this.kopalniaLevelToAdd * 10;
+                    const requirementFood = this.kopalniaLevelToAdd * 10;
+                    const requirementOre = this.kopalniaLevelToAdd * 4;
+                    const requirementElectricity = this.kopalniaLevelToAdd * 3;
+                    if (this.kopalniaLevelToAdd <= 0 || this.kopalniaLevelToAdd === null) {
+                        this.kopalniaLevelToAdd = 0;
+                    }
+                    else if (requirementPopulation > this.city.population || requirementFood > this.city.food || requirementOre > this.city.ore || requirementElectricity > this.city.electrity) {
+                        this.kopalniaLevelToAdd = 0;
+                    }
+                    else {
+                        this.city.kopalnia+= this.kopalniaLevelToAdd;
+                        this.city.population -= requirementPopulation;
+                        this.city.food -= requirementFood;
+                        this.city.ore -= requirementOre;
+                        this.electrity -= requirementElectricity;
+                        this.$http.put('/api/city/' + cityId + '/', this.city)
+                            .then(response => {
+                                this.kopalniaLevelToAdd = 0;
+                                this.getData();
+                                console.log(response)
+                            })
+                            .catch(error => {
+                                this.kopalniaLevelToAdd = 0;
+                                this.getData();
+                                console.error(error)
+                            })
+                    }
+                },
+                AddElektrowniaLevel() {
+                    const requirementPopulation = this.elektrowniaLevelToAdd * 10;
+                    const requirementFood = this.elektrowniaLevelToAdd * 10;
+                    const requirementOre = this.elektrowniaLevelToAdd * 3;
+                    const requirementElectricity = this.elektrowniaLevelToAdd * 5;
+                    if (this.elektrowniaLevelToAdd <= 0 || this.elektrowniaLevelToAdd === null) {
+                        this.elektrowniaLevelToAdd = 0;
+                    }
+                    else if (requirementPopulation > this.city.population || requirementFood > this.city.food || requirementOre > this.city.ore || requirementElectricity > this.city.electrity) {
+                        this.elektrowniaLevelToAdd = 0;
+                    }
+                    else {
+                        this.city.elektrownia += this.elektrowniaLevelToAdd;
+                        this.city.population -= requirementPopulation;
+                        this.city.food -= requirementFood;
+                        this.city.ore -= requirementOre;
+                        this.electrity -= requirementElectricity;
+                        this.$http.put('/api/city/' + cityId + '/', this.city)
+                            .then(response => {
+                                this.elektrowniaLevelToAdd = 0;
+                                this.getData();
+                                console.log(response)
+                            })
+                            .catch(error => {
+                                this.elektrowniaLevelToAdd = 0;
+                                this.getData();
+                                console.error(error)
+                            })
+                    }
+                },
+                AddFarmyLevel() {
+                    const requirementPopulation = this.farmyLevelToAdd * 5;
+                    const requirementFood = this.farmyLevelToAdd * 5;
+                    const requirementOre = this.farmyLevelToAdd;
+                    const requirementElectricity = this.farmyLevelToAdd;
+                    if (this.farmyLevelToAdd <= 0 || this.farmyLevelToAdd === null) {
+                        this.farmyLevelToAdd = 0;
+                    }
+                    else if (requirementPopulation > this.city.population || requirementFood > this.city.food || requirementOre > this.city.ore || requirementElectricity > this.city.electrity) {
+                        this.farmyLevelToAdd = 0;
+                    }
+                    else {
+                        this.city.farmy += this.farmyLevelToAdd;
+                        this.city.population -= requirementPopulation;
+                        this.city.food -= requirementFood;
+                        this.city.ore -= requirementOre;
+                        this.electrity -= requirementElectricity;
+                        this.$http.put('/api/city/' + cityId +'/', this.city)
+                            .then(response => {
+                                this.farmyLevelToAdd = 0;
+                                this.getData();
+                                console.log(response)
+                            })
+                            .catch(error => {
+                                this.farmyLevelToAdd = 0;
+                                this.getData();
+                                console.error(error)
+                            })
+                    }
+                }
+            }
+        });
+    </script>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-  </body>
+</body>
 </html>

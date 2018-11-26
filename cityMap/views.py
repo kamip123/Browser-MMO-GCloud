@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import CityOwned
+from mainPage.models import Server, CityPositions
 from .forms import CityOwnedForm
 import random
 # Create your views here.
@@ -26,7 +27,6 @@ def barracks_city_id(request, idOfCity):
     return render(request, 'barracks.html', {'idOfCity': idOfCity})
 
 
-
 def main_page_city(request):
     user = request.user
     if request.method == 'POST':
@@ -38,8 +38,15 @@ def main_page_city(request):
 
                 city = form.save(commit=False)
                 city.cityOwner = user
-                city.pozX = random.randint(100, 400)
-                city.pozY = random.randint(100, 400)
+
+                server = Server.objects.get(id=1)
+                city.pozX = server.nextVillageX
+                city.pozY = server.nextVillageY
+                server.nextVillageId = server.nextVillageId + 1
+                server.save()
+                nextCityPos = CityPositions.objects.get(id=server.nextVillageId+100)
+                server.update_village_pos(nextCityPos.villageX, nextCityPos.villageY)
+
                 city.ratusz = 2
                 city.koszary = 2
                 city.drogi = 1
@@ -79,3 +86,29 @@ def main_page_city(request):
         return render(request, 'indexCityMap.html', {'city': city, 'brakMiasta': brakMiasta, 'rozbudowaRatuszaTimestamp': rozbudowaRatuszaTimestamp})
     else:
         return redirect('../')
+
+
+def colonize_new_city(request):
+    have_enought_resources = 1
+    if have_enought_resources == 1:
+        city = CityOwned(cityName="New City")
+        city.cityOwner = request.user
+
+        server = Server.objects.get(id=1)
+        city.pozX = server.nextVillageX
+        city.pozY = server.nextVillageY
+        server.nextVillageId = server.nextVillageId + 1
+        server.save()
+        nextCityPos = CityPositions.objects.get(id=server.nextVillageId + 100)
+        server.update_village_pos(nextCityPos.villageX, nextCityPos.villageY)
+        server.save()
+
+        city.ratusz = 2
+        city.koszary = 2
+        city.drogi = 1
+        city.kopalnia = 1
+        city.elektrownia = 1
+        city.farmy = 1
+        city.is_Capital = False
+        city.save()
+        return redirect('../cityList/')

@@ -12,8 +12,10 @@
       <link rel="stylesheet" href="{% static 'premium/premiumCss.css' %}">
       <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
       <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-      <title>CCPX</title>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+      <title>CCPX</title>
   </head>
   <body>
     <nav class="navbar navbar-expand-md navbar-dark" >
@@ -45,17 +47,357 @@
         </div>
     </nav>
 
-    <div class="container" id="containerDiv">
-        <h1>it worked</h1>
-        <div class="row">
-            <div class="col-12">
+    <div id="barracks">
+        <div class="container" id="containerDiv">
+            <div class="row">
+                <div class="col-sm-8">
+                    <h2>Recruitment Of Units</h2>
+                    <table class="table table-bordered table-dark table-hover">
+                        <thead>
+                            <tr>
+                                <th>Unit Name</th>
+                                <th>Quanity</th>
+                                <th>Add Units</th>
+                                <th>Requirements For Recruitment</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Infantry</td>
+                                <td>[[ city.infantry ]]</td>
+                                <td>
+                                    <form @submit.prevent="AddInfantry">
+                                        <input type="number" class="form-control" v-model.number="infantryToAdd" placeholder="Add Infantry" />
+                                        <button type="submit" class="btn btn-primary"><i class="fa fa-plus-circle"></i></button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>1 population</li>
+                                        <li>1 food</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Heavy Infantry</td>
+                                <td>[[ city.hinfantry ]]</td>
+                                <td>
+                                    <form @submit.prevent="AddHeavyInfantry">
+                                        <input type="number" class="form-control" v-model.number="hinfantryToAdd" placeholder="Add Heavy Infantry" />
+                                        <button type="submit" class="btn btn-primary"><i class="fa fa-plus-circle"></i></button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>1 population</li>
+                                        <li>2 food</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Planes</td>
+                                <td>[[ city.planes ]]</td>
+                                <td>
+                                    <form @submit.prevent="AddPlanes">
+                                        <input type="number" class="form-control" v-model.number="planesToAdd" placeholder="Add Planes" />
+                                        <button type="submit" class="btn btn-primary"><i class="fa fa-plus-circle"></i></button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>2 population</li>
+                                        <li>2 food</li>
+                                        <li>1 electricity</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Light Tanks</td>
+                                <td>[[ city.ltanks ]]</td>
+                                <td>
+                                    <form @submit.prevent="AddLightTanks">
+                                        <input type="number" class="form-control" v-model.number="ltanksToAdd" placeholder="Add Light Tanks" />
+                                        <button type="submit" class="btn btn-primary"><i class="fa fa-plus-circle"></i></button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>4 population</li>
+                                        <li>4 food</li>
+                                        <li>1 ore</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Heavy Tanks</td>
+                                <td>[[ city.htanks ]]</td>
+                                <td>
+                                    <form @submit.prevent="AddHeavyTanks">
+                                        <input type="number" class="form-control" v-model.number="htanksToAdd" placeholder="Add Heavy Tanks" />
+                                        <button type="submit" class="btn btn-primary"><i class="fa fa-plus-circle"></i></button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>6 population</li>
+                                        <li>6 food</li>
+                                        <li>2 ore</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Motorized</td>
+                                <td>[[ city.motorized ]]</td>
+                                <td>
+                                    <form @submit.prevent="AddMotorized">
+                                        <input type="number" class="form-control" v-model.number="motorizedToAdd" placeholder="Add Motorized" />
+                                        <button type="submit" class="btn btn-primary"><i class="fa fa-plus-circle bg-primary"></i></button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>3 population</li>
+                                        <li>3 food</li>
+                                        <li>1 electricity</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-sm-4">
+                    <h2>Available Resources</h2>
+                    <table class="table table-borderless table-dark table-hover">
+                        <thead>
+                            <tr>
+                                <th>Resource Name</th>
+                                <th>Quantity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Food</td>
+                                <td>[[ city.food ]]</td>
+                            </tr>
+                            <tr>
+                                <td>Electricity</td>
+                                <td>[[ city.electrity ]]</td>
+                            </tr>
+                            <tr>
+                                <td>Ore</td>
+                                <td>[[ city.ore ]]</td>
+                            </tr>
+                            <tr>
+                                <td>Population</td>
+                                <td>[[ city.population ]]</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
+
+    <script>
+         Vue.http.headers.common['X-CSRFToken'] = "{{ csrf_token }}";
+         const cityId = parseInt({{idOfCity}});
+
+         new Vue({
+              delimiters: ['[[', ']]'],
+              el: '#barracks',
+              data: {
+                  infantryToAdd: null,
+                  hinfantryToAdd: null,
+                  planesToAdd: null,
+                  ltanksToAdd: null,
+                  htanksToAdd: null,
+                  motorizedToAdd: null,
+                  city: {},
+              },
+              mounted: function () {
+                  this.getData()
+              },
+              methods: {
+                  getData() {
+                      this.$http.get('/api/city/' + cityId)
+                          .then(response => {
+                              this.city = response.data;
+                              console.log(response)
+                          })
+                          .catch(error => {
+                              console.error(error)
+                          })
+                  },
+                  AddInfantry() {
+                      const requirementPopulation = this.infantryToAdd ;
+                      const requirementFood = this.infantryToAdd;
+                      if (this.infantryToAdd <= 0 || this.infantryToAdd === null) {
+                          this.infantryToAdd = 0;
+                      }
+                      else if (requirementPopulation > this.city.population || requirementFood > this.city.food) {
+                          this.infantryToAdd = 0;
+                      }
+                      else {
+                          this.city.infantry += this.infantryToAdd;
+                          this.city.population -= requirementPopulation;
+                          this.city.food -= requirementFood;
+                          this.$http.put('/api/city/' + cityId + '/', this.city)
+                              .then(response => {
+                                  this.infantryToAdd = 0;
+                                  this.getData();
+                                  console.log(response)
+                              })
+                              .catch(error => {
+                                  this.infantryToAdd = 0;
+                                  this.getData();
+                                  console.error(error)
+                              })
+                      }
+                  },
+                  AddHeavyInfantry() {
+                      const requirementPopulation = this.hinfantryToAdd;
+                      const requirementFood = this.hinfantryToAdd * 2;
+                      if (this.hinfantryToAdd <= 0 || this.hinfantryToAdd === null) {
+                          this.hinfantryToAdd = 0;
+                      }
+                      else if (requirementPopulation > this.city.population || requirementFood > this.city.population) {
+                          this.hinfantryToAdd = 0;
+                      }
+                      else {
+                          this.city.hinfantry += this.hinfantryToAdd;
+                          this.city.population -= requirementPopulation;
+                          this.city.food -= requirementFood;
+                          this.$http.put('/api/city/' + cityId + '/', this.city)
+                              .then(response => {
+                                  this.hinfantryToAdd = 0;
+                                  this.getData();
+                                  console.log(response)
+                              })
+                              .catch(error => {
+                                  this.hinfantryToAdd = 0;
+                                  this.getData();
+                                  console.error(error)
+                              })
+                      }
+                  },
+                  AddPlanes() {
+                      const requirementPopulation = this.planesToAdd * 2;
+                      const requirementFood = this.planesToAdd * 2;
+                      const requirementElectricity = this.planesToAdd;
+                      if (this.planesToAdd <= 0 || this.planesToAdd === null) {
+                          this.planesToAdd = 0;
+                      }
+                      else if (requirementPopulation > this.city.population || requirementFood > this.city.food || requirementElectricity > this.city.electrity) {
+                          this.planesToAdd = 0;
+                      }
+                      else {
+                          this.city.planes += this.planesToAdd;
+                          this.city.population -= requirementPopulation;
+                          this.city.food -= requirementFood;
+                          this.city.electrity -= requirementElectricity;
+                          this.$http.put('/api/city/' + cityId + '/', this.city)
+                              .then(response => {
+                                  this.planesToAdd = 0;
+                                  this.getData();
+                                  console.log(response)
+                              })
+                              .catch(error => {
+                                  this.planesToAdd = 0;
+                                  this.getData();
+                                  console.error(error)
+                              })
+                      }
+                  },
+                  AddLightTanks() {
+                      const requirementPopulation = this.ltanksToAdd * 4;
+                      const requirementFood = this.ltanksToAdd * 4;
+                      const requirementOre = this.ltanksToAdd;
+                      if (this.ltanksToAdd <= 0 || this.ltanksToAdd === null) {
+                          this.ltanksToAdd = 0;
+                      }
+                      else if (requirementPopulation > this.city.population || requirementFood > this.city.food || requirementOre > this.city.ore) {
+                          this.ltanksToAdd = 0;
+                      }
+                      else {
+                          this.city.ltanks += this.ltanksToAdd;
+                          this.city.population -= requirementPopulation;
+                          this.city.food -= requirementFood;
+                          this.city.ore -= requirementOre;
+                          this.$http.put('/api/city/' + cityId + '/', this.city)
+                              .then(response => {
+                                  this.ltanksToAdd = 0;
+                                  this.getData();
+                                  console.log(response)
+                              })
+                              .catch(error => {
+                                  this.ltanksToAdd = 0;
+                                  this.getData();
+                                  console.error(error)
+                              })
+                      }
+                  },
+                  AddHeavyTanks() {
+                      const requirementPopulation = this.htanksToAdd * 6;
+                      const requirementFood = this.htanksToAdd * 6;
+                      const requirementOre = this.htanksToAdd * 2;
+                      if (this.htanksToAdd <= 0 || this.htanksToAdd === null) {
+                          this.htanksToAdd = 0;
+                      }
+                      else if (requirementPopulation > this.city.population || requirementFood > this.city.food || requirementOre > this.city.ore) {
+                          this.htanksToAdd = 0;
+                      }
+                      else {
+                          this.city.htanks += this.htanksToAdd;
+                          this.city.population -= requirementPopulation;
+                          this.city.food -= requirementFood;
+                          this.city.ore -= requirementOre;
+                          this.$http.put('/api/city/' + cityId + '/', this.city)
+                              .then(response => {
+                                  this.htanksToAdd = 0;
+                                  this.getData();
+                                  console.log(response)
+                              })
+                              .catch(error => {
+                                  this.htanksToAdd = 0;
+                                  this.getData();
+                                  console.error(error)
+                              })
+                      }
+                  },
+                  AddMotorized() {
+                      const requirementPopulation = this.motorizedToAdd * 3;
+                      const requirementFood = this.motorizedToAdd * 3;
+                      const requirementElectricity = this.motorizedToAdd;
+                      if (this.motorizedToAdd <= 0 || this.motorizedToAdd === null) {
+                          this.motorizedToAdd = 0;
+                      }
+                      else if (requirementPopulation > this.city.population || requirementFood > this.city.food || requirementElectricity > this.city.electrity) {
+                          this.motorizedToAdd = 0;
+                      }
+                      else {
+                          this.city.motorized += this.motorizedToAdd;
+                          this.city.population -= requirementPopulation;
+                          this.city.food -= requirementFood;
+                          this.city.electrity -= requirementElectricity;
+                          this.$http.put('/api/city/' + cityId +'/', this.city)
+                              .then(response => {
+                                  this.motorizedToAdd = 0;
+                                  this.getData();
+                                  console.log(response)
+                              })
+                              .catch(error => {
+                                  this.motorizedToAdd = 0;
+                                  this.getData();
+                                  console.error(error)
+                              })
+                      }
+                  }
+              }
+         });
+    </script>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   </body>

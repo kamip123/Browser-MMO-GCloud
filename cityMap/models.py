@@ -1,13 +1,16 @@
 from django.db import models
 from django.utils import timezone
 from datetime import datetime, timedelta
-
+from mainPage.models import Server
 # Create your models here.
 
 
 class Barracks(models.Model):
     productionSpeed = models.IntegerField(default=1)
     pointsPerLvl = models.IntegerField(default=5)
+    food = models.IntegerField(default=10)
+    electrity = models.IntegerField(default=10)
+    ore = models.IntegerField(default=10)
 
 
 class TownHall(models.Model):
@@ -18,37 +21,59 @@ class TownHall(models.Model):
     lvlToUnlockMotorized = models.IntegerField(default=10)
     lvlToUnlockHinfantry = models.IntegerField(default=5)
     pointsPerLvl = models.IntegerField(default=10)
+    food = models.IntegerField(default=10)
+    electrity = models.IntegerField(default=10)
+    ore = models.IntegerField(default=10)
 
 
 class Roads(models.Model):
     productionSpeed = models.IntegerField(default=1)
     pointsPerLvl = models.IntegerField(default=3)
+    food = models.IntegerField(default=10)
+    electrity = models.IntegerField(default=10)
+    ore = models.IntegerField(default=10)
 
 
 class Mines(models.Model):
     resourceProduction = models.IntegerField(default=10)
     pointsPerLvl = models.IntegerField(default=2)
+    food = models.IntegerField(default=10)
+    electrity = models.IntegerField(default=10)
+    ore = models.IntegerField(default=10)
 
 
 class PowerPlant(models.Model):
     resourceProduction = models.IntegerField(default=10)
     pointsPerLvl = models.IntegerField(default=2)
+    food = models.IntegerField(default=10)
+    electrity = models.IntegerField(default=10)
+    ore = models.IntegerField(default=10)
 
 
 class Farms(models.Model):
     resourceProduction = models.IntegerField(default=10)
     pointsPerLvl = models.IntegerField(default=2)
+    food = models.IntegerField(default=10)
+    electrity = models.IntegerField(default=10)
+    ore = models.IntegerField(default=10)
 
 
 class Housing(models.Model):
     population = models.IntegerField(default=100)
     pointsPerLvl = models.IntegerField(default=1)
+    food = models.IntegerField(default=10)
+    electrity = models.IntegerField(default=10)
+    ore = models.IntegerField(default=10)
+
 
 class Infantry(models.Model):
     hp = models.IntegerField(default=10)
     attack = models.IntegerField(default=10)
     speed = models.IntegerField(default=20)
     capacity = models.IntegerField(default=30)
+    food = models.IntegerField(default=10)
+    electrity = models.IntegerField(default=10)
+    ore = models.IntegerField(default=10)
 
 
 class HInfantry(models.Model):
@@ -56,6 +81,9 @@ class HInfantry(models.Model):
     attack = models.IntegerField(default=30)
     speed = models.IntegerField(default=10)
     capacity = models.IntegerField(default=10)
+    food = models.IntegerField(default=10)
+    electrity = models.IntegerField(default=10)
+    ore = models.IntegerField(default=10)
 
 
 class LTanks(models.Model):
@@ -63,6 +91,9 @@ class LTanks(models.Model):
     attack = models.IntegerField(default=100)
     speed = models.IntegerField(default=80)
     capacity = models.IntegerField(default=100)
+    food = models.IntegerField(default=10)
+    electrity = models.IntegerField(default=10)
+    ore = models.IntegerField(default=10)
 
 
 class HTanks(models.Model):
@@ -70,6 +101,9 @@ class HTanks(models.Model):
     attack = models.IntegerField(default=100)
     speed = models.IntegerField(default=30)
     capacity = models.IntegerField(default=150)
+    food = models.IntegerField(default=10)
+    electrity = models.IntegerField(default=10)
+    ore = models.IntegerField(default=10)
 
 
 class Motorized(models.Model):
@@ -77,6 +111,9 @@ class Motorized(models.Model):
     attack = models.IntegerField(default=50)
     speed = models.IntegerField(default=100)
     capacity = models.IntegerField(default=250)
+    food = models.IntegerField(default=10)
+    electrity = models.IntegerField(default=10)
+    ore = models.IntegerField(default=10)
 
 
 class Planes(models.Model):
@@ -84,6 +121,9 @@ class Planes(models.Model):
     attack = models.IntegerField(default=200)
     speed = models.IntegerField(default=300)
     capacity = models.IntegerField(default=150)
+    food = models.IntegerField(default=10)
+    electrity = models.IntegerField(default=10)
+    ore = models.IntegerField(default=10)
 
 
 class CityOwned(models.Model):
@@ -93,6 +133,8 @@ class CityOwned(models.Model):
     is_capital = models.BooleanField(default=False)
     pozX = models.IntegerField(default=1)
     pozY = models.IntegerField(default=1)
+    server = models.ForeignKey(Server, on_delete=models.CASCADE, blank=True, null=True)
+
     # budynki
     ratusz = models.IntegerField(default=1)
     ratuszBudowa = models.DateTimeField(blank=True, null=True)
@@ -118,9 +160,7 @@ class CityOwned(models.Model):
     farmyBudowa = models.DateTimeField(blank=True, null=True)
     farmyBudowaTrwa = models.IntegerField(default=0)
 
-#    def changeToGhostCity(self):
-#        self.cityOwner = 0
-
+    # jendostki
     infantry = models.IntegerField(default=0)
     hinfantry = models.IntegerField(default=0)
     planes = models.IntegerField(default=0)
@@ -135,6 +175,7 @@ class CityOwned(models.Model):
     htanksSupport = models.IntegerField(default=0)
     motorizedSupport = models.IntegerField(default=0)
 
+    # zasoby
     food = models.IntegerField(default=0)
     electrity = models.IntegerField(default=0)
     ore = models.IntegerField(default=0)

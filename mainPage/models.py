@@ -29,6 +29,13 @@ class Server(models.Model):
     playerAmount = models.IntegerField()
     speed = models.FloatField(max_length=10)
     multiplicationValue = models.FloatField(max_length=10)
+    nextVillageX = models.IntegerField(default=1575)
+    nextVillageY = models.IntegerField(default=1175)
+    nextVillageId = models.IntegerField(default=1)
+
+    def update_village_pos(self, x, y):
+        self.nextVillageX = x
+        self.nextVillageY = y
 
     def __str__(self):
         return self.name
@@ -53,3 +60,12 @@ def create_user_profile(sender, instance, created, **kwargs):
 @receiver(post_save, sender=User)
 def save_user_profile(sender, instance, **kwargs):
     instance.profile.save()
+
+
+class CityPositions(models.Model):
+    villageX = models.IntegerField(default=1575)
+    villageY = models.IntegerField(default=1175)
+
+    def __str__(self):
+        return self.id
+
