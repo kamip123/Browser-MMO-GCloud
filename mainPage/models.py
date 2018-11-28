@@ -46,9 +46,11 @@ class Profile(models.Model):
     alliance = models.OneToOneField(alliance.models.Alliance, on_delete=models.CASCADE, blank=True, null=True)
     bio = models.TextField(null=True, blank=True)
     profilePic = models.FileField(null=True, blank=True)
+    is_premium = models.BooleanField(default=False)
+    until_premium = models.DateTimeField(blank=True, null=True)
 
     def __str__(self):
-        return str(self.alliance)
+        return str(self.user)
 
 
 @receiver(post_save, sender=User)
