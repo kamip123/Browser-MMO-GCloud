@@ -6,12 +6,12 @@ from .forms import sendMessageForm
 
 
 def messages_page(request):
-    messages = Message.objects.filter(toWho=request.user).order_by('created_date')
+    messages = Message.objects.filter(to_who=request.user).order_by('created_date')
     return render(request, 'indexMessagess.html', {'messages': messages})
 
 
-def messages_detail_page(request, idOfMessage):
-    message = Message.objects.get(id=idOfMessage)
+def messages_detail_page(request, id_of_message):
+    message = Message.objects.get(id=id_of_message)
     return render(request, 'messagessDetail.html', {'message': message})
 
 def messages_your_send_page(request):
@@ -27,6 +27,6 @@ def messages_send_page(request):
             message.author = user
             message.save()
         else:
-            return render(request, 'messagessSend.html', {'messageForm': messageFormReceived})
-    messageForm = sendMessageForm()
-    return render(request, 'messagessSend.html', {'messageForm': messageForm})
+            return render(request, 'messagessSend.html', {'message_form': messageFormReceived})
+    message_form = sendMessageForm()
+    return render(request, 'messagessSend.html', {'message_form': message_form})

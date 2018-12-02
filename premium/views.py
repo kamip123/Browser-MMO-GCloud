@@ -14,7 +14,7 @@ def premium_page(request):
         profile.until_premium = timezone.now()
         #profile.until_premium = timezone.now() + timedelta(days = 30)
         profile.save()
-        tranzakcja = Tranzakcja(buyer=user, typeOfPremium=request.POST.get('typPremium', False))
+        tranzakcja = Tranzakcja(buyer=user, type_of_premium=request.POST.get('typPremium', False))
         tranzakcja.save()
 
     return render(request, 'indexPremium.html', {'premiumOptions': premiumOptions})
@@ -22,8 +22,8 @@ def premium_page(request):
 
 def premium_platnosc(request):
     user = request.user
-    if request.method == 'POST':
-        pass
+    return render(request, 'zaplac.html')
+
 
 def premium_history(request):
     user = request.user

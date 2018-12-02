@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'premium',
     'profileUser',
     'rest_framework',
+    'background_task',
 ]
 
 MIDDLEWARE = [

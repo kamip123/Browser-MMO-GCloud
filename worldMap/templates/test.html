@@ -31,7 +31,7 @@
             var a = 0;
             var ajax = new XMLHttpRequest();
             var method = "GET";
-            var url = "../cityList/";
+            var url = "../city_list/";
             var asynchronous = true;
             ajax.open(method, url, asynchronous);
 	        ajax.send();
@@ -44,12 +44,12 @@
 			        dataLength = data.length;
 
 			        while(a<data.length){
-			            var cityName = data[a].cityName;
+			            var city_name = data[a].city_name;
 			            var table = document.getElementById("table");
 			            var row = table.insertRow(0);
 				        row.className = "cityRow"
 				        var cell1 = row.insertCell(0);
-				        cell1.innerHTML = "City Name: " + cityName;
+				        cell1.innerHTML = "City Name: " + city_name;
 				        a++;
 			        }
 			    }
@@ -66,7 +66,7 @@
             <!-- Navbar links -->
             <div class="collapse navbar-collapse nav-fill w-100" id="collapsibleNavbar">
 
-                   <a class="nav-link" href="../miasto/cityList"><i class="fa fa-list-ul"></i> City List</a>
+                   <a class="nav-link" href="../miasto/city_list"><i class="fa fa-list-ul"></i> City List</a>
 
                     <a class="nav-link" href="../mapa"><i class="fa fa-globe"></i> Map</a>
 

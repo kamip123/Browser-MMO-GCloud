@@ -5,5 +5,5 @@ from .models import Message
 class sendMessageForm(forms.ModelForm):
     class Meta:
         model = Message
-        fields = ['toWho', 'title', 'text', ]
+        fields = ['to_who', 'title', 'text', ]
 

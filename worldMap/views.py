@@ -1,16 +1,16 @@
 from django.shortcuts import render
 import cityMap.models
-from django.core import serializers
 from django.http import JsonResponse
 from mainPage.models import Profile
-from django.core.serializers import serialize
 from django.contrib.auth.models import User
+from .models import Attack
 # Create your views here.
 
 
 def main_page_map(request):
-    cityList = cityMap.models.CityOwned.objects.all()
-    return render(request, 'indexWorldMap.html', {'cityList': cityList})
+    city_list = cityMap.models.CityOwned.objects.all()
+    attacks = Attack.objects.all()
+    return render(request, 'indexWorldMap.html', {'city_list': city_list, 'attacks': attacks})
 
 
 def return_citys_list(request):
@@ -23,13 +23,13 @@ def return_citys_list_test(request):
     return render(request, 'test.html')
 
 
-def city_detail_info(request, idOfCity):
-    city = cityMap.models.CityOwned.objects.get(id=idOfCity)
+def city_detail_info(request, id_of_city):
+    city = cityMap.models.CityOwned.objects.get(id=id_of_city)
     return render(request, 'cityDetailInfo.html', {'city': city})
 
 
-def city_owner_detail_info(request, idOfCity, idOfUser):
-    user = User.objects.get(id=idOfUser)
-    citys = cityMap.models.CityOwned.objects.filter(cityOwner=user)
+def city_owner_detail_info(request, id_of_city, id_of_user):
+    user = User.objects.get(id=id_of_user)
+    citys = cityMap.models.CityOwned.objects.filter(city_owner=user)
     profil = Profile.objects.get(user=user)
     return render(request, 'userDetailInfo.html', {'user': user, 'profil': profil, 'citys': citys})

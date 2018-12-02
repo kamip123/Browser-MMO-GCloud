@@ -26,16 +26,16 @@ class Post(models.Model):
 
 class Server(models.Model):
     name = models.CharField(max_length=50)
-    playerAmount = models.IntegerField()
+    player_amount = models.IntegerField(default=0)
     speed = models.FloatField(max_length=10)
-    multiplicationValue = models.FloatField(max_length=10)
-    nextVillageX = models.IntegerField(default=1575)
-    nextVillageY = models.IntegerField(default=1175)
-    nextVillageId = models.IntegerField(default=1)
+    multiplication_value = models.FloatField(max_length=10)
+    next_village_x = models.IntegerField(default=1575)
+    next_village_y = models.IntegerField(default=1175)
+    next_village_id = models.IntegerField(default=1)
 
     def update_village_pos(self, x, y):
-        self.nextVillageX = x
-        self.nextVillageY = y
+        self.next_village_x = x
+        self.next_village_y = y
 
     def __str__(self):
         return self.name
@@ -45,7 +45,7 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     alliance = models.OneToOneField(alliance.models.Alliance, on_delete=models.CASCADE, blank=True, null=True)
     bio = models.TextField(null=True, blank=True)
-    profilePic = models.FileField(null=True, blank=True)
+    profile_pic = models.FileField(null=True, blank=True)
     is_premium = models.BooleanField(default=False)
     until_premium = models.DateTimeField(blank=True, null=True)
 
@@ -65,8 +65,8 @@ def save_user_profile(sender, instance, **kwargs):
 
 
 class CityPositions(models.Model):
-    villageX = models.IntegerField(default=1575)
-    villageY = models.IntegerField(default=1175)
+    village_x = models.IntegerField(default=1575)
+    village_y = models.IntegerField(default=1175)
 
     def __str__(self):
         return self.id

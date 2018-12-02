@@ -6,12 +6,12 @@ from django.contrib.auth.models import User
 class Alliance(models.Model):
     name = models.CharField(max_length=100)
     creator = models.ForeignKey(User, related_name='creator', on_delete=models.CASCADE)
-    vicecreator = models.ForeignKey(User, related_name='vicecreator', on_delete=models.CASCADE, null=True, blank=True)
-    vicevicecreator = models.ForeignKey(User, related_name='vicevicecreator', on_delete=models.CASCADE, null=True, blank=True)
-    allianceLogo = models.FileField(null=True)
+    vice_creator = models.ForeignKey(User, related_name='vice_creator', on_delete=models.CASCADE, null=True, blank=True)
+    alliance_logo = models.FileField(null=True, blank=True)
     members = models.ManyToManyField(User)
+    alliance_bio = models.TextField(null=True, blank=True)
 
-    def maxMembers(self):
+    def max_members(self):
         if self.members >= 50:
             return False
         else:

@@ -4,10 +4,10 @@
     <div class="col-12 col-md-5 profilePanel text-center">
         <table>
             <tr>
-                {% if not profil.profilePic %}
+                {% if not profil.profile_pic %}
                     <th><img height="350" width="220"src="{% static 'profileUser/defaultProfilePic.jpg' %} " alt="Profile pic"/></th>
                 {% else %}
-                    <th><img height="350" width="220"src='{{ profil.profilePic.url }}' alt="Profile pic"/></th>
+                    <th><img height="350" width="220"src='{{ profil.profile_pic.url }}' alt="Profile pic"/></th>
                 {% endif %}
             </tr>
             <tr>

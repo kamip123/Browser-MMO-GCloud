@@ -26,5 +26,5 @@ class EditProfileForm(forms.ModelForm):
         model = Profile
         fields = {
             'bio',
-            'profilePic'
+            'profile_pic'
         }

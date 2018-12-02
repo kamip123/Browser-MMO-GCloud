@@ -7,9 +7,9 @@ from django.contrib.auth.models import User
 
 def show_your_alliance(request):
     user = request.user
-    profil = Profile.objects.get(user=user)
-    if profil.alliance is not None:
-        alliance = Alliance.objects.get(id=profil.user.id)
+    profile = Profile.objects.get(user=user)
+    if profile.alliance is not None:
+        alliance = Alliance.objects.get(id=profile.user.id)
         return render(request, 'indexAlliance.html', {'alliance': alliance})
     else:
         alliance = 1
@@ -21,17 +21,18 @@ def alliance_list_page(request):
     return render(request, 'allianceList.html', {'alliances': alliances})
 
 
-def alliance_detail_page(request, idOfAlliance):
-    alliance = Alliance.objects.get(id=idOfAlliance)
+def alliance_detail_page(request, id_of_alliance):
+    alliance = Alliance.objects.get(id=id_of_alliance)
     return render(request, 'allianceDetail.html', {'alliance': alliance})
 
 
-def user_detail_page(request, idOfAlliance, idOfUser):
-    user = User.objects.get(id=idOfUser)
+def user_detail_page(request, id_of_alliance, id_of_user):
+    user = User.objects.get(id=id_of_user)
     profil = Profile.objects.get(user=user)
     return render(request, 'userDetail.html', {'user': user, 'profil': profil})
 
-def user_your_alliance_detail_page(request, idOfUser):
-    user = User.objects.get(id=idOfUser)
+
+def user_your_alliance_detail_page(request, id_of_user):
+    user = User.objects.get(id=id_of_user)
     profil = Profile.objects.get(user=user)
     return render(request, 'userDetail.html', {'user': user, 'profil': profil})

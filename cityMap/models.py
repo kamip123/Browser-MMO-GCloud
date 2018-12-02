@@ -122,43 +122,33 @@ class Planes(models.Model):
     speed = models.IntegerField(default=300)
     capacity = models.IntegerField(default=150)
     food = models.IntegerField(default=10)
-    electrity = models.IntegerField(default=10)
+    electricity = models.IntegerField(default=10)
     ore = models.IntegerField(default=10)
 
 
 class CityOwned(models.Model):
     # techniczne
-    cityOwner = models.ForeignKey('auth.User', on_delete=models.CASCADE)
-    cityName = models.CharField(max_length=100, default="City")
+    city_owner = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    city_name = models.CharField(max_length=100, default="City")
     is_capital = models.BooleanField(default=False)
-    pozX = models.IntegerField(default=1)
-    pozY = models.IntegerField(default=1)
+    pos_x = models.IntegerField(default=1)
+    pos_y = models.IntegerField(default=1)
     server = models.ForeignKey(Server, on_delete=models.CASCADE, blank=True, null=True)
 
     # budynki
-    ratusz = models.IntegerField(default=1)
-    ratuszBudowa = models.DateTimeField(blank=True, null=True)
-    ratuszBudowaTrwa = models.IntegerField(default=0)
+    town_hall = models.IntegerField(default=1)
 
-    koszary = models.IntegerField(default=1)
-    koszaryBudowa = models.DateTimeField(blank=True, null=True)
-    koszaryBudowaTrwa = models.IntegerField(default=0)
+    barracks = models.IntegerField(default=1)
 
-    drogi = models.IntegerField(default=1)
-    drogiBudowa = models.DateTimeField(blank=True, null=True)
-    drogiBudowaTrwa = models.IntegerField(default=0)
+    roads = models.IntegerField(default=1)
 
-    kopalnia = models.IntegerField(default=1)
-    kopalniaBudowa = models.DateTimeField(blank=True, null=True)
-    kopalniaBudowaTrwa = models.IntegerField(default=0)
+    mines = models.IntegerField(default=1)
 
-    elektrownia = models.IntegerField(default=1)
-    elektrowniaBudowa = models.DateTimeField(blank=True, null=True)
-    elektrowniaBudowaTrwa = models.IntegerField(default=0)
+    power_plant = models.IntegerField(default=1)
 
-    farmy = models.IntegerField(default=1)
-    farmyBudowa = models.DateTimeField(blank=True, null=True)
-    farmyBudowaTrwa = models.IntegerField(default=0)
+    farms = models.IntegerField(default=1)
+
+    housing = models.IntegerField(default=1)
 
     # jendostki
     infantry = models.IntegerField(default=0)
@@ -168,32 +158,15 @@ class CityOwned(models.Model):
     htanks = models.IntegerField(default=0)
     motorized = models.IntegerField(default=0)
 
-    infantrySupport = models.IntegerField(default=0)
-    hinfantrySupport = models.IntegerField(default=0)
-    planesSupport = models.IntegerField(default=0)
-    ltanksSupport = models.IntegerField(default=0)
-    htanksSupport = models.IntegerField(default=0)
-    motorizedSupport = models.IntegerField(default=0)
-
     # zasoby
     food = models.IntegerField(default=0)
-    electrity = models.IntegerField(default=0)
+    electricity = models.IntegerField(default=0)
     ore = models.IntegerField(default=0)
     population = models.IntegerField(default=100)
     points = models.IntegerField(default=100)
 
-    def updatePoints(self, building):
+    def update_points(self, building):
         self.points += building.pointsPerLvl
 
     def __str__(self):
-        return self.cityName
-
-    def rozbudujRatusz(self):
-        self.ratuszBudowaTrwa = 1
-        self.ratuszBudowa = datetime.now() + timedelta(seconds=5)
-
-    def updateBuildings(self):
-        if self.ratuszBudowaTrwa == 1:
-            if timezone.now() > self.ratuszBudowa:
-                self.ratuszBudowaTrwa = 0
-                self.ratusz += 1
+        return self.city_name

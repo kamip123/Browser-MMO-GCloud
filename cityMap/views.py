@@ -2,88 +2,73 @@ from django.shortcuts import render, redirect
 from .models import CityOwned
 from mainPage.models import Server, CityPositions
 from .forms import CityOwnedForm
-import random
 # Create your views here.
+from worldMap.models import delete_attack
 
 
 def main_page_city_list(request):
+    delete_attack(5, schedule=10)
     user = request.user
-    cityList = CityOwned.objects.all().filter(cityOwner=user.id)
-    return render(request, 'indexCityList.html', {'cityList': cityList})
+    city_list = CityOwned.objects.filter(city_owner=user.id)
+    return render(request, 'indexCityList.html', {'city_list': city_list})
 
 
-def main_page_city_id(request, idOfCity):
-    brakMiasta = 0
+def main_page_city_id(request, id_of_city):
+    brak_miasta = 0
     user = request.user
-    city = CityOwned.objects.get(cityOwner=user.id, id=idOfCity)
-    return render(request, 'indexCityMap.html', {'brakMiasta': brakMiasta, 'city': city})
+    city = CityOwned.objects.get(city_owner=user.id, id=id_of_city)
+    return render(request, 'indexCityMap.html', {'brak_miasta': brak_miasta, 'city': city})
 
 
-def town_hall_city_id(request, idOfCity):
-    return render(request, 'townhall.html', {'idOfCity': idOfCity})
+def town_hall_city_id(request, id_of_city):
+    return render(request, 'townhall.html', {'id_of_city': id_of_city})
 
 
-def barracks_city_id(request, idOfCity):
-    return render(request, 'barracks.html', {'idOfCity': idOfCity})
+def barracks_city_id(request, id_of_city):
+    return render(request, 'barracks.html', {'id_of_city': id_of_city})
 
 
 def main_page_city(request):
     user = request.user
     if request.method == 'POST':
         form = CityOwnedForm(request.POST)
-        try:
-            city = CityOwned.objects.get(cityOwner=user.id)
-        except CityOwned.DoesNotExist:
-            if form.is_valid():
+        if form.is_valid():
 
-                city = form.save(commit=False)
-                city.cityOwner = user
+            city = form.save(commit=False)
+            city.city_owner = user
 
-                server = Server.objects.get(id=1)
-                city.pozX = server.nextVillageX
-                city.pozY = server.nextVillageY
-                server.nextVillageId = server.nextVillageId + 1
-                server.save()
-                nextCityPos = CityPositions.objects.get(id=server.nextVillageId+100)
-                server.update_village_pos(nextCityPos.villageX, nextCityPos.villageY)
+            server = Server.objects.get(id=1)
+            city.pos_x = server.next_village_x
+            city.pos_y = server.next_village_y
+            server.next_village_id = server.next_village_id + 1
+            server.save()
+            next_city_pos = CityPositions.objects.get(id=server.next_village_id)
+            server.update_village_pos(next_city_pos.village_x, next_city_pos.village_y)
+            server.save()
 
-                city.ratusz = 2
-                city.koszary = 2
-                city.drogi = 1
-                city.kopalnia = 1
-                city.elektrownia = 1
-                city.farmy = 1
-                city.is_Capital = True
-                city.save()
-                brakMiasta = 0
-                return redirect('cityList/')
-            else:
-                city = CityOwned.objects.filter(cityOwner=user.id)
-                brakMiasta = 1
-                return render(request, 'indexCityMap.html', {'city': city, 'brakMiasta': brakMiasta, 'form': form})
+            city.town_hall = 2
+            city.barracks = 2
+            city.roads = 1
+            city.mines = 1
+            city.power_plant = 1
+            city.farms = 1
+            city.is_capital = True
+            city.save()
+            return redirect('city_list/')
+        else:
+            city = CityOwned.objects.filter(city_owner=user.id)
+            brak_miasta = 1
+            return render(request, 'indexCityMap.html', {'city': city, 'brak_miasta': brak_miasta, 'form': form})
 
     elif user.is_authenticated:
         try:
-            city = CityOwned.objects.get(cityOwner=user.id, is_capital=True)
+            CityOwned.objects.get(city_owner=user.id, is_capital=True)
         except CityOwned.DoesNotExist:
-            brakMiasta = 1
+            brak_miasta = 1
             form = CityOwnedForm()
-            return render(request, 'indexCityMap.html', {'brakMiasta': brakMiasta, 'form': form})
+            return render(request, 'indexCityMap.html', {'brak_miasta': brak_miasta, 'form': form})
 
-        city = CityOwned.objects.get(cityOwner=user.id, is_capital=True)
-        brakMiasta = 0
-
-        #city.updateBuildings()
-        #city.save()
-        #if city.ratuszBudowaTrwa != 1:
-        #    city.rozbudujRatusz()
-        #    city.save()
-        try:
-            rozbudowaRatuszaTimestamp = city.ratuszBudowa.timestamp()
-        except:
-            return render(request, 'indexCityMap.html', {'city': city, 'brakMiasta': brakMiasta})
-
-        return render(request, 'indexCityMap.html', {'city': city, 'brakMiasta': brakMiasta, 'rozbudowaRatuszaTimestamp': rozbudowaRatuszaTimestamp})
+        return redirect('city_list/')
     else:
         return redirect('../')
 
@@ -91,24 +76,24 @@ def main_page_city(request):
 def colonize_new_city(request):
     have_enought_resources = 1
     if have_enought_resources == 1:
-        city = CityOwned(cityName="New City")
-        city.cityOwner = request.user
+        city = CityOwned(city_name="New City")
+        city.city_owner = request.user
 
         server = Server.objects.get(id=1)
-        city.pozX = server.nextVillageX
-        city.pozY = server.nextVillageY
-        server.nextVillageId = server.nextVillageId + 1
+        city.pos_x = server.next_village_x
+        city.pos_y = server.next_village_y
+        server.next_village_id = server.next_village_id + 1
         server.save()
-        nextCityPos = CityPositions.objects.get(id=server.nextVillageId + 100)
-        server.update_village_pos(nextCityPos.villageX, nextCityPos.villageY)
+        nextCityPos = CityPositions.objects.get(id=server.next_village_id)
+        server.update_village_pos(nextCityPos.village_x, nextCityPos.village_y)
         server.save()
 
-        city.ratusz = 2
-        city.koszary = 2
-        city.drogi = 1
-        city.kopalnia = 1
-        city.elektrownia = 1
-        city.farmy = 1
+        city.town_hall = 2
+        city.barracks = 2
+        city.roads = 1
+        city.mines = 1
+        city.power_plant = 1
+        city.farms = 1
         city.is_Capital = False
         city.save()
-        return redirect('../cityList/')
+        return redirect('../city_list/')

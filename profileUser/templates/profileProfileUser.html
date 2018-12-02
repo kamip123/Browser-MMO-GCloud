@@ -25,7 +25,7 @@
             <!-- Navbar links -->
             <div class="collapse navbar-collapse nav-fill w-100" id="collapsibleNavbar">
 
-                   <a class="nav-link" href="/miasto/cityList/"><i class="fa fa-list-ul"></i> City List</a>
+                   <a class="nav-link" href="/miasto/city_list/"><i class="fa fa-list-ul"></i> City List</a>
 
                     <a class="nav-link" href="../mapa/"><i class="fa fa-globe"></i> Map</a>
 
@@ -62,12 +62,12 @@
                     {% csrf_token %}
                     <p>{{ form.errors }}</p>
                     <p>Current image:</p>
-                    {% if not profil.profilePic %}
+                    {% if not profil.profile_pic %}
                         <th><img height="350" width="220"src="{% static 'profileUser/defaultProfilePic.jpg' %} " alt="Profile pic"/></th>
                     {% else %}
-                        <th><img height="350" width="220"src='{{ profil.profilePic.url }}' alt="Profile pic"/></th>
+                        <th><img height="350" width="220"src='{{ profil.profile_pic.url }}' alt="Profile pic"/></th>
                     {% endif %}
-                    <p>Change you avatar: {{ form.profilePic }}</p>
+                    <p>Change you avatar: {{ form.profile_pic }}</p>
                     <p>{{ form.bio }}</p>
 
 

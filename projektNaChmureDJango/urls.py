@@ -30,8 +30,8 @@ urlpatterns = [
     path('sojusz/', include('alliance.urls')),
     path('premium/', include('premium.urls')),
     path('profil/', include('profileUser.urls')),
-    path('api/', include(router.urls))
-
+    path('api/', include(router.urls)),
+    path('rankings/', include('rankings.urls')),
 ]
 
 if settings.DEBUG:

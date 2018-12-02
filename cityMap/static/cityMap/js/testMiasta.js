@@ -1,5 +1,5 @@
-//alert("zaladowalo");
-var game = new Phaser.Game(950, 650, Phaser.CANVAS, 'cityRenderDiv', { preload: preload, create: create, update: update, render: render });
+
+var game = new Phaser.Game(950, 650, Phaser.CANVAS, 'cityRenderDiv', { preload: preload, create: create});
 
 
 function preload() {
@@ -21,13 +21,9 @@ function preload() {
 	game.load.image('town_hall_3', town_hall_3); // ready
 }
 
-var cursors;
-
 var cityListInfo = [];
 var infoPanel;
 var text;
-
-
 
 class townHall{
 	constructor(lvl) {
@@ -142,24 +138,16 @@ class roads{
 function create() {
 
 	game.world.setBounds(-0, -0, 1155, 800);
-
-	
-	//text = game.add.text(1, 1, '', { font:"10px Arial", fill: 'black' });
 	
 	game.add.sprite(0, 0, 'background');
-	farms = new farms(poziomfarms);
-	roads = new roads(poziomroads);
-	townHall = new townHall(poziomtownHall);
-	barracks = new barracks(poziombarracks);
-	powerPlant = new powerPlant(poziompowerPlant);
-	housing = new housing(50);
-	//housing = new housing(poziomhousing);
-	mine = new mine(poziommine);
-	
-	//text.text = townHallVariable.name + "\n" + townHallVariable.lvl;
-	
-	
-    cursors = game.input.keyboard.createCursorKeys();
+	farms = new farms(lvlfarms);
+	roads = new roads(lvlroads);
+	townHall = new townHall(lvltownHall);
+	barracks = new barracks(lvlbarracks);
+	powerPlant = new powerPlant(lvlpowerPlant);
+	housing = new housing(lvlhousing);
+	mine = new mine(lvlmine);
+    
     game.world.scale.set(0.82)
 }
 
@@ -168,24 +156,6 @@ function listenerClickBuilding() {
 }
 
 function update() {
-
-    if (cursors.up.isDown)
-    {
-        game.camera.y -= 4;
-    }
-    else if (cursors.down.isDown)
-    {
-        game.camera.y += 4;
-    }
-
-    if (cursors.left.isDown)
-    {
-        game.camera.x -= 4;
-    }
-    else if (cursors.right.isDown)
-    {
-        game.camera.x += 4;
-    }
 
 }
 

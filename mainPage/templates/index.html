@@ -1,70 +1,39 @@
 {% extends 'registerPanel.html' %}
 
-{% block registerPanel %}
-    <div class="col-0 col-sm-6 registerPanelSoldier"></div>
-    <div class="col-12 col-sm-6">
-        <h1>Register</h1>
-        <p>Please fill in this form to create an account.</p>
-        <hr>
-        <form class="site-from" action="" method="post" >
-            {% csrf_token %}
-            <p>{{ form.errors }}</p>
-            <p>Username:</p>
-            <p>{{ form.username }}</p>
-
-            <p>Password:</p>
-            <p>{{ form.password1 }}</p>
-
-            <p>Repeat Password:</p>
-            <p>{{ form.password2 }}</p>
-
-            <p>Email:</p>
-            <p>{{ form.email }}</p>
-
-            <input type="submit" value="Signup" name="SignUpForm">
-            <p>Or register with:</p>
-            <div class="social-buttons">
-                <a href="#fb" class="btn btn-fb" style="width:100px"><i class="fa fa-facebook"></i> Facebook</a>
-                <a href="#tw" class="btn btn-tw" style="width:100px"><i class="fa fa-twitter"></i> Twitter</a>
-            </div>
-        </form>
-    </div>
-{% endblock %}
-
 {% block loginPanel %}
-    <div class="col-12">
-        <h1>Login</h1>
-        {% if loginForm.errors %}
-            <p>Your username and password didn't match. Please try again.</p>
-        {% endif %}
-        <form class="site-from" action="" method="post" >
-            {% csrf_token %}
-            <p>User name:</p>
-            <p>{{ loginForm.username }}</p>
-            <p>Password:</p>
-            <p>{{ loginForm.password }}</p>
-            <input type="submit" value="Login" name="LogInForm">
-        </form>
-    </div>
+<div class="col-lg-12">
+    <h1>Login</h1>
+    {% if login_form.errors %}
+    <p>Your username and password didn't match. Please try again.</p>
+    {% endif %}
+    <form class="site-from" action="" method="post">
+        {% csrf_token %}
+        <p>User name:</p>
+        <p>{{ login_form.username }}</p>
+        <p>Password:</p>
+        <p>{{ login_form.password }}</p>
+        <input type="submit" value="Login" name="LogInForm">
+    </form>
+</div>
 {% endblock %}
 
 {% block logOutPanel %}
 
-    <div class="col-12">
-        <h1>Welcome {{ user.username }}</h1>
+<div class="col-lg-12">
+    <h1>Welcome {{ user.username }}</h1>
+</div>
+<div class="col-lg-12">
+    <h3>Servers</h3>
+    {% for server in servers %}
+    <div class="col-lg-12 ">
+        <a href="/miasto">{{ server.name }}</a>
     </div>
-    <div class="col-12">
-        <h3>Servers</h3>
-        {% for server in servers %}
-            <div class="col-12 serverList">
-                <a href="/miasto/cityList/">{{ server.name }}</a>
-            </div>
-        {% endfor %}
-    </div>
-    <div class="col-12">
-        <form class="logout-link" action="" method="post">
-            {% csrf_token %}
-            <button type="submit" name="LogOutForm">Logout</button>
-        </form>
-    </div>
+    {% endfor %}
+</div>
+<div class="col-lg-12">
+    <form class="logout-link" action="" method="post">
+        {% csrf_token %}
+        <button type="submit" name="LogOutForm">Logout</button>
+    </form>
+</div>
 {% endblock %}

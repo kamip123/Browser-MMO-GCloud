@@ -27,7 +27,7 @@
             <!-- Navbar links -->
             <div class="collapse navbar-collapse nav-fill w-100" id="collapsibleNavbar">
 
-                <a class="nav-link" href="/miasto/cityList/"><i class="fa fa-list-ul"></i> City List</a>
+                <a class="nav-link" href="/miasto/city_list/"><i class="fa fa-list-ul"></i> City List</a>
 
                 <a class="nav-link" href="../mapa/"><i class="fa fa-globe"></i> Map</a>
 
@@ -64,7 +64,7 @@
                         <tbody>
                         <tr>
                             <td>Ratusz</td>
-                            <td>[[ city.ratusz ]]</td>
+                            <td>[[ city.town_hall ]]</td>
                             <td>
                                 <form @submit.prevent="AddRatuszLevel">
                                     <input type="number" class="form-control" v-model.number="ratuszLevelToAdd" placeholder="Add Ratusz Level" />
@@ -82,7 +82,7 @@
                         </tr>
                         <tr>
                             <td>Koszary</td>
-                            <td>[[ city.koszary ]]</td>
+                            <td>[[ city.barracks ]]</td>
                             <td>
                                 <form @submit.prevent="AddKoszaryLevel">
                                     <input type="number" class="form-control" v-model.number="koszaryLevelToAdd" placeholder="Add Koszary Level" />
@@ -100,7 +100,7 @@
                         </tr>
                         <tr>
                             <td>Drogi</td>
-                            <td>[[ city.drogi ]]</td>
+                            <td>[[ city.roads ]]</td>
                             <td>
                                 <form @submit.prevent="AddDrogiLevel">
                                     <input type="number" class="form-control" v-model.number="drogiLevelToAdd" placeholder="Add Drogi Level" />
@@ -116,7 +116,7 @@
                         </tr>
                         <tr>
                             <td>Kopalnia</td>
-                            <td>[[ city.kopalnia ]]</td>
+                            <td>[[ city.mines ]]</td>
                             <td>
                                 <form @submit.prevent="AddKopalniaLevel">
                                     <input type="number" class="form-control" v-model.number="kopalniaLevelToAdd" placeholder="Add Kopalnia Level" />
@@ -134,7 +134,7 @@
                         </tr>
                         <tr>
                             <td>Elektrownia</td>
-                            <td>[[ city.elektrownia ]]</td>
+                            <td>[[ city.power_plant ]]</td>
                             <td>
                                 <form @submit.prevent="AddElektrowniaLevel">
                                     <input type="number" class="form-control" v-model.number="elektrowniaLevelToAdd" placeholder="Add Elektrownia Level" />
@@ -152,7 +152,7 @@
                         </tr>
                         <tr>
                             <td>Farmy</td>
-                            <td>[[ city.farmy ]]</td>
+                            <td>[[ city.farms ]]</td>
                             <td>
                                 <form @submit.prevent="AddFarmyLevel">
                                     <input type="number" class="form-control" v-model.number="farmyLevelToAdd" placeholder="Add Farmy Level" />
@@ -187,7 +187,7 @@
                         </tr>
                         <tr>
                             <td>Electricity</td>
-                            <td>[[ city.electrity ]]</td>
+                            <td>[[ city.electricity ]]</td>
                         </tr>
                         <tr>
                             <td>Ore</td>
@@ -206,7 +206,7 @@
 
     <script>
         Vue.http.headers.common['X-CSRFToken'] = "{{ csrf_token }}";
-        const cityId = parseInt({{idOfCity}});
+        const cityId = parseInt({{id_of_city}});
 
         new Vue({
             delimiters: ['[[', ']]'],
@@ -246,7 +246,7 @@
                         this.ratuszLevelToAdd = 0;
                     }
                     else {
-                        this.city.ratusz += this.ratuszLevelToAdd;
+                        this.city.town_hall += this.ratuszLevelToAdd;
                         this.city.population -= requirementPopulation;
                         this.city.food -= requirementFood;
                         this.city.ore -= requirementOre;
@@ -276,7 +276,7 @@
                         this.koszaryLevelToAdd = 0;
                     }
                     else {
-                        this.city.koszary += this.koszaryLevelToAdd;
+                        this.city.barracks += this.koszaryLevelToAdd;
                         this.city.population -= requirementPopulation;
                         this.city.food -= requirementFood;
                         this.city.ore -= requirementOre;
@@ -304,7 +304,7 @@
                         this.drogiLevelToAdd = 0;
                     }
                     else {
-                        this.city.drogi += this.drogiLevelToAdd;
+                        this.city.roads += this.drogiLevelToAdd;
                         this.city.population -= requirementPopulation;
                         this.city.food -= requirementFood;
                         this.$http.put('/api/city/' + cityId + '/', this.city)
@@ -332,7 +332,7 @@
                         this.kopalniaLevelToAdd = 0;
                     }
                     else {
-                        this.city.kopalnia+= this.kopalniaLevelToAdd;
+                        this.city.mines+= this.kopalniaLevelToAdd;
                         this.city.population -= requirementPopulation;
                         this.city.food -= requirementFood;
                         this.city.ore -= requirementOre;
@@ -362,7 +362,7 @@
                         this.elektrowniaLevelToAdd = 0;
                     }
                     else {
-                        this.city.elektrownia += this.elektrowniaLevelToAdd;
+                        this.city.power_plant += this.elektrowniaLevelToAdd;
                         this.city.population -= requirementPopulation;
                         this.city.food -= requirementFood;
                         this.city.ore -= requirementOre;
@@ -392,7 +392,7 @@
                         this.farmyLevelToAdd = 0;
                     }
                     else {
-                        this.city.farmy += this.farmyLevelToAdd;
+                        this.city.farms += this.farmyLevelToAdd;
                         this.city.population -= requirementPopulation;
                         this.city.food -= requirementFood;
                         this.city.ore -= requirementOre;

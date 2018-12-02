@@ -12,18 +12,18 @@ def raport_page(request):
     return render(request, 'indexRaports.html', {'battleraports': battleraports, 'alliancereports': alliancereports, 'helpraports': helpraports, 'specialresourceraports': specialresourceraports, 'tradeeraports': tradeeraports})
 
 
-def raport_detail_page(request, idOfRaport, typeOfRaport):
-    if typeOfRaport == 0:
-        raport = BattleRaport.objects.get(id=idOfRaport)
-    elif typeOfRaport == 1:
-        raport = AllianceInvite.objects.get(id=idOfRaport)
-    elif typeOfRaport == 2:
-        raport = HelpRaport.objects.get(id=idOfRaport)
-    elif typeOfRaport == 3:
-        raport = SpecialResourceRaport.objects.get(id=idOfRaport)
-    elif typeOfRaport == 4:
-        raport = TradeRaport.objects.get(id=idOfRaport)
+def raport_detail_page(request, id_of_raport, type_of_raport):
+    if type_of_raport == 0:
+        raport = BattleRaport.objects.get(id=id_of_raport)
+    elif type_of_raport == 1:
+        raport = AllianceInvite.objects.get(id=id_of_raport)
+    elif type_of_raport == 2:
+        raport = HelpRaport.objects.get(id=id_of_raport)
+    elif type_of_raport == 3:
+        raport = SpecialResourceRaport.objects.get(id=id_of_raport)
+    elif type_of_raport == 4:
+        raport = TradeRaport.objects.get(id=id_of_raport)
 
 
 
-    return render(request, 'raportDetail.html', {'raport': raport, 'typeOfRaport': typeOfRaport})
+    return render(request, 'raportDetail.html', {'raport': raport, 'type_of_raport': type_of_raport})

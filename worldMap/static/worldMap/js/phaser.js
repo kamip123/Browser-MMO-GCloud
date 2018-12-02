@@ -32970,7 +32970,7 @@ Phaser.Stage = function (game)
     * @property {boolean} disableVisibilityChange
     * @default
     */
-    this.disableVisibilityChange = false;
+    this.disableVisibilityChange = true;
 
     /**
     * @property {boolean} exists - If exists is true the Stage and all children are updated, otherwise it is skipped.

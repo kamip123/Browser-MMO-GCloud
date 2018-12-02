@@ -5,11 +5,11 @@ from django.utils import timezone
 
 
 class Premium(models.Model):
-    priceOneMonth = models.FloatField()
-    priceHalfYear = models.FloatField()
-    priceYear = models.FloatField()
+    price_one_month = models.FloatField()
+    price_half_year = models.FloatField()
+    price_year = models.FloatField()
 
 class Tranzakcja(models.Model):
     buyer = models.ForeignKey(User, on_delete=models.CASCADE)
-    typeOfPremium = models.IntegerField(default=1)
-    buyingDate = models.DateTimeField(default=timezone.now)
+    type_of_premium = models.IntegerField(default=1)
+    buying_date = models.DateTimeField(default=timezone.now)

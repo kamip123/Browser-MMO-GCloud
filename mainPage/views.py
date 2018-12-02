@@ -44,7 +44,7 @@ def generate_basic_tables(request):
 def fill_village_pos_table(request):
     posx = 1
     posy = 1
-    position = CityPositions(villageX=posx, villageY=posy)
+    position = CityPositions(village_x=posx, village_y=posy)
     position.save()
     for i in range(1, 1000):
         if posx + 100 > 1000:
@@ -56,7 +56,7 @@ def fill_village_pos_table(request):
         else:
             posx += 100
 
-        position = CityPositions(villageX=posx, villageY=posy)
+        position = CityPositions(village_x=posx, village_y=posy)
         position.save()
 
         if posy == 901 and posx == 901:
@@ -73,41 +73,41 @@ def main_page(request):
                 user = form.save()
                 login(request, user)
                 return redirect('miasto/')
-            loginForm = AuthenticationForm()
+            login_form = AuthenticationForm()
             posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-            return render(request, 'index.html', {'posts': posts, 'form': form, 'loginForm': loginForm})
+            return render(request, 'index.html', {'posts': posts, 'form': form, 'login_form': login_form})
 
         elif 'LogInForm' in request.POST:
-            loginForm = AuthenticationForm(data=request.POST)
+            login_form = AuthenticationForm(data=request.POST)
             form = ExtendedUserCreationForm()
             posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-            if loginForm.is_valid():
-                user = loginForm.get_user()
+            if login_form.is_valid():
+                user = login_form.get_user()
                 login(request, user)
                 servers = Server.objects.all()
                 return render(request, 'index.html',
-                              {'servers': servers, 'posts': posts, 'form': form, 'loginForm': loginForm})
+                              {'servers': servers, 'posts': posts, 'form': form, 'login_form': login_form})
             else:
-                return render(request, 'index.html', {'posts': posts, 'form': form, 'loginForm': loginForm})
+                return render(request, 'index.html', {'posts': posts, 'form': form, 'login_form': login_form})
 
         elif 'LogOutForm' in request.POST:
             logout(request)
             form = ExtendedUserCreationForm()
-            loginForm = AuthenticationForm()
+            login_form = AuthenticationForm()
             posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-            return render(request, 'index.html', {'posts': posts, 'form': form, 'loginForm': loginForm})
+            return render(request, 'index.html', {'posts': posts, 'form': form, 'login_form': login_form})
 
     else:
         user = request.user.is_authenticated
         if user:
-            loginForm = AuthenticationForm(data=request.POST)
+            login_form = AuthenticationForm(data=request.POST)
             form = ExtendedUserCreationForm()
             servers = Server.objects.all()
             posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
             return render(request, 'index.html',
-                          {'servers': servers, 'posts': posts, 'form': form, 'loginForm': loginForm})
+                          {'servers': servers, 'posts': posts, 'form': form, 'login_form': login_form})
         else:
             form = ExtendedUserCreationForm()
-            loginForm = AuthenticationForm()
+            login_form = AuthenticationForm()
             posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-            return render(request, 'index.html', {'posts': posts, 'form': form, 'loginForm': loginForm})
+            return render(request, 'index.html', {'posts': posts, 'form': form, 'login_form': login_form})

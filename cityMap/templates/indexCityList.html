@@ -1,36 +1,44 @@
 {% extends 'cityList.html' %}
 
 {% block cityListPanel %}
-    <div class="row col-12 cityListPanel">
-        <h1 class="col-12">City List<hr></h1>
+<div style="width: 1110px">
+    <div class="row col-lg-12 cityListPanel">
+        <h3 class="h3 custom-center font-weight-bold"><u>City List
+        </u></h3>
+        <table class="table table-hover table-borderless">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Points</th>
+                <th scope="col">Town Hall</th>
+                <th scope="col">Barracks</th>
+                <th scope="col">Roads</th>
+                <th scope="col">Mines</th>
+                <th scope="col">Power Plant</th>
+                <th scope="col">Farms</th>
+                <th scope="col">Pos X</th>
+                <th scope="col">Pos Y</th>
+            </tr>
+            </thead>
+            <tbody>
 
-        <table style="width:100%">
+            {% for city in city_list %}
             <tr>
-                <th>Name</th>
-                <th>Points</th>
-                <th>Town Hall</th>
-                <th>Barracks</th>
-                <th>Roads</th>
-                <th>Mines</th>
-                <th>Power Plant</th>
-                <th>Farms</th>
-                <th>Pos X</th>
-                <th>Pos Y</th>
+                <td><a href='../{{ city.id }}'>{{ city.city_name }}</a></td>
+                <td>{{ city.points }}</td>
+                <td><a href='../{{ city.id }}/rozbudowa'>{{ city.town_hall }}</a></td>
+                <td><a href='../{{ city.id }}/rekrutacja'>{{ city.barracks }}</a></td>
+                <td>{{ city.roads }}</td>
+                <td>{{ city.mines }}</td>
+                <td>{{ city.power_plant }}</td>
+                <td>{{ city.farms }}</td>
+                <td>{{ city.pos_x }}</td>
+                <td>{{ city.pos_y }}</td>
             </tr>
-            {% for city in cityList %}
-            <tr>
-                <th><a href='../{{ city.id }}'>{{ city.cityName }}</a></th>
-                <th>10</th>
-                <th><a href='../{{ city.id }}/rozbudowa'>{{ city.ratusz }}</a></th>
-                <th><a href='../{{ city.id }}/rekrutacja'>{{ city.koszary }}</a></th>
-                <th>{{ city.drogi }}</th>
-                <th>{{ city.kopalnia }}</th>
-                <th>{{ city.elektrownia }}</th>
-                <th>{{ city.farmy }}</th>
-                <th>{{ city.pozX }}</th>
-                <th>{{ city.pozY }}</th>
-            </tr>
+
             {% endfor %}
+            </tbody>
         </table>
     </div>
+</div>
 {% endblock %}
