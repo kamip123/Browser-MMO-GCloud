@@ -1,51 +1,58 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
-from .forms import EditEmailForm, EditPasswordForm, EditProfileForm
+from .forms import EditEmailForm, EditProfileForm
 from mainPage.models import Profile
 from django.contrib.auth.forms import PasswordChangeForm
-from django.contrib.auth import login, logout
 # Create your views here.
 
 
+@login_required(login_url='../../../../../../../')
 def profile_page(request):
     user = request.user
     profil = Profile.objects.get(user=user)
     return render(request, 'indexProfileUser.html', {'user': user, 'profil': profil})
 
 
-def haslo_page(request):
-    alert = 0
-    if request.method == 'POST':
-        form = PasswordChangeForm(data=request.POST, user=request.user)
-        if form.is_valid():
-            form.save()
-            form = PasswordChangeForm(user=request.user)
-            alert = 1
-            return redirect('../../')
-        return render(request, 'passwordProfileUser.html', {'form': form, 'alert': alert})
-    else:
-        form = PasswordChangeForm(user=request.user)
-        return render(request, 'passwordProfileUser.html', {'form': form, 'alert': alert})
-
-def email_page(request):
-    if request.method == 'POST':
-        form = EditEmailForm(data=request.POST, instance=request.user)
-        if form.is_valid():
-            form.save()
-            form = EditEmailForm(instance=request.user)
-            alert = 1
-
-        return render(request, 'emailProfileUser.html', {'form': form, 'alert': alert})
-    form = EditEmailForm(instance=request.user)
-    return render(request, 'emailProfileUser.html', {'form': form})
-
-
+@login_required(login_url='../../../../../../../')
 def profilowe_page(request):
-    if request.method == 'POST':
-        profil = Profile.objects.get(user=request.user)
-        form = EditProfileForm(request.POST, request.FILES, instance=profil)
-        if form.is_valid():
-            form.save()
-            return render(request, 'profileProfileUser.html', {'form': form, 'profil': profil})
+
     profil = Profile.objects.get(user=request.user)
-    form = EditProfileForm(instance=profil)
-    return render(request, 'profileProfileUser.html', {'form': form, 'profil': profil})
+    profile_form = EditProfileForm(instance=profil)
+    email_form = EditEmailForm(instance=request.user)
+    password_form = PasswordChangeForm(user=request.user)
+
+    if request.method == 'POST':
+        if 'change_profil' in request.POST:
+            profile_form = EditProfileForm(request.POST, request.FILES, instance=profil)
+            if profile_form.is_valid():
+                profile_form.save()
+                return render(request, 'profileProfileUser.html',
+                              {'profile_form': profile_form, 'profil': profil, 'email_form': email_form,
+                               'password_form': password_form})
+            return render(request, 'profileProfileUser.html',
+                          {'profile_form': profile_form, 'profil': profil, 'email_form': email_form,
+                           'password_form': password_form})
+
+        elif 'change_password' in request.POST:
+            password_form = PasswordChangeForm(data=request.POST, user=request.user)
+            if password_form.is_valid():
+                password_form.save()
+                return redirect('../../')
+            return render(request, 'profileProfileUser.html',
+                          {'profile_form': profile_form, 'profil': profil, 'email_form': email_form,
+                           'password_form': password_form})
+
+        elif 'change_email' in request.POST:
+            email_form = EditEmailForm(data=request.POST, instance=request.user)
+            if email_form.is_valid():
+                email_form.save()
+                return render(request, 'profileProfileUser.html',
+                              {'profile_form': profile_form, 'profil': profil, 'email_form': email_form,
+                               'password_form': password_form})
+            return render(request, 'profileProfileUser.html',
+                          {'profile_form': profile_form, 'profil': profil, 'email_form': email_form,
+                           'password_form': password_form})
+    else:
+        return render(request, 'profileProfileUser.html',
+                      {'profile_form': profile_form, 'profil': profil, 'email_form': email_form,
+                       'password_form': password_form})

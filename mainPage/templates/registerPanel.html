@@ -125,15 +125,19 @@
                 <form class="site-from" action="" method="post">
                     {% csrf_token %}
                     <p>Username:</p>
+                    <p>{{ form.username.errors.as_text }}</p>
                     <p>{{ form.username }}</p>
 
                     <p>Password:</p>
+                    <p>{{ form.password1.errors.as_text }}</p>
                     <p>{{ form.password1 }}</p>
 
                     <p>Repeat Password:</p>
+                    <p>{{ form.password2.errors.as_text }}</p>
                     <p>{{ form.password2 }}</p>
 
                     <p>Email:</p>
+                    <p>{{ form.email.errors.as_text }}</p>
                     <p>{{ form.email }}</p>
 
                     <input type="submit" value="Signup" name="SignUpForm">

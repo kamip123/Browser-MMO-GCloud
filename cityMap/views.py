@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from .models import CityOwned
 from mainPage.models import Server, CityPositions
@@ -6,6 +7,7 @@ from .forms import CityOwnedForm
 from worldMap.models import delete_attack
 
 
+@login_required(login_url='../../../../../../../')
 def main_page_city_list(request):
     delete_attack(5, schedule=10)
     user = request.user
@@ -13,6 +15,7 @@ def main_page_city_list(request):
     return render(request, 'indexCityList.html', {'city_list': city_list})
 
 
+@login_required(login_url='../../../../../../../')
 def main_page_city_id(request, id_of_city):
     brak_miasta = 0
     user = request.user
@@ -20,14 +23,17 @@ def main_page_city_id(request, id_of_city):
     return render(request, 'indexCityMap.html', {'brak_miasta': brak_miasta, 'city': city})
 
 
+@login_required(login_url='../../../../../../../')
 def town_hall_city_id(request, id_of_city):
     return render(request, 'townhall.html', {'id_of_city': id_of_city})
 
 
+@login_required(login_url='../../../../../../../')
 def barracks_city_id(request, id_of_city):
     return render(request, 'barracks.html', {'id_of_city': id_of_city})
 
 
+@login_required(login_url='../../../../../../../')
 def main_page_city(request):
     user = request.user
     if request.method == 'POST':
@@ -73,6 +79,7 @@ def main_page_city(request):
         return redirect('../')
 
 
+@login_required(login_url='../../../../../../../')
 def colonize_new_city(request):
     have_enought_resources = 1
     if have_enought_resources == 1:

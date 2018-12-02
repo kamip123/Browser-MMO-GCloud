@@ -40,12 +40,13 @@ var lineList = [];
 
 
 class cityInfoPanelClass{
-	constructor(x, y, nazwaWioski, wlasciciel, punkty) {
+	constructor(x, y, nazwaWioski, wlasciciel, punkty, id) {
 		this.x = x;
 		this.y = y;
 		this.nazwaWioski = nazwaWioski;
 		this.wlasciciel = wlasciciel;
 		this.punkty = punkty;
+		this.id = id;
 		if(punkty > 3999){
 			this.cityIcon = "cityIcon5";
 		}
@@ -74,14 +75,14 @@ function create() {
 	game.world.setBounds(-0, -0, 3200, 2400);
 
 	game.add.sprite(0, 0, 'backgroundMap');
-	text = game.add.text(x+50, y, '', { font:"10px Arial", fill: 'black' });
+	text = game.add.text(50, 0, '', { font:"10px Arial", fill: 'black' });
 
 
 	for(var i=0; i<liczbaMiast;i++){
-		cityListInfo[i] = new cityInfoPanelClass(parseInt(cityListXq[i]), parseInt(cityListYq[i]), cityListNamesq[i], cityListOwnerNamesq[i], cityListPoints[i]);
+		cityListInfo[i] = new cityInfoPanelClass(parseInt(cityListXq[i]), parseInt(cityListYq[i]), cityListNamesq[i], cityListOwnerNamesq[i], parseInt(cityListPoints[i]), parseInt(cityListId[i]));
 		cityListInfo[i].sprite.events.onInputOver.add(listenerOverCity, this, 0, cityListInfo[i].x, cityListInfo[i].y, cityListInfo[i].nazwaWioski, cityListInfo[i].wlasciciel, cityListInfo[i].punkty);
 		cityListInfo[i].sprite.events.onInputOut.add(listenerOverCityDelete);
-		cityListInfo[i].sprite.events.onInputDown.add(listenerClickCity, this);
+		cityListInfo[i].sprite.events.onInputDown.add(listenerClickCity, this, 0, cityListId[i]);
 		cityListInfo[i].sprite.inputEnabled = true;
 	}
 
@@ -97,7 +98,6 @@ function create() {
         armyList[i] = game.add.sprite(parseInt(cityListAttackerX[i]), parseInt(cityListAttackerY[i]), 'tankGif');
 
         game.time.events.add(Phaser.Timer.SECOND * 5, stopAnimation, this, armyList[i]);
-        //armyList[i].events.onAnimationStart.add(stopAnimation, this, 0, i);
 
         armyList[i].animations.add('run');
         armyList[i].animations.play('run', 15, true);
@@ -116,8 +116,8 @@ function stopAnimation(i) {
     //alert("One of your army arrived at destination");
 }
 
-function listenerClickCity() {
-
+function listenerClickCity(one, two, idOfCity) {
+    window.location.href = idOfCity;
 }
 
 function listenerOverCity(one, two, xx, yy, nazwaWioski, wlasciciel, punkty) {
@@ -133,7 +133,18 @@ function listenerOverCityDelete() {
 }
 
 function update() {
-
+	
+	if (this.game.input.activePointer.isDown) {	
+		if (this.game.origDragPoint) {			
+			this.game.camera.x += this.game.origDragPoint.x - this.game.input.activePointer.position.x;		
+			this.game.camera.y += this.game.origDragPoint.y - this.game.input.activePointer.position.y;	
+		}
+		this.game.origDragPoint = this.game.input.activePointer.position.clone();
+	}
+	else {	
+		this.game.origDragPoint = null;
+	}
+	
     if (cursors.up.isDown)
     {
         game.camera.y -= 4;

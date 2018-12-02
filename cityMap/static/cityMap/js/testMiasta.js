@@ -1,5 +1,5 @@
 
-var game = new Phaser.Game(950, 650, Phaser.CANVAS, 'cityRenderDiv', { preload: preload, create: create});
+var game = new Phaser.Game(950, 650, Phaser.CANVAS, 'cityRenderDiv', { preload: preload, create: create, update: update, render: render });
 
 
 function preload() {
@@ -24,6 +24,14 @@ function preload() {
 var cityListInfo = [];
 var infoPanel;
 var text;
+
+function listenerClickTownHall() {
+    window.location.href = "rozbudowa";
+}
+
+function listenerClickBarracks() {
+    window.location.href = "rekrutacja";
+}
 
 class townHall{
 	constructor(lvl) {
@@ -140,14 +148,35 @@ function create() {
 	game.world.setBounds(-0, -0, 1155, 800);
 	
 	game.add.sprite(0, 0, 'background');
+	
 	farms = new farms(lvlfarms);
+	farms.sprite.inputEnabled = true;
+	farms.sprite.events.onInputDown.add(listenerClickTownHall, this);
+	
 	roads = new roads(lvlroads);
+	roads.sprite.inputEnabled = true;
+	roads.sprite.events.onInputDown.add(listenerClickTownHall, this);
+	
 	townHall = new townHall(lvltownHall);
+	townHall.sprite.inputEnabled = true;
+	townHall.sprite.events.onInputDown.add(listenerClickTownHall, this);
+	
 	barracks = new barracks(lvlbarracks);
+	barracks.sprite.inputEnabled = true;
+	barracks.sprite.events.onInputDown.add(listenerClickBarracks, this);
+	
 	powerPlant = new powerPlant(lvlpowerPlant);
+	powerPlant.sprite.inputEnabled = true;
+	powerPlant.sprite.events.onInputDown.add(listenerClickTownHall, this);
+	
 	housing = new housing(lvlhousing);
+	housing.sprite.inputEnabled = true;
+	housing.sprite.events.onInputDown.add(listenerClickTownHall, this);
+	
 	mine = new mine(lvlmine);
-    
+	mine.sprite.inputEnabled = true;
+    mine.sprite.events.onInputDown.add(listenerClickTownHall, this);
+	
     game.world.scale.set(0.82)
 }
 

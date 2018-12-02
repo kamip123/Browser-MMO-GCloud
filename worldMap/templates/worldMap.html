@@ -31,7 +31,7 @@
           var cityListY = []
           var cityListPoints = []
           var i = 0
-
+		  var cityListId = []
           var cityListAttackerX = []
           var cityListAttackerY = []
           var cityListDefenderX = []
@@ -93,6 +93,7 @@
                 cityListX[i] = "{{ city.pos_x }}"
                 cityListY[i] = "{{ city.pos_y }}"
                 cityListPoints[i] = "{{ city.points }}"
+				cityListId[i] = "{{ city.id }}"
                 i = i + 1
 
             {% endfor %}
@@ -106,6 +107,7 @@
                 cityListDefenderY[i] = "{{ attack.defender.pos_y }}"
                 cityListAttackerTime[i] = "{{ attack.send }}"
                 cityLisDefenderTime[i] = "{{ attack.arrive }}"
+				
                 i = i + 1
                 liczbaArmi = liczbaArmi + 1
             {% endfor %}

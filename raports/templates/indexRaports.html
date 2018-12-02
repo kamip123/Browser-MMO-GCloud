@@ -10,6 +10,7 @@
             <th>City</th>
             <th>Title</th>
             <th>Date</th>
+            <th>Have seen ?</th>
         </tr>
         </thead>
         {% for battleraport in battleraports %}
@@ -17,6 +18,7 @@
             <td>{{ battleraport.cityD }}</td>
             <td><a href='{{ battleraport.id }}/0'>{{ battleraport.name }}</a></td>
             <td>{{ battleraport.created_date }}</td>
+            <td>{{ battleraport.have_seen }}</td>
         </tr>
         {% endfor %}
     </table>
@@ -30,6 +32,7 @@
             <th>Sender</th>
             <th>Title</th>
             <th>Date</th>
+            <th>Have seen ?</th>
         </tr>
         </thead>
         {% for alliancereport in alliancereports %}
@@ -37,6 +40,7 @@
             <td>{{ alliancereport.sender }}</td>
             <td><a href='{{ alliancereport.id }}/1'>{{ alliancereport.name }}</a></td>
             <td>{{ alliancereport.created_date }}</td>
+            <td>{{ alliancereport.have_seen }}</td>
         </tr>
         {% endfor %}
     </table>
@@ -50,6 +54,7 @@
             <th>Sender</th>
             <th>Title</th>
             <th>Date</th>
+            <th>Have seen ?</th>
         </tr>
         </thead>
         {% for helpraport in helpraports %}
@@ -57,6 +62,7 @@
             <td>{{ helpraport.sender }}</td>
             <td><a href='{{ helpraport.id }}/2'>{{ helpraport.name }}</a></td>
             <td>{{ helpraport.created_date }}</td>
+            <td>{{ helpraport.have_seen }}</td>
         </tr>
         {% endfor %}
     </table>
@@ -70,6 +76,7 @@
             <th>Sender</th>
             <th>Title</th>
             <th>Date</th>
+            <th>Have seen ?</th>
         </tr>
         </thead>
         {% for specialresourceraport in specialresourceraports %}
@@ -77,6 +84,7 @@
             <td>{{ specialresourceraport.sender }}</td>
             <td><a href='{{ specialresourceraport.id }}/3'>{{ specialresourceraport.name }}</a></td>
             <td>{{ specialresourceraport.created_date }}</td>
+            <td>{{ specialresourceraport.have_seen }}</td>
         </tr>
         {% endfor %}
     </table>
@@ -90,6 +98,7 @@
             <th>Sender</th>
             <th>Title</th>
             <th>Date</th>
+            <th>Have seen ?</th>
         </tr>
         </thead>
         {% for tradeeraport in tradeeraports %}
@@ -97,6 +106,7 @@
             <td>{{ tradeeraport.sender }}</td>
             <td><a href='{{ tradeeraport.id }}/4'>{{ tradeeraport.name }}</a></td>
             <td>{{ tradeeraport.created_date }}</td>
+            <td>{{ tradeeraport.have_seen }}</td>
         </tr>
         {% endfor %}
     </table>

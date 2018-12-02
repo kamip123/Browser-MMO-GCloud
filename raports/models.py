@@ -8,6 +8,7 @@ import alliance.models
 
 class BattleRaport(models.Model):
     name = models.CharField(max_length=100, default="battle raport")
+    have_seen = models.BooleanField(default=False)
 
     attacker = models.ForeignKey(User, related_name='attacker', on_delete=models.CASCADE)
     defender = models.ForeignKey(User, related_name='defender', on_delete=models.CASCADE)
@@ -201,6 +202,7 @@ class AllianceInvite(models.Model):
     alliance = models.ForeignKey(alliance.models.Alliance, related_name='receiver', on_delete=models.CASCADE)
     name = models.CharField(max_length=100, default="alliance invite")
     created_date = models.DateTimeField(default=timezone.now)
+    have_seen = models.BooleanField(default=False)
 
     def generateName(self):
         self.name = self.alliance.name + " invited by " + self.sender
@@ -212,6 +214,7 @@ class TradeRaport(models.Model):
     name = models.CharField(max_length=100, default="trade report")
     city = models.ForeignKey(cityMap.models.CityOwned, related_name='citytr', on_delete=models.CASCADE)
     created_date = models.DateTimeField(default=timezone.now)
+    have_seen = models.BooleanField(default=False)
 
     def generateName(self):
         self.name = self.sender.username + " make a trade with you"
@@ -223,6 +226,7 @@ class HelpRaport(models.Model):
     name = models.CharField(max_length=100, default="help report")
     created_date = models.DateTimeField(default=timezone.now)
     city = models.ForeignKey(cityMap.models.CityOwned, related_name='cityhr', on_delete=models.CASCADE)
+    have_seen = models.BooleanField(default=False)
     def generateName(self):
         self.name = "your army helped: " + self.sender.username
 
@@ -232,6 +236,8 @@ class SpecialResourceRaport(models.Model):
     name = models.CharField(max_length=100, default="resource report")
     created_date = models.DateTimeField(default=timezone.now)
     city = models.ForeignKey(cityMap.models.CityOwned, related_name='citysrr', on_delete=models.CASCADE)
+    have_seen = models.BooleanField(default=False)
+
     def generateName(self):
         self.name = self.city.name + " special resource event"
 

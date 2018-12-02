@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from .models import Premium, Tranzakcja
 from mainPage.models import Profile
@@ -5,6 +6,7 @@ from django.utils import timezone
 # Create your views here.
 
 
+@login_required(login_url='../../../../../../../')
 def premium_page(request):
     premiumOptions = Premium.objects.get(id=1)
     if request.method == 'POST':
@@ -20,11 +22,13 @@ def premium_page(request):
     return render(request, 'indexPremium.html', {'premiumOptions': premiumOptions})
 
 
+@login_required(login_url='../../../../../../../')
 def premium_platnosc(request):
     user = request.user
     return render(request, 'zaplac.html')
 
 
+@login_required(login_url='../../../../../../../')
 def premium_history(request):
     user = request.user
     tranzakcje = Tranzakcja.objects.all().filter(buyer=user)

@@ -3,135 +3,33 @@
   <component name="ChangeListManager">
     <list default="true" id="ea2b1214-f616-4858-b4c1-b71e812d2c62" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/alliance/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/alliance/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/alliance/migrations/0002_auto_20181124_1417.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/alliance/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/alliance/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/alliance/static/alliance/allianceCss.css" beforeDir="false" afterPath="$PROJECT_DIR$/alliance/static/alliance/allianceCss.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/alliance/static/alliance/defaultProfilePic.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/alliance/templates/alliance.html" beforeDir="false" afterPath="$PROJECT_DIR$/alliance/templates/alliance.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/alliance/templates/allianceDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/alliance/templates/allianceDetail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/alliance/templates/allianceList.html" beforeDir="false" afterPath="$PROJECT_DIR$/alliance/templates/allianceList.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/alliance/templates/indexAlliance.html" beforeDir="false" afterPath="$PROJECT_DIR$/alliance/templates/indexAlliance.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/alliance/templates/userDetail.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/alliance/tests.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/alliance/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/alliance/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/alliance/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/alliance/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/alliance/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/alliance/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cityMap/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cityMap/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/cityMap/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cityMap/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cityMap/migrations/0002_auto_20181027_1820.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cityMap/migrations/0003_auto_20181104_2050.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cityMap/migrations/0004_cityowned_is_capital.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cityMap/migrations/0005_hinfantry_htanks_infantry_ltanks_motorized_planes.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cityMap/migrations/0006_auto_20181124_2055.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cityMap/migrations/0007_auto_20181124_2102.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cityMap/migrations/0008_cityowned_server.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cityMap/migrations/0009_auto_20181126_0112.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cityMap/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/cityMap/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cityMap/static/cityMap/assets/065817fa2f50750.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cityMap/static/cityMap/assets/yellowBackground.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cityMap/static/cityMap/cityListCss.css" beforeDir="false" afterPath="$PROJECT_DIR$/cityMap/static/cityMap/cityListCss.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cityMap/static/cityMap/cityMapCss.css" beforeDir="false" afterPath="$PROJECT_DIR$/cityMap/static/cityMap/cityMapCss.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cityMap/static/cityMap/js/phaser.js" beforeDir="false" afterPath="$PROJECT_DIR$/cityMap/static/cityMap/js/phaser.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cityMap/static/cityMap/js/testMiasta.js" beforeDir="false" afterPath="$PROJECT_DIR$/cityMap/static/cityMap/js/testMiasta.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cityMap/static/cityMap/testReact.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cityMap/static/cityMap/testVue.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cityMap/templates/barracks.html" beforeDir="false" afterPath="$PROJECT_DIR$/cityMap/templates/barracks.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cityMap/templates/cityList.html" beforeDir="false" afterPath="$PROJECT_DIR$/cityMap/templates/cityList.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cityMap/templates/cityMap.html" beforeDir="false" afterPath="$PROJECT_DIR$/cityMap/templates/cityMap.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cityMap/templates/indexCityList.html" beforeDir="false" afterPath="$PROJECT_DIR$/cityMap/templates/indexCityList.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cityMap/templates/indexCityMap.html" beforeDir="false" afterPath="$PROJECT_DIR$/cityMap/templates/indexCityMap.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cityMap/templates/townhall.html" beforeDir="false" afterPath="$PROJECT_DIR$/cityMap/templates/townhall.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cityMap/tests.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cityMap/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/cityMap/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cityMap/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/cityMap/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infoWindows/tests.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainPage/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/mainPage/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainPage/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainPage/migrations/0002_auto_20181025_2314.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainPage/migrations/0003_auto_20181025_2329.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainPage/migrations/0004_server.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainPage/migrations/0005_auto_20181027_0120.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainPage/migrations/0006_profile.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainPage/migrations/0007_auto_20181119_2345.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainPage/migrations/0008_auto_20181124_1347.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainPage/migrations/0009_auto_20181124_1808.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainPage/migrations/0010_auto_20181125_1448.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainPage/migrations/0011_citypositions.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainPage/migrations/0012_auto_20181128_2316.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainPage/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/mainPage/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainPage/static/mainPage/CCPXLogo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainPage/static/mainPage/CCPXLogo2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainPage/static/mainPage/e33da11dfe7f3e0c511125dbdd95ee.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainPage/static/mainPage/mainMenuSoldier.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainPage/static/mainPage/mainPageCss.css" beforeDir="false" afterPath="$PROJECT_DIR$/mainPage/static/mainPage/mainPageCss.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainPage/static/mainPage/mainPageImage1t.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainPage/static/mainPage/mainPageImage2t.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainPage/static/mainPage/mainPageImage4t.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainPage/static/mainPage/sci_fi_space_station_wallpapert.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mainPage/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/mainPage/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mainPage/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/mainPage/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mainPage/templates/registerPanel.html" beforeDir="false" afterPath="$PROJECT_DIR$/mainPage/templates/registerPanel.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainPage/tests.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/mainPage/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mainPage/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/messagess/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/messagess/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/messagess/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/messagess/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/messagess/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/messagess/static/messagess/messagessCss.css" beforeDir="false" afterPath="$PROJECT_DIR$/messagess/static/messagess/messagessCss.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mainPage/viewsets.py" beforeDir="false" afterPath="$PROJECT_DIR$/mainPage/viewsets.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/messagess/templates/indexMessagess.html" beforeDir="false" afterPath="$PROJECT_DIR$/messagess/templates/indexMessagess.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/messagess/templates/messagess.html" beforeDir="false" afterPath="$PROJECT_DIR$/messagess/templates/messagess.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/messagess/templates/messagessDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/messagess/templates/messagessDetail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/messagess/templates/messagessSend.html" beforeDir="false" afterPath="$PROJECT_DIR$/messagess/templates/messagessSend.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/messagess/templates/messagessYourSend.html" beforeDir="false" afterPath="$PROJECT_DIR$/messagess/templates/messagessYourSend.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/messagess/tests.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/messagess/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/messagess/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/messagess/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/messagess/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/premium/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/premium/migrations/0002_auto_20181123_1438.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/premium/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/premium/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/premium/static/premium/premiumCss.css" beforeDir="false" afterPath="$PROJECT_DIR$/premium/static/premium/premiumCss.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/premium/templates/indexPremium.html" beforeDir="false" afterPath="$PROJECT_DIR$/premium/templates/indexPremium.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/premium/templates/platnosci.html" beforeDir="false" afterPath="$PROJECT_DIR$/premium/templates/platnosci.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/premium/templates/premium.html" beforeDir="false" afterPath="$PROJECT_DIR$/premium/templates/premium.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/premium/tests.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/premium/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/premium/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profileUser/admin.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/profileUser/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/profileUser/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profileUser/models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/profileUser/templates/emailProfileUser.html" beforeDir="false" afterPath="$PROJECT_DIR$/profileUser/templates/emailProfileUser.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profileUser/templates/emailProfileUser.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/profileUser/templates/indexProfileUser.html" beforeDir="false" afterPath="$PROJECT_DIR$/profileUser/templates/indexProfileUser.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profileUser/templates/passwordProfileUser.html" beforeDir="false" afterPath="$PROJECT_DIR$/profileUser/templates/passwordProfileUser.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profileUser/templates/passwordProfileUser.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/profileUser/templates/profileProfileUser.html" beforeDir="false" afterPath="$PROJECT_DIR$/profileUser/templates/profileProfileUser.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/profileUser/templates/profileUser.html" beforeDir="false" afterPath="$PROJECT_DIR$/profileUser/templates/profileUser.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profileUser/tests.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektNaChmureDJango/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/projektNaChmureDJango/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektNaChmureDJango/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/projektNaChmureDJango/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rankings/admin.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rankings/models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rankings/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/profileUser/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/profileUser/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profileUser/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/profileUser/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektNaChmureDJango/routers.py" beforeDir="false" afterPath="$PROJECT_DIR$/projektNaChmureDJango/routers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rankings/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/rankings/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/raports/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/raports/migrations/0002_auto_20181119_2344.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/raports/static/raports/raportsCss.css" beforeDir="false" afterPath="$PROJECT_DIR$/raports/static/raports/raportsCss.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raports/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/raports/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/raports/templates/indexRaports.html" beforeDir="false" afterPath="$PROJECT_DIR$/raports/templates/indexRaports.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/raports/templates/raportDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/raports/templates/raportDetail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/raports/templates/raports.html" beforeDir="false" afterPath="$PROJECT_DIR$/raports/templates/raports.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/raports/tests.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/raports/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/raports/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/raports/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/raports/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/worldMap/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/worldMap/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/worldMap/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/worldMap/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/worldMap/static/worldMap/js/phaser.js" beforeDir="false" afterPath="$PROJECT_DIR$/worldMap/static/worldMap/js/phaser.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/worldMap/static/worldMap/js/testMapy.js" beforeDir="false" afterPath="$PROJECT_DIR$/worldMap/static/worldMap/js/testMapy.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/worldMap/static/worldMap/worldMapCss.css" beforeDir="false" afterPath="$PROJECT_DIR$/worldMap/static/worldMap/worldMapCss.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/worldMap/templates/cityDetailInfo.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/worldMap/templates/indexWorldMap.html" beforeDir="false" afterPath="$PROJECT_DIR$/worldMap/templates/indexWorldMap.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/worldMap/templates/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/worldMap/templates/test.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/worldMap/templates/userDetailInfo.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/worldMap/templates/worldMap.html" beforeDir="false" afterPath="$PROJECT_DIR$/worldMap/templates/worldMap.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/worldMap/tests.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/worldMap/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/worldMap/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/worldMap/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/worldMap/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -142,124 +40,41 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5642857">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="testMapy.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/worldMap/static/worldMap/js/testMapy.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="404">
-                  <caret line="98" column="52" selection-start-line="98" selection-start-column="52" selection-end-line="98" selection-end-column="52" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="phaser.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/cityMap/static/cityMap/js/phaser.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="310">
-                  <caret line="32972" column="39" selection-start-line="32972" selection-start-column="39" selection-end-line="32972" selection-end-column="39" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="phaser.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/worldMap/static/worldMap/js/phaser.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="310">
-                  <caret line="32972" column="39" selection-start-line="32972" selection-start-column="39" selection-end-line="32972" selection-end-column="39" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/projektNaChmureDJango/settings.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="595">
-                  <caret line="50" column="20" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="20" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/worldMap/models.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="408">
-                  <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
-                  <folding>
-                    <element signature="e#0#28#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/mainPage/models.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="68">
-                  <caret line="4" selection-start-line="4" selection-end-line="4" selection-end-column="46" />
-                  <folding>
-                    <element signature="e#246#671#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/cityMap/views.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="545">
-                  <caret line="45" column="37" selection-start-line="45" selection-start-column="19" selection-end-line="45" selection-end-column="37" />
-                  <folding>
-                    <element signature="e#0#45#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="worldMap.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/worldMap/templates/worldMap.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="471">
-                  <caret line="85" column="99" selection-start-line="85" selection-start-column="99" selection-end-line="85" selection-end-column="99" />
-                  <folding>
-                    <element signature="n#style#0;n#h1#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="forms.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/worldMap/forms.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="136">
-                  <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-                  <folding>
-                    <element signature="e#0#24#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/cityMap/views.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="120">
-                  <caret line="9" column="19" lean-forward="true" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="32" />
-                  <folding>
-                    <element signature="e#0#45#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf>
+      <file leaf-file-name="serializers.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mainPage/serializers.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" column="27" lean-forward="true" selection-start-line="1" selection-start-column="27" selection-end-line="1" selection-end-column="50" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="viewsets.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mainPage/viewsets.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="19" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="19" />
+              <folding>
+                <element signature="e#0#35#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routers.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/projektNaChmureDJango/routers.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="94" selection-start-line="5" selection-start-column="94" selection-end-line="5" selection-end-column="94" />
+              <folding>
+                <element signature="e#0#34#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -271,7 +86,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>alert</find>
       <find>hover</find>
       <find>cityWelcomeDiv</find>
       <find>listenerOverCity</find>
@@ -301,6 +115,7 @@
       <find>console</find>
       <find>setTimeOut</find>
       <find>disableVisibilityChange</find>
+      <find>form</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -309,31 +124,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/profileUser/templates/indexProfileUser.html" />
-        <option value="$PROJECT_DIR$/profileUser/views.py" />
-        <option value="$PROJECT_DIR$/profileUser/templates/passwordProfileUser.html" />
-        <option value="$PROJECT_DIR$/profileUser/templates/emailProfileUser.html" />
-        <option value="$PROJECT_DIR$/profileUser/templates/profileProfileUser.html" />
-        <option value="$PROJECT_DIR$/worldMap/templates/cityDetailInfo.html" />
-        <option value="$PROJECT_DIR$/worldMap/urls.py" />
-        <option value="$PROJECT_DIR$/alliance/templates/userDetail.html" />
-        <option value="$PROJECT_DIR$/worldMap/templates/userDetailInfo.html" />
-        <option value="$PROJECT_DIR$/cityMap/templates/city_list.html" />
-        <option value="$PROJECT_DIR$/mainPage/admin.py" />
-        <option value="$PROJECT_DIR$/cityMap/serializers.py" />
-        <option value="$PROJECT_DIR$/cityMap/viewsets.py" />
-        <option value="$PROJECT_DIR$/mainPage/views.py" />
         <option value="$PROJECT_DIR$/mainPage/urls.py" />
         <option value="$PROJECT_DIR$/cityMap/admin.py" />
-        <option value="$PROJECT_DIR$/alliance/serializers.py" />
         <option value="$PROJECT_DIR$/alliance/viewsets.py" />
-        <option value="$PROJECT_DIR$/mainPage/serializers.py" />
-        <option value="$PROJECT_DIR$/mainPage/viewsets.py" />
-        <option value="$PROJECT_DIR$/projektNaChmureDJango/routers.py" />
         <option value="$PROJECT_DIR$/projektNaChmureDJango/urls.py" />
         <option value="$PROJECT_DIR$/rankings/urls.py" />
-        <option value="$PROJECT_DIR$/rankings/views.py" />
-        <option value="$PROJECT_DIR$/alliance/views.py" />
         <option value="$PROJECT_DIR$/mainPage/forms.py" />
         <option value="$PROJECT_DIR$/cityMap/templates/barracks.html" />
         <option value="$PROJECT_DIR$/cityMap/templates/townhall.html" />
@@ -347,25 +142,45 @@
         <option value="$PROJECT_DIR$/alliance/models.py" />
         <option value="$PROJECT_DIR$/premium/urls.py" />
         <option value="$PROJECT_DIR$/premium/templates/premium.html" />
-        <option value="$PROJECT_DIR$/premium/views.py" />
         <option value="$PROJECT_DIR$/premium/templates/zaplac.html" />
         <option value="$PROJECT_DIR$/worldMap/static/worldMap/assets/tankGif_rules.json" />
         <option value="$PROJECT_DIR$/worldMap/admin.py" />
-        <option value="$PROJECT_DIR$/worldMap/views.py" />
         <option value="$PROJECT_DIR$/worldMap/templates/worldMap.html" />
         <option value="$PROJECT_DIR$/worldMap/static/worldMap/js/testMapy.js" />
         <option value="$PROJECT_DIR$/cityMap/static/cityMap/js/phaser.js" />
         <option value="$PROJECT_DIR$/worldMap/static/worldMap/js/phaser.js" />
         <option value="$PROJECT_DIR$/projektNaChmureDJango/settings.py" />
         <option value="$PROJECT_DIR$/worldMap/forms.py" />
-        <option value="$PROJECT_DIR$/cityMap/views.py" />
         <option value="$PROJECT_DIR$/worldMap/models.py" />
+        <option value="$PROJECT_DIR$/profileUser/templates/emailProfileUser.html" />
+        <option value="$PROJECT_DIR$/profileUser/urls.py" />
+        <option value="$PROJECT_DIR$/profileUser/templates/profileUser.html" />
+        <option value="$PROJECT_DIR$/profileUser/templates/indexProfileUser.html" />
+        <option value="$PROJECT_DIR$/profileUser/templates/profileProfileUser.html" />
+        <option value="$PROJECT_DIR$/mainPage/templates/index.html" />
+        <option value="$PROJECT_DIR$/mainPage/templates/registerPanel.html" />
+        <option value="$PROJECT_DIR$/mainPage/views.py" />
+        <option value="$PROJECT_DIR$/alliance/views.py" />
+        <option value="$PROJECT_DIR$/cityMap/views.py" />
+        <option value="$PROJECT_DIR$/premium/views.py" />
+        <option value="$PROJECT_DIR$/profileUser/views.py" />
+        <option value="$PROJECT_DIR$/rankings/views.py" />
+        <option value="$PROJECT_DIR$/worldMap/views.py" />
+        <option value="$PROJECT_DIR$/messagess/templates/indexMessagess.html" />
+        <option value="$PROJECT_DIR$/alliance/serializers.py" />
+        <option value="$PROJECT_DIR$/raports/models.py" />
+        <option value="$PROJECT_DIR$/raports/templates/indexRaports.html" />
+        <option value="$PROJECT_DIR$/messagess/views.py" />
+        <option value="$PROJECT_DIR$/raports/views.py" />
+        <option value="$PROJECT_DIR$/mainPage/serializers.py" />
+        <option value="$PROJECT_DIR$/mainPage/viewsets.py" />
+        <option value="$PROJECT_DIR$/projektNaChmureDJango/routers.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="124" />
-    <option name="y" value="38" />
+    <option name="x" value="241" />
+    <option name="y" value="90" />
     <option name="width" value="1712" />
     <option name="height" value="970" />
   </component>
@@ -377,7 +192,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -388,12 +202,7 @@
             <path>
               <item name="DJangoprojektNaChmure" type="b2602c69:ProjectViewProjectNode" />
               <item name="DJangoprojektNaChmure" type="462c0819:PsiDirectoryNode" />
-              <item name="mainPage" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DJangoprojektNaChmure" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DJangoprojektNaChmure" type="462c0819:PsiDirectoryNode" />
-              <item name="worldMap" type="462c0819:PsiDirectoryNode" />
+              <item name="projektNaChmureDJango" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DJangoprojektNaChmure" type="b2602c69:ProjectViewProjectNode" />
@@ -403,6 +212,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -452,7 +262,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="124" y="38" width="1712" height="970" extended-state="0" />
+    <frame x="241" y="90" width="1712" height="970" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1745283" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -475,21 +286,21 @@
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20729166" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Python Console" order="7" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" visible="true" weight="0.016985139" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Python Console" order="7" />
     </layout-to-restore>
   </component>
   <component name="UnknownFeatures">
@@ -504,143 +315,10 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/mainPage/forms.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mainPage/apps.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="20" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alliance/apps.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alliance/admin.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alliance/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alliance/migrations/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alliance/migrations/0002_auto_20181124_1417.py" />
-    <entry file="file://$PROJECT_DIR$/alliance/migrations/0001_initial.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alliance/static/alliance/allianceCss.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cityMap/templates/city_list.html" />
-    <entry file="file://$PROJECT_DIR$/cityMap/tests.py" />
-    <entry file="file://$PROJECT_DIR$/cityMap/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/infoWindows/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cityMap/templates/barracks.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="202" column="21" selection-start-line="202" selection-start-column="15" selection-end-line="202" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cityMap/serializers.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cityMap/viewsets.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="20" lean-forward="true" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cityMap/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="53" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cityMap/templates/townhall.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="159" column="31" selection-start-line="159" selection-start-column="31" selection-end-line="159" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cityMap/static/cityMap/js/testMiasta.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="591">
-          <caret line="154" column="36" selection-start-line="154" selection-start-column="36" selection-end-line="154" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mainPage/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="7" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mainPage/viewsets.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cityMap/templates/indexCityList.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="17" selection-start-column="17" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/worldMap/migrations/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/messagess/migrations/0001_initial.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="26" column="24" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/messagess/migrations/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/messagess/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="44" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cityMap/templates/indexCityMap.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/cityMap/templates/cityMap.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="15" column="25" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mainPage/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="75" column="21" selection-start-line="75" selection-start-column="21" selection-end-line="75" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alliance/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="9" column="58" selection-start-line="9" selection-start-column="58" selection-end-line="9" selection-end-column="58" />
         </state>
       </provider>
     </entry>
@@ -679,13 +357,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/premium/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="33" lean-forward="true" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/premium/models.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -693,13 +364,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="383">
           <caret line="133" column="9" selection-start-line="133" selection-start-column="4" selection-end-line="133" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/messagess/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="58" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="58" />
         </state>
       </provider>
     </entry>
@@ -712,24 +376,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/worldMap/templates/worldMap.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="471">
+        <state relative-caret-position="1445">
           <caret line="85" column="99" selection-start-line="85" selection-start-column="99" selection-end-line="85" selection-end-column="99" />
-          <folding>
-            <element signature="n#style#0;n#h1#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/worldMap/static/worldMap/js/testMapy.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="404">
-          <caret line="98" column="52" selection-start-line="98" selection-start-column="52" selection-end-line="98" selection-end-column="52" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cityMap/static/cityMap/js/phaser.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
+        <state relative-caret-position="560524">
           <caret line="32972" column="39" selection-start-line="32972" selection-start-column="39" selection-end-line="32972" selection-end-column="39" />
         </state>
       </provider>
@@ -746,54 +400,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/worldMap/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        <state relative-caret-position="119">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
           <folding>
             <element signature="e#0#24#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/worldMap/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="82" selection-start-line="12" selection-start-column="75" selection-end-line="12" selection-end-column="82" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mainPage/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" selection-start-line="4" selection-end-line="4" selection-end-column="46" />
-          <folding>
-            <element signature="e#246#671#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projektNaChmureDJango/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="50" column="20" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/worldMap/static/worldMap/js/phaser.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="32972" column="39" selection-start-line="32972" selection-start-column="39" selection-end-line="32972" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cityMap/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="545">
-          <caret line="45" column="37" selection-start-line="45" selection-start-column="19" selection-end-line="45" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#45#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -801,9 +411,316 @@
     <entry file="file://$PROJECT_DIR$/worldMap/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
-          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projektNaChmureDJango/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="50" column="20" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/worldMap/static/worldMap/js/phaser.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="32972" column="39" selection-start-line="32972" selection-start-column="39" selection-end-line="32972" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/worldMap/static/worldMap/js/testMapy.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="99" column="52" selection-start-line="99" selection-start-column="52" selection-end-line="99" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/profileUser/templates/passwordProfileUser.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="606">
+          <caret line="73" column="18" lean-forward="true" selection-start-line="56" selection-start-column="12" selection-end-line="73" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/profileUser/templates/emailProfileUser.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="606">
+          <caret line="66" column="18" lean-forward="true" selection-start-line="56" selection-start-column="12" selection-end-line="66" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/profileUser/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="24" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/profileUser/templates/profileUser.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="507">
+          <caret line="52" column="52" selection-start-line="52" selection-start-column="52" selection-end-line="52" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/profileUser/templates/indexProfileUser.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="17" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/profileUser/templates/profileProfileUser.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="63" column="65" selection-start-line="63" selection-start-column="65" selection-end-line="63" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mainPage/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mainPage/templates/registerPanel.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="135" column="40" selection-start-line="135" selection-start-column="40" selection-end-line="135" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mainPage/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="6" column="18" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cityMap/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#57#0" expanded="true" />
+            <element signature="e#977#2501#0" />
+            <element signature="e#2540#3321#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mainPage/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
+          <folding>
+            <element signature="e#591#1234#0" />
+            <element signature="e#1278#1820#0" />
+            <element signature="e#1851#4269#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/worldMap/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="57" lean-forward="true" selection-start-column="57" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/profileUser/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#57#0" expanded="true" />
+            <element signature="e#498#2765#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/premium/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="8" column="5" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#57#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alliance/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="33" column="58" lean-forward="true" selection-start-line="33" selection-start-column="58" selection-end-line="33" selection-end-column="58" />
+          <folding>
+            <element signature="e#0#57#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/messagess/templates/messagessSend.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-612" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/messagess/templates/messagessDetail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-816" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/messagess/templates/indexMessagess.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="40" selection-start-line="22" selection-start-column="40" selection-end-line="22" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/messagess/templates/messagess.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-739" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alliance/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="10" selection-end-column="96" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alliance/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="11" column="16" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rankings/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rankings/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+          <folding>
+            <element signature="e#0#57#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/messagess/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/raports/templates/raports.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-671" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/raports/templates/indexRaports.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="485">
+          <caret line="100" column="32" selection-start-line="100" selection-start-column="32" selection-end-line="100" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/messagess/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="17" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#57#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/raports/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="243" lean-forward="true" selection-start-line="243" selection-end-line="243" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+            <element signature="e#219#8141#0" />
+            <element signature="e#2133#2201#0" />
+            <element signature="e#2237#8097#0" />
+            <element signature="e#8137#8141#0" />
+            <element signature="e#8184#8703#0" />
+            <element signature="e#8743#9249#0" />
+            <element signature="e#9288#9788#0" />
+            <element signature="e#9838#10255#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/raports/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="54" lean-forward="true" selection-start-line="18" selection-start-column="54" selection-end-line="18" selection-end-column="54" />
+          <folding>
+            <element signature="e#0#57#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/raports/templates/raportDetail.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mainPage/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="66" column="19" selection-start-line="66" selection-start-column="6" selection-end-line="66" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+            <element signature="e#246#671#0" />
+            <element signature="e#706#1217#0" />
+            <element signature="e#1253#1701#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mainPage/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="27" lean-forward="true" selection-start-line="1" selection-start-column="27" selection-end-line="1" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mainPage/viewsets.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="19" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projektNaChmureDJango/routers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="94" selection-start-line="5" selection-start-column="94" selection-end-line="5" selection-end-column="94" />
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
           </folding>
         </state>
       </provider>

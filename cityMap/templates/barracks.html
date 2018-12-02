@@ -67,7 +67,8 @@
                                 <td>[[ city.infantry ]]</td>
                                 <td>
                                     <form @submit.prevent="AddInfantry">
-                                        <input type="number" class="form-control" v-model.number="infantryToAdd" placeholder="Add Infantry" />
+                                        <input type="number" class="form-control" v-model.number="infantryToAdd" placeholder="Add Infantry" min="0" />
+                                        <div v-show="errorAddInfantry" class="font-weight-bold small text-danger">You don't have enough resources!</div>
                                         <button type="submit" class="btn btn-primary"><i class="fa fa-plus-circle"></i></button>
                                     </form>
                                 </td>
@@ -83,7 +84,8 @@
                                 <td>[[ city.hinfantry ]]</td>
                                 <td>
                                     <form @submit.prevent="AddHeavyInfantry">
-                                        <input type="number" class="form-control" v-model.number="hinfantryToAdd" placeholder="Add Heavy Infantry" />
+                                        <input type="number" class="form-control" v-model.number="hinfantryToAdd" placeholder="Add Heavy Infantry" min="0" />
+                                        <div v-show="errorAddHInfantry" class="font-weight-bold small text-danger">You don't have enough resources!</div>
                                         <button type="submit" class="btn btn-primary"><i class="fa fa-plus-circle"></i></button>
                                     </form>
                                 </td>
@@ -99,7 +101,8 @@
                                 <td>[[ city.planes ]]</td>
                                 <td>
                                     <form @submit.prevent="AddPlanes">
-                                        <input type="number" class="form-control" v-model.number="planesToAdd" placeholder="Add Planes" />
+                                        <input type="number" class="form-control" v-model.number="planesToAdd" placeholder="Add Planes" min="0" />
+                                        <div v-show="errorAddPlanes" class="font-weight-bold small text-danger">You don't have enough resources!</div>
                                         <button type="submit" class="btn btn-primary"><i class="fa fa-plus-circle"></i></button>
                                     </form>
                                 </td>
@@ -116,7 +119,8 @@
                                 <td>[[ city.ltanks ]]</td>
                                 <td>
                                     <form @submit.prevent="AddLightTanks">
-                                        <input type="number" class="form-control" v-model.number="ltanksToAdd" placeholder="Add Light Tanks" />
+                                        <input type="number" class="form-control" v-model.number="ltanksToAdd" placeholder="Add Light Tanks" min="0" />
+                                        <div v-show="errorAddLTanks" class="font-weight-bold small text-danger">You don't have enough resources!</div>
                                         <button type="submit" class="btn btn-primary"><i class="fa fa-plus-circle"></i></button>
                                     </form>
                                 </td>
@@ -133,7 +137,8 @@
                                 <td>[[ city.htanks ]]</td>
                                 <td>
                                     <form @submit.prevent="AddHeavyTanks">
-                                        <input type="number" class="form-control" v-model.number="htanksToAdd" placeholder="Add Heavy Tanks" />
+                                        <input type="number" class="form-control" v-model.number="htanksToAdd" placeholder="Add Heavy Tanks" min="0" />
+                                        <div v-show="errorAddHTanks" class="font-weight-bold small text-danger">You don't have enough resources!</div>
                                         <button type="submit" class="btn btn-primary"><i class="fa fa-plus-circle"></i></button>
                                     </form>
                                 </td>
@@ -150,7 +155,8 @@
                                 <td>[[ city.motorized ]]</td>
                                 <td>
                                     <form @submit.prevent="AddMotorized">
-                                        <input type="number" class="form-control" v-model.number="motorizedToAdd" placeholder="Add Motorized" />
+                                        <input type="number" class="form-control" v-model.number="motorizedToAdd" placeholder="Add Motorized" min="0" />
+                                        <div v-show="errorAddMotorized" class="font-weight-bold small text-danger">You don't have enough resources!</div>
                                         <button type="submit" class="btn btn-primary"><i class="fa fa-plus-circle bg-primary"></i></button>
                                     </form>
                                 </td>
@@ -213,6 +219,12 @@
                   htanksToAdd: null,
                   motorizedToAdd: null,
                   city: {},
+                  errorAddInfantry: false,
+                  errorAddHInfantry: false,
+                  errorAddPlanes: false,
+                  errorAddLTanks: false,
+                  errorAddHTanks: false,
+                  errorAddMotorized: false
               },
               mounted: function () {
                   this.getData()
@@ -233,11 +245,14 @@
                       const requirementFood = this.infantryToAdd;
                       if (this.infantryToAdd <= 0 || this.infantryToAdd === null) {
                           this.infantryToAdd = 0;
+                          this.errorAddInfantry = false;
                       }
                       else if (requirementPopulation > this.city.population || requirementFood > this.city.food) {
                           this.infantryToAdd = 0;
+                          this.errorAddInfantry = true;
                       }
                       else {
+                          this.errorAddInfantry = false;
                           this.city.infantry += this.infantryToAdd;
                           this.city.population -= requirementPopulation;
                           this.city.food -= requirementFood;
@@ -259,11 +274,14 @@
                       const requirementFood = this.hinfantryToAdd * 2;
                       if (this.hinfantryToAdd <= 0 || this.hinfantryToAdd === null) {
                           this.hinfantryToAdd = 0;
+                          this.errorAddHInfantry = false;
                       }
-                      else if (requirementPopulation > this.city.population || requirementFood > this.city.population) {
+                      else if (requirementPopulation > this.city.population || requirementFood > this.city.food) {
                           this.hinfantryToAdd = 0;
+                          this.errorAddHInfantry = true;
                       }
                       else {
+                          this.errorAddHInfantry = false;
                           this.city.hinfantry += this.hinfantryToAdd;
                           this.city.population -= requirementPopulation;
                           this.city.food -= requirementFood;
@@ -286,11 +304,14 @@
                       const requirementElectricity = this.planesToAdd;
                       if (this.planesToAdd <= 0 || this.planesToAdd === null) {
                           this.planesToAdd = 0;
+                          this.errorAddPlanes = false;
                       }
                       else if (requirementPopulation > this.city.population || requirementFood > this.city.food || requirementElectricity > this.city.electrity) {
                           this.planesToAdd = 0;
+                          this.errorAddPlanes = true;
                       }
                       else {
+                          this.errorAddPlanes = false;
                           this.city.planes += this.planesToAdd;
                           this.city.population -= requirementPopulation;
                           this.city.food -= requirementFood;
@@ -314,11 +335,14 @@
                       const requirementOre = this.ltanksToAdd;
                       if (this.ltanksToAdd <= 0 || this.ltanksToAdd === null) {
                           this.ltanksToAdd = 0;
+                          this.errorAddLTanks = false;
                       }
                       else if (requirementPopulation > this.city.population || requirementFood > this.city.food || requirementOre > this.city.ore) {
                           this.ltanksToAdd = 0;
+                          this.errorAddLTanks = true;
                       }
                       else {
+                          this.errorAddLTanks = false;
                           this.city.ltanks += this.ltanksToAdd;
                           this.city.population -= requirementPopulation;
                           this.city.food -= requirementFood;
@@ -342,11 +366,14 @@
                       const requirementOre = this.htanksToAdd * 2;
                       if (this.htanksToAdd <= 0 || this.htanksToAdd === null) {
                           this.htanksToAdd = 0;
+                          this.errorAddHTanks = false;
                       }
                       else if (requirementPopulation > this.city.population || requirementFood > this.city.food || requirementOre > this.city.ore) {
                           this.htanksToAdd = 0;
+                          this.errorAddHTanks = true;
                       }
                       else {
+                          this.errorAddHTanks = false;
                           this.city.htanks += this.htanksToAdd;
                           this.city.population -= requirementPopulation;
                           this.city.food -= requirementFood;
@@ -370,11 +397,14 @@
                       const requirementElectricity = this.motorizedToAdd;
                       if (this.motorizedToAdd <= 0 || this.motorizedToAdd === null) {
                           this.motorizedToAdd = 0;
+                          this.errorAddMotorized = false;
                       }
                       else if (requirementPopulation > this.city.population || requirementFood > this.city.food || requirementElectricity > this.city.electrity) {
                           this.motorizedToAdd = 0;
+                          this.errorAddMotorized = true;
                       }
                       else {
+                          this.errorAddMotorized = false;
                           this.city.motorized += this.motorizedToAdd;
                           this.city.population -= requirementPopulation;
                           this.city.food -= requirementFood;

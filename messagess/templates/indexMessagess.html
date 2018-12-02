@@ -10,6 +10,7 @@
                 <th scope="col">Author</th>
                 <th scope="col">Title</th>
                 <th scope="col">Date</th>
+                <th scope="col">Have seen?</th>
             </tr>
             </thead>
             <tbody>
@@ -19,6 +20,7 @@
                 <td>{{ message.author }}</td>
                 <td><a href='{{ message.id }}'>{{ message.title }}</a></td>
                 <td>{{ message.created_date }}</td>
+                <td>{{ message.have_seen }}</td>
             </tr>
             {% endfor %}
             </tbody>

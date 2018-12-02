@@ -49,29 +49,52 @@
 
         <div class="row">
             <div class="col-2 messagesPanel text-center">
-                <h6><a href="../">Your profile</a></h6>
-                <h6><a href="../zmienHaslo/">Edit password</a></h6>
-                <h6><a href="../zmienEmail/">Edit email</a></h6>
-                <h6><a href="">Edit profile</a></h6>
+                <h6><a href="">Edit Profile</a></h6>
+                <h6><a href="podgladProfil/">Your profile</a></h6>
             </div>
             <div class="col-10 messagesPanel text-center">
-                {% if alert == 1 %}
-                <h3>You have changed your password</h3>
-                {% endif %}
                 <form action='' method='POST' enctype='multipart/form-data'>
                     {% csrf_token %}
-                    <p>{{ form.errors }}</p>
                     <p>Current image:</p>
                     {% if not profil.profile_pic %}
                         <th><img height="350" width="220"src="{% static 'profileUser/defaultProfilePic.jpg' %} " alt="Profile pic"/></th>
                     {% else %}
                         <th><img height="350" width="220"src='{{ profil.profile_pic.url }}' alt="Profile pic"/></th>
                     {% endif %}
-                    <p>Change you avatar: {{ form.profile_pic }}</p>
-                    <p>{{ form.bio }}</p>
+                    <p>{{ profile_form.profile_pic.errors.as_text }}</p>
+                    <p>Change you avatar: {{ profile_form.profile_pic }}</p>
+                    <p>{{ profile_form.bio.errors.as_text }}</p>
+                    <p>{{ profile_form.bio }}</p>
+                    <input type="submit" value="Change" name="change_profil">
+                </form>
+            </div>
 
+            <div class="col-2"></div>
+            <div class="col-10 messagesPanel text-center">
+                <form class="site-from" action="" method="post" >
+                    {% csrf_token %}
+                    <p>After change the game will logout you.</p>
+                    <p>Change your password:</p>
+                    <p>{{ password_form.old_password.errors.as_text }}</p>
+                    <p>Old Password: {{ password_form.old_password }}</p>
+                    <p>{{ password_form.new_password1.errors.as_text }}</p>
+                    <p>New Password: {{ password_form.new_password1 }}</p>
+                    <p>{{ password_form.new_password2.errors.as_text }}</p>
+                    <p>Repeat: {{ password_form.new_password2 }}</p>
+                    <input type="submit" value="Change" name="change_password">
+                </form>
+            </div>
 
-                    <input type="submit" value="Change" name="PasswordChangeForm">
+            <div class="col-2"></div>
+            <div class="col-10 messagesPanel text-center">
+                <form class="site-from" action="" method="post" >
+                    {% csrf_token %}
+
+                    <p>Change your email:</p>
+                    <p>{{ email_form.email.errors.as_text }}</p>
+                    <p>New E-mail: {{ email_form.email }}</p>
+
+                    <input type="submit" value="Change" name="change_email">
 
                 </form>
             </div>

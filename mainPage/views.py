@@ -66,6 +66,7 @@ def fill_village_pos_table(request):
 
 
 def main_page(request):
+    servers = Server.objects.all()
     if request.method == 'POST':
         if 'SignUpForm' in request.POST:
             form = ExtendedUserCreationForm(request.POST)
@@ -102,7 +103,6 @@ def main_page(request):
         if user:
             login_form = AuthenticationForm(data=request.POST)
             form = ExtendedUserCreationForm()
-            servers = Server.objects.all()
             posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
             return render(request, 'index.html',
                           {'servers': servers, 'posts': posts, 'form': form, 'login_form': login_form})
