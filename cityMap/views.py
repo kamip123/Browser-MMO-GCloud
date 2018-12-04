@@ -1,5 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
+from rest_framework.utils import json
+
 from .models import CityOwned
 from mainPage.models import Server, CityPositions
 from .forms import CityOwnedForm
@@ -87,9 +89,10 @@ def main_page_city(request):
 @login_required(login_url='../../../../../../../')
 def colonize_new_city(request):
     if request.method == 'POST':
-        have_enought_resources = int(request.POST.get('resource_check', False))
+        data = json.loads(request.body)
+        have_enought_resources = data['resource_check']
         if have_enought_resources == 1:
-            city = request.POST.get('city_name', "new city")
+            city = CityOwned(city_name=data['city_name'])
             city.city_owner = request.user
 
             server = Server.objects.get(id=1)

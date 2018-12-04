@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static %}
+
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'premium/premiumCss.css' %}">
+        <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+        <title>CCPX</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-md navbar-dark" >
+            <div class="container" id="borderimg1">
+                <!-- Toggler/collapsibe Button -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- Navbar links -->
+                <div class="collapse navbar-collapse nav-fill w-100" id="collapsibleNavbar">
+
+                    <a class="nav-link" href="/miasto/city_list/"><i class="fa fa-list-ul"></i> City List</a>
+
+                    <a class="nav-link" href="../mapa/"><i class="fa fa-globe"></i> Map</a>
+
+                    <a class="nav-link" href="../wiadomosci"><i class="fa fa-envelope"></i> Messages</a>
+
+                    <a class="nav-link" href="../raporty"><i class="fa fa-envelope-square"></i> Raports</a>
+
+                    <a class="nav-link" href="../sojusz"><i class="fa fa-rebel"></i> Alliance</a>
+
+                    <a class="nav-link" href="../rankingi"><i class="fa fa-align-justify"></i> Rankings</a>
+
+                    <a class="nav-link" href="../profil"><i class="fa fa-user-circle"></i> Profil</a>
+
+                    <a class="nav-link" href="../premium"><i class="fas fa-yen-sign"></i> Premium</a>
+
+                </div>
+            </div>
+        </nav>
+
+        <div id="housing">
+            <div class="container" id="containerDiv">
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <h2>Add New City</h2>
+                        <form @submit.prevent="AddCity">
+                            <input type="text" class="form-control" v-model="cityNameToAdd" placeholder="Add New City Name" />
+                            <div v-show="errorAddCity" class="font-weight-bold small text-danger">You don't have enough resources!</div>
+                            <button type="submit" class="btn btn-lg btn-primary">Add City</button>
+                        </form>
+                        <h3>Available Resources</h3>
+                        <table class="table table-borderless table-dark table-hover table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Resource Name</th>
+                                    <th>Level Or Quantity</th>
+                                    <th>Requirement Level Or Quantity</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Town Hall</td>
+                                    <td>[[ city.town_hall ]]</td>
+                                    <td>[[ requirementTownHallLevel ]]</td>
+                                </tr>
+                                <tr>
+                                    <td>Housing</td>
+                                    <td>[[ city.housing ]]</td>
+                                    <td>[[ requirementHousingLevel ]]</td>
+                                </tr>
+                                <tr>
+                                    <td>Population</td>
+                                    <td>[[ city.population ]]</td>
+                                    <td>[[ requirementPopulation ]]</td>
+                                </tr>
+                                <tr>
+                                    <td>Food</td>
+                                    <td>[[ city.food ]]</td>
+                                    <td>[[ requirementFood ]]</td>
+                                </tr>
+                                <tr>
+                                    <td>Ore</td>
+                                    <td>[[ city.ore ]]</td>
+                                    <td>[[ requirementOre ]]</td>
+                                </tr>
+                                <tr>
+                                    <td>Electricity</td>
+                                    <td>[[ city.electricity ]]</td>
+                                    <td>[[ requirementElectricity ]]</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            Vue.http.headers.common['X-CSRFToken'] = "{{ csrf_token }}";
+            const cityId = parseInt({{id_of_city}});
+
+            new Vue({
+                delimiters: ['[[', ']]'],
+                el: '#housing',
+                data: {
+                    city: {},
+                    cityNameToAdd: null,
+                    requirementTownHallLevel: 10,
+                    requirementHousingLevel: 10,
+                    requirementPopulation: 100,
+                    requirementFood: 1000,
+                    requirementOre: 500,
+                    requirementElectricity: 500,
+                    errorAddCity: false
+                },
+                mounted: function () {
+                    this.getData()
+                },
+                methods: {
+                    getData() {
+                        this.$http.get('/api/city/' + cityId)
+                            .then(response => {
+                                this.city = response.data;
+                                console.log(response)
+                            })
+                            .catch(error => {
+                                console.error(error)
+                            })
+                    },
+                    AddCity() {
+                        if (this.cityNameToAdd === null || this.cityNameToAdd === '') {
+                            this.cityNameToAdd = '';
+                            this.errorAddCity = false;
+                        }
+                        if (this.city.town_hall < this.requirementTownHallLevel || this.city.housing < this.requirementHousingLevel || this.city.population < this.requirementPopulation || this.city.food < this.requirementFood || this.city.ore < this.requirementOre || this.city.electricity < this.requirementElectricity) {
+                            this.cityNameToAdd = '';
+                            this.errorAddCity = true;
+                        }
+                        else {
+                            this.errorAddCity = false;
+                            this.city.population -= this.requirementPopulation;
+                            this.city.food -= this.requirementFood;
+                            this.city.ore -= this.requirementOre;
+                            this.city.electricity -= this.requirementElectricity;
+                            this.$http.put('/api/city/' + cityId + '/', this.city)
+                                .then(response => {
+                                    this.getData();
+                                    console.log(response);
+                                })
+                                .catch(error => {
+                                    this.getData();
+                                    console.error(error);
+                                });
+                            this.$http.post('../../../../../miasto/colonize/', {resource_check: 1, city_name: this.cityNameToAdd})
+                                .then(response => {
+                                    this.getData();
+                                    console.log(response)
+                                })
+                                .catch(error => {
+                                    this.getData();
+                                    console.error(error)
+                                });
+                            this.cityNameToAdd = '';
+                        }
+                    }
+                }
+            });
+        </script>
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </body>
+</html>
