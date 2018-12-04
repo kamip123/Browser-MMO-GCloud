@@ -1,7 +1,8 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import BattleRaport, AllianceInvite, HelpRaport, SpecialResourceRaport, TradeRaport
-
+from alliance.models import Alliance
+from mainPage.models import Profile
 # Create your views here.
 
 
@@ -39,3 +40,19 @@ def raport_detail_page(request, id_of_raport, type_of_raport):
         raport.save()
 
     return render(request, 'raportDetail.html', {'raport': raport, 'type_of_raport': type_of_raport})
+
+
+@login_required(login_url='../../../../../../../')
+def accept_alliance_invite(request, id_of_raport):
+    raport = AllianceInvite.objects.get(id=id_of_raport)
+    user = request.user
+    if raport.receiver == user:
+        alliance = Alliance.objects.get(id=raport.alliance.id)
+        alliance.members.add(user)
+        alliance.save()
+        profil = Profile.objects.get(user=user)
+        profil.alliance = alliance
+        profil.save()
+        return redirect('../../../../../../../../../sojusz/')
+    else:
+        return redirect('../../../../../../../../../')

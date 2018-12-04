@@ -174,6 +174,24 @@
                                     </ul>
                                 </td>
                             </tr>
+                            <tr>
+                                <td>Housing</td>
+                                <td>[[ city.housing ]]</td>
+                                <td>
+                                    <form @submit.prevent="AddHousingLevel">
+                                        <input type="number" class="form-control" v-model.number="housingLevelToAdd" placeholder="Add Housing Level" min="0" />
+                                        <div v-show="errorAddHousingLevel" class="font-weight-bold small text-danger">You don't have enough resources!</div>
+                                        <button type="submit" class="btn btn-primary"><i class="fa fa-plus-circle bg-primary"></i></button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>10 food</li>
+                                        <li>10 ore</li>
+                                        <li>10 electricity</li>
+                                    </ul>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -224,13 +242,15 @@
                 mineLevelToAdd: null,
                 powerPlantLevelToAdd: null,
                 farmsLevelToAdd: null,
+                housingLevelToAdd: null,
                 city: {},
                 errorAddTownHallLevel: false,
                 errorAddBarracksLevel: false,
                 errorAddRoadsLevel: false,
                 errorAddMinesLevel: false,
                 errorAddPowerPlantLevel: false,
-                errorAddFarmsLevel: false
+                errorAddFarmsLevel: false,
+                errorAddHousingLevel: false
             },
             mounted: function () {
                 this.getData()
@@ -255,7 +275,7 @@
                         this.townHallLevelToAdd = 0;
                         this.errorAddTownHallLevel = false;
                     }
-                    else if (requirementPopulation > this.city.population || requirementFood > this.city.food || requirementOre > this.city.ore || requirementElectricity > this.city.electrity) {
+                    else if (requirementPopulation > this.city.population || requirementFood > this.city.food || requirementOre > this.city.ore || requirementElectricity > this.city.electricity) {
                         this.townHallLevelToAdd = 0;
                         this.errorAddTownHallLevel = true;
                     }
@@ -265,7 +285,7 @@
                         this.city.population -= requirementPopulation;
                         this.city.food -= requirementFood;
                         this.city.ore -= requirementOre;
-                        this.electrity -= requirementElectricity;
+                        this.city.electricity -= requirementElectricity;
                         this.$http.put('/api/city/' + cityId + '/', this.city)
                             .then(response => {
                                 this.townHallLevelToAdd = 0;
@@ -282,13 +302,13 @@
                 AddBarracksLevel() {
                     const requirementPopulation = this.barracksLevelToAdd * 12;
                     const requirementFood = this.barracksLevelToAdd * 12;
-                    const requirementOre = this.mineLevelToAdd * 2;
-                    const requirementElectricity = this.mineLevelToAdd * 2;
+                    const requirementOre = this.barracksLevelToAdd * 2;
+                    const requirementElectricity = this.barracksLevelToAdd * 2;
                     if (this.barracksLevelToAdd <= 0 || this.barracksLevelToAdd === null) {
                         this.barracksLevelToAdd = 0;
                         this.errorAddBarracksLevel = false;
                     }
-                    else if (requirementPopulation > this.city.population || requirementFood > this.city.food || requirementOre > this.city.ore || requirementElectricity > this.city.electrity) {
+                    else if (requirementPopulation > this.city.population || requirementFood > this.city.food || requirementOre > this.city.ore || requirementElectricity > this.city.electricity) {
                         this.barracksLevelToAdd = 0;
                         this.errorAddBarracksLevel = true;
                     }
@@ -298,7 +318,7 @@
                         this.city.population -= requirementPopulation;
                         this.city.food -= requirementFood;
                         this.city.ore -= requirementOre;
-                        this.electrity -= requirementElectricity;
+                        this.city.electricity -= requirementElectricity;
                         this.$http.put('/api/city/' + cityId + '/', this.city)
                             .then(response => {
                                 this.barracksLevelToAdd = 0;
@@ -350,7 +370,7 @@
                         this.mineLevelToAdd = 0;
                         this.errorAddMineLevel = false;
                     }
-                    else if (requirementPopulation > this.city.population || requirementFood > this.city.food || requirementOre > this.city.ore || requirementElectricity > this.city.electrity) {
+                    else if (requirementPopulation > this.city.population || requirementFood > this.city.food || requirementOre > this.city.ore || requirementElectricity > this.city.electricity) {
                         this.mineLevelToAdd = 0;
                         this.errorAddMineLevel = true;
                     }
@@ -360,7 +380,7 @@
                         this.city.population -= requirementPopulation;
                         this.city.food -= requirementFood;
                         this.city.ore -= requirementOre;
-                        this.electrity -= requirementElectricity;
+                        this.city.electricity -= requirementElectricity;
                         this.$http.put('/api/city/' + cityId + '/', this.city)
                             .then(response => {
                                 this.mineLevelToAdd = 0;
@@ -383,7 +403,7 @@
                         this.powerPlantLevelToAdd = 0;
                         this.errorAddPowerPlantLevel = false;
                     }
-                    else if (requirementPopulation > this.city.population || requirementFood > this.city.food || requirementOre > this.city.ore || requirementElectricity > this.city.electrity) {
+                    else if (requirementPopulation > this.city.population || requirementFood > this.city.food || requirementOre > this.city.ore || requirementElectricity > this.city.electricity) {
                         this.powerPlantLevelToAdd = 0;
                         this.errorAddPowerPlantLevel = true;
                     }
@@ -393,7 +413,7 @@
                         this.city.population -= requirementPopulation;
                         this.city.food -= requirementFood;
                         this.city.ore -= requirementOre;
-                        this.electrity -= requirementElectricity;
+                        this.city.electricity -= requirementElectricity;
                         this.$http.put('/api/city/' + cityId + '/', this.city)
                             .then(response => {
                                 this.powerPlantLevelToAdd = 0;
@@ -416,7 +436,7 @@
                         this.farmsLevelToAdd = 0;
                         this.errorAddFarmsLevel = false;
                     }
-                    else if (requirementPopulation > this.city.population || requirementFood > this.city.food || requirementOre > this.city.ore || requirementElectricity > this.city.electrity) {
+                    else if (requirementPopulation > this.city.population || requirementFood > this.city.food || requirementOre > this.city.ore || requirementElectricity > this.city.electricity) {
                         this.farmsLevelToAdd = 0;
                         this.errorAddFarmsLevel = true;
                     }
@@ -426,7 +446,7 @@
                         this.city.population -= requirementPopulation;
                         this.city.food -= requirementFood;
                         this.city.ore -= requirementOre;
-                        this.electrity -= requirementElectricity;
+                        this.city.electricity -= requirementElectricity;
                         this.$http.put('/api/city/' + cityId +'/', this.city)
                             .then(response => {
                                 this.farmsLevelToAdd = 0;
@@ -436,6 +456,36 @@
                             .catch(error => {
                                 this.farmsLevelToAdd = 0;
                                 this.getData();
+                                console.error(error)
+                            })
+                    }
+                },
+                AddHousingLevel() {
+                    const requirementFood = this.housingLevelToAdd * 10;
+                    const requirementOre = this.housingLevelToAdd * 10;
+                    const requirementElectricity = this.housingLevelToAdd * 10;
+                    if (this.housingLevelToAdd <= 0 || this.housingLevelToAdd === null) {
+                        this.housingLevelToAdd = 0;
+                        this.errorAddHousingLevel = false;
+                    }
+                    else if (requirementFood > this.city.food || requirementOre > this.city.ore || requirementElectricity > this.city.electricity) {
+                        this.housingLevelToAdd = 0;
+                        this.errorAddHousingLevel = true;
+                    }
+                    else {
+                        this.errorAddHousingLevel = false;
+                        this.city.housing += this.housingLevelToAdd;
+                        this.city.population += this.housingLevelToAdd * 100;
+                        this.city.food -= requirementFood;
+                        this.city.ore -= requirementOre;
+                        this.city.electricity -= requirementElectricity;
+                        this.$http.put('/api/city/' + cityId + '/', this.city)
+                            .then(response => {
+                                this.housingLevelToAdd = 0;
+                                this.getData();
+                                console.log(response)
+                            })
+                            .catch(error => {
                                 console.error(error)
                             })
                     }

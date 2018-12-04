@@ -43,7 +43,7 @@ class Server(models.Model):
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    alliance = models.OneToOneField(alliance.models.Alliance, on_delete=models.CASCADE, blank=True, null=True)
+    alliance = models.ForeignKey(alliance.models.Alliance, on_delete=models.CASCADE, blank=True, null=True)
     bio = models.TextField(null=True, blank=True)
     profile_pic = models.FileField(null=True, blank=True)
     is_premium = models.BooleanField(default=False)

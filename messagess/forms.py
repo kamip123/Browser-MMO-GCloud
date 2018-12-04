@@ -6,4 +6,3 @@ class sendMessageForm(forms.ModelForm):
     class Meta:
         model = Message
         fields = ['to_who', 'title', 'text', ]
-

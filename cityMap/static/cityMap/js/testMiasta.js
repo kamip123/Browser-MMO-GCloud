@@ -33,6 +33,26 @@ function listenerClickBarracks() {
     window.location.href = "rekrutacja";
 }
 
+function listenerClickFarms() {
+    window.location.href = "farmy";
+}
+
+function listenerClickRoads() {
+    window.location.href = "drogi";
+}
+
+function listenerClickHousing() {
+    window.location.href = "mieszkania";
+}
+
+function listenerClickMine() {
+    window.location.href = "kopalnia";
+}
+
+function listenerClickPowerPlant() {
+    window.location.href = "elektrownia";
+}
+
 class townHall{
 	constructor(lvl) {
 		this.name = "Ratusz";
@@ -151,11 +171,11 @@ function create() {
 	
 	farms = new farms(lvlfarms);
 	farms.sprite.inputEnabled = true;
-	farms.sprite.events.onInputDown.add(listenerClickTownHall, this);
+	//farms.sprite.events.onInputDown.add(listenerClickFarms, this);
 	
 	roads = new roads(lvlroads);
 	roads.sprite.inputEnabled = true;
-	roads.sprite.events.onInputDown.add(listenerClickTownHall, this);
+	//roads.sprite.events.onInputDown.add(listenerClickRoads, this);
 	
 	townHall = new townHall(lvltownHall);
 	townHall.sprite.inputEnabled = true;
@@ -167,15 +187,15 @@ function create() {
 	
 	powerPlant = new powerPlant(lvlpowerPlant);
 	powerPlant.sprite.inputEnabled = true;
-	powerPlant.sprite.events.onInputDown.add(listenerClickTownHall, this);
+	//powerPlant.sprite.events.onInputDown.add(listenerClickPowerPlant, this);
 	
 	housing = new housing(lvlhousing);
 	housing.sprite.inputEnabled = true;
-	housing.sprite.events.onInputDown.add(listenerClickTownHall, this);
+	housing.sprite.events.onInputDown.add(listenerClickHousing, this);
 	
 	mine = new mine(lvlmine);
 	mine.sprite.inputEnabled = true;
-    mine.sprite.events.onInputDown.add(listenerClickTownHall, this);
+    //mine.sprite.events.onInputDown.add(listenerClickMine, this);
 	
     game.world.scale.set(0.82)
 }

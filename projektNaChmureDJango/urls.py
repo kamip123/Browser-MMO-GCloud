@@ -31,7 +31,7 @@ urlpatterns = [
     path('premium/', include('premium.urls')),
     path('profil/', include('profileUser.urls')),
     path('api/', include(router.urls)),
-    path('rankings/', include('rankings.urls')),
+    path('rankingi/', include('rankings.urls')),
 ]
 
 if settings.DEBUG:

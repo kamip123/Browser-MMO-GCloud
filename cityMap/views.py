@@ -34,6 +34,11 @@ def barracks_city_id(request, id_of_city):
 
 
 @login_required(login_url='../../../../../../../')
+def housing_city_id(request, id_of_city):
+    return render(request, 'housing.html', {'id_of_city': id_of_city})
+
+
+@login_required(login_url='../../../../../../../')
 def main_page_city(request):
     user = request.user
     if request.method == 'POST':
@@ -81,26 +86,29 @@ def main_page_city(request):
 
 @login_required(login_url='../../../../../../../')
 def colonize_new_city(request):
-    have_enought_resources = 1
-    if have_enought_resources == 1:
-        city = CityOwned(city_name="New City")
-        city.city_owner = request.user
+    if request.method == 'POST':
+        have_enought_resources = int(request.POST.get('resource_check', False))
+        if have_enought_resources == 1:
+            city = request.POST.get('city_name', "new city")
+            city.city_owner = request.user
 
-        server = Server.objects.get(id=1)
-        city.pos_x = server.next_village_x
-        city.pos_y = server.next_village_y
-        server.next_village_id = server.next_village_id + 1
-        server.save()
-        nextCityPos = CityPositions.objects.get(id=server.next_village_id)
-        server.update_village_pos(nextCityPos.village_x, nextCityPos.village_y)
-        server.save()
+            server = Server.objects.get(id=1)
+            city.pos_x = server.next_village_x
+            city.pos_y = server.next_village_y
+            server.next_village_id = server.next_village_id + 1
+            server.save()
+            nextCityPos = CityPositions.objects.get(id=server.next_village_id)
+            server.update_village_pos(nextCityPos.village_x, nextCityPos.village_y)
+            server.save()
 
-        city.town_hall = 2
-        city.barracks = 2
-        city.roads = 1
-        city.mines = 1
-        city.power_plant = 1
-        city.farms = 1
-        city.is_Capital = False
-        city.save()
+            city.town_hall = 2
+            city.barracks = 2
+            city.roads = 1
+            city.mines = 1
+            city.power_plant = 1
+            city.farms = 1
+            city.is_Capital = False
+            city.save()
+            return redirect('../city_list/')
         return redirect('../city_list/')
+    return redirect('../city_list/')

@@ -35,7 +35,7 @@ var infoPanel;
 var text;
 var liczbaMiast = 0;
 var lineList = [];
-
+var graphics = [];
 
 
 
@@ -89,26 +89,46 @@ function create() {
 	for(var i=0;i<liczbaArmi;i++){
         lineList[i] = new Phaser.Line(parseInt(cityListAttackerX[i])+25, parseInt(cityListAttackerY[i])+25, parseInt(cityListDefenderX[i])+25, parseInt(cityListDefenderY[i])+25);
 
-        var graphics=game.add.graphics(0,0);
-        graphics.lineStyle(10, 0xffd900, 1);
-        graphics.moveTo(lineList[i].start.x,lineList[i].start.y);
-        graphics.lineTo(lineList[i].end.x,lineList[i].end.y);
-        graphics.endFill();
+        graphics[i]=game.add.graphics(0,0);
+        graphics[i].lineStyle(10, 0xffd900, 1);
+        graphics[i].moveTo(lineList[i].start.x,lineList[i].start.y);
+        graphics[i].lineTo(lineList[i].end.x,lineList[i].end.y);
+        graphics[i].endFill();
 
-        armyList[i] = game.add.sprite(parseInt(cityListAttackerX[i]), parseInt(cityListAttackerY[i]), 'tankGif');
+        //////
+        current_x = parseInt(cityListAttackerX[i]);
+        current_y = parseInt(cityListAttackerY[i]);
+        send_time = cityListAttackerTime[i];
+        arrive_time = cityLisDefenderTime[i];
+        current_time = Date.now() / 1000;
+        //////
+        travel_time = Math.abs(send_time - arrive_time);
+        traveled_time = Math.abs(arrive_time - current_time);
+        percent_traveled = 100 * traveled_time / travel_time;
+        percent_traveled = (100 - percent_traveled) / 100;
+        current_x = (parseInt(cityListDefenderX[i]) - current_x) * percent_traveled;
+        current_x = parseInt(cityListAttackerX[i]) + current_x;
+        current_y = (parseInt(cityListDefenderY[i]) - current_y) * percent_traveled;
+        current_y = parseInt(cityListAttackerY[i]) + current_y;
+        //////
 
-        game.time.events.add(Phaser.Timer.SECOND * 5, stopAnimation, this, armyList[i]);
+        armyList[i] = game.add.sprite(current_x, current_y, 'tankGif');
+
+        game.time.events.add(Phaser.Timer.SECOND * (cityLisDefenderTime[i] - (Date.now() / 1000)), stopAnimation, this, armyList[i]);
+        game.time.events.add(Phaser.Timer.SECOND * (cityLisDefenderTime[i] - (Date.now() / 1000)), stopLine, this, graphics[i]);
 
         armyList[i].animations.add('run');
         armyList[i].animations.play('run', 15, true);
         game.physics.arcade.enable(armyList[i]);
 
-        game.physics.arcade.moveToXY(armyList[i], parseInt(cityListDefenderX[i]), parseInt(cityListDefenderY[i]), 10, 5000);
-
+        game.physics.arcade.moveToXY(armyList[i], parseInt(cityListDefenderX[i]), parseInt(cityListDefenderY[i]), 10, (cityLisDefenderTime[i] - (Date.now() / 1000))*1000);
     }
-
     cursors = game.input.keyboard.createCursorKeys();
+}
 
+function stopLine(i) {
+    i.destroy();
+    //alert("One of your army arrived at destination");
 }
 
 function stopAnimation(i) {

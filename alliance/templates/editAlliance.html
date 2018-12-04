@@ -62,26 +62,21 @@
 
     <div class="row">
         <div class="col-lg-2 alliancePanel text-center">
-            <p class="allianceText"><a href="../../"><u>Your alliance</u></a></p>
-            <p class="allianceText"><a href="listOfAlliances/"><u>Alliance List</u></a></p>
+            <p class="allianceText"><a href="../"><u>Your alliance</u></a></p>
+            <p class="allianceText"><a href="../listOfAlliances/"><u>Alliance List</u></a></p>
         </div>
         <div class="col-lg-10 text-center">
-            {% if alliance == 1%}
-                <h1>You don't have an alliance. Why don't you create a new one ?</h1>
-                <form action='' method='POST' enctype='multipart/form-data'>
-                    {% csrf_token %}
-                    <p>{{ form.name.errors.as_text }}</p>
-                    <p>Alliance name: {{ form.name }}</p>
-                    <p>{{ form.alliance_bio.errors.as_text }}</p>
-                    <p>Alliance description: {{ form.alliance_bio }}</p>
-                    <p>{{ form.alliance_logo.errors.as_text }}</p>
-                    <p>Alliance logo: {{ form.alliance_logo }}</p>
-                    <input type="submit" value="Create" name="CreateForm">
-                </form>
-            {% else %}
-                {% block showAlliance %}
-                {% endblock %}
-            {% endif %}
+            <h1>You can edit your alliance here</h1>
+            <form action='' method='POST' enctype='multipart/form-data'>
+                {% csrf_token %}
+                <p>{{ form.name.errors.as_text }}</p>
+                <p>Alliance name: {{ form.name }}</p>
+                <p>{{ form.alliance_bio.errors.as_text }}</p>
+                <p>Alliance description: {{ form.alliance_bio }}</p>
+                <p>{{ form.alliance_logo.errors.as_text }}</p>
+                <p>Alliance logo: {{ form.alliance_logo }}</p>
+                <input type="submit" value="Change" name="ChangeForm">
+            </form>
         </div>
     </div>
 </div>
