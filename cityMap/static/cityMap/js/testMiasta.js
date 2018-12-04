@@ -168,14 +168,14 @@ function create() {
 	game.world.setBounds(-0, -0, 1155, 800);
 	
 	game.add.sprite(0, 0, 'background');
-	
-	farms = new farms(lvlfarms);
-	farms.sprite.inputEnabled = true;
-	//farms.sprite.events.onInputDown.add(listenerClickFarms, this);
-	
+
 	roads = new roads(lvlroads);
 	roads.sprite.inputEnabled = true;
-	//roads.sprite.events.onInputDown.add(listenerClickRoads, this);
+	roads.sprite.events.onInputDown.add(listenerClickRoads, this);
+
+	farms = new farms(lvlfarms);
+	farms.sprite.inputEnabled = true;
+	farms.sprite.events.onInputDown.add(listenerClickFarms, this);
 	
 	townHall = new townHall(lvltownHall);
 	townHall.sprite.inputEnabled = true;
@@ -187,7 +187,7 @@ function create() {
 	
 	powerPlant = new powerPlant(lvlpowerPlant);
 	powerPlant.sprite.inputEnabled = true;
-	//powerPlant.sprite.events.onInputDown.add(listenerClickPowerPlant, this);
+	powerPlant.sprite.events.onInputDown.add(listenerClickPowerPlant, this);
 	
 	housing = new housing(lvlhousing);
 	housing.sprite.inputEnabled = true;
@@ -195,7 +195,7 @@ function create() {
 	
 	mine = new mine(lvlmine);
 	mine.sprite.inputEnabled = true;
-    //mine.sprite.events.onInputDown.add(listenerClickMine, this);
+    mine.sprite.events.onInputDown.add(listenerClickMine, this);
 	
     game.world.scale.set(0.82)
 }

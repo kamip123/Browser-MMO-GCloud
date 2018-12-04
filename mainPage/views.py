@@ -111,3 +111,13 @@ def main_page(request):
             login_form = AuthenticationForm()
             posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
             return render(request, 'index.html', {'posts': posts, 'form': form, 'login_form': login_form})
+
+
+def show_article_details(request, id_of_article):
+    post = Post.objects.get(id=id_of_article)
+    return render(request, 'articleDetail.html', {'post': post})
+
+
+def show_forum(request):
+    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    return render(request, 'forum.html', {'posts': posts})

@@ -31,6 +31,52 @@ def town_hall_city_id(request, id_of_city):
 
 
 @login_required(login_url='../../../../../../../')
+def farms_city_id(request, id_of_city):
+    city = CityOwned.objects.get(id = id_of_city)
+    current_level = city.farms
+    current_level_production = city.farms*10
+    next_level = city.farms+1
+    next_level_production =(city.farms+1) * 10
+    return render(request, 'farms.html', {'next_level': next_level, 'current_level': current_level, 'current_level_production': current_level_production, 'next_level_production': next_level_production})
+
+
+@login_required(login_url='../../../../../../../')
+def roads_city_id(request, id_of_city):
+    city = CityOwned.objects.get(id=id_of_city)
+    current_level = city.roads
+    current_level_production = city.roads * 2
+    next_level = city.roads + 1
+    next_level_production = (city.roads + 1) * 2
+    return render(request, 'roads.html', {'next_level': next_level, 'current_level': current_level,
+                                               'current_level_production': current_level_production,
+                                               'next_level_production': next_level_production})
+
+
+@login_required(login_url='../../../../../../../')
+def powerPlant_city_id(request, id_of_city):
+    city = CityOwned.objects.get(id=id_of_city)
+    current_level = city.power_plant
+    current_level_production = city.power_plant * 10
+    next_level = city.power_plant + 1
+    next_level_production = (city.power_plant + 1) * 10
+    return render(request, 'powerPlant.html', {'next_level': next_level, 'current_level': current_level,
+                                          'current_level_production': current_level_production,
+                                          'next_level_production': next_level_production})
+
+
+@login_required(login_url='../../../../../../../')
+def mines_city_id(request, id_of_city):
+    city = CityOwned.objects.get(id=id_of_city)
+    current_level = city.mines
+    current_level_production = city.mines * 10
+    next_level = city.mines + 1
+    next_level_production = (city.mines + 1) * 10
+    return render(request, 'mines.html', {'next_level': next_level, 'current_level': current_level,
+                                          'current_level_production': current_level_production,
+                                          'next_level_production': next_level_production})
+
+
+@login_required(login_url='../../../../../../../')
 def barracks_city_id(request, id_of_city):
     return render(request, 'barracks.html', {'id_of_city': id_of_city})
 

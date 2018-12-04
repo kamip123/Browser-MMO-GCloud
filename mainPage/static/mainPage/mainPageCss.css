@@ -142,3 +142,17 @@ button {
 button:hover {
     background-color: #bc0101;
 }
+
+footer table {
+	font-family: arial, sans-serif;
+    width:100%;
+    border-collapse: collapse;
+    border-radius: 1em;
+    overflow: hidden;
+}
+
+footer th, footer td {
+  padding: 1em;
+  background: #ddd;
+  border-bottom: 2px solid blue;
+}

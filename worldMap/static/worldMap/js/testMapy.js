@@ -90,7 +90,7 @@ function create() {
         lineList[i] = new Phaser.Line(parseInt(cityListAttackerX[i])+25, parseInt(cityListAttackerY[i])+25, parseInt(cityListDefenderX[i])+25, parseInt(cityListDefenderY[i])+25);
 
         graphics[i]=game.add.graphics(0,0);
-        graphics[i].lineStyle(10, 0xffd900, 1);
+        graphics[i].lineStyle(5, 0xffd900, 1);
         graphics[i].moveTo(lineList[i].start.x,lineList[i].start.y);
         graphics[i].lineTo(lineList[i].end.x,lineList[i].end.y);
         graphics[i].endFill();

@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'raports',
     'premium',
     'profileUser',
+    'kontakt',
     'rest_framework',
     'background_task',
 ]

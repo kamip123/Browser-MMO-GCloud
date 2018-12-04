@@ -32,6 +32,7 @@ urlpatterns = [
     path('profil/', include('profileUser.urls')),
     path('api/', include(router.urls)),
     path('rankingi/', include('rankings.urls')),
+    path('kontakt/', include('kontakt.urls')),
 ]
 
 if settings.DEBUG:
