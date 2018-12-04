@@ -11,7 +11,6 @@ from worldMap.models import delete_attack
 
 @login_required(login_url='../../../../../../../')
 def main_page_city_list(request):
-    delete_attack(5, schedule=10)
     user = request.user
     city_list = CityOwned.objects.filter(city_owner=user.id)
     return render(request, 'indexCityList.html', {'city_list': city_list})
@@ -36,7 +35,7 @@ def farms_city_id(request, id_of_city):
     current_level = city.farms
     current_level_production = city.farms*10
     next_level = city.farms+1
-    next_level_production =(city.farms+1) * 10
+    next_level_production = (city.farms+1) * 10
     return render(request, 'farms.html', {'next_level': next_level, 'current_level': current_level, 'current_level_production': current_level_production, 'next_level_production': next_level_production})
 
 
@@ -158,6 +157,6 @@ def colonize_new_city(request):
             city.farms = 1
             city.is_Capital = False
             city.save()
-            return redirect('../city_list/')
-        return redirect('../city_list/')
-    return redirect('../city_list/')
+            return redirect('../../../../../')
+        return redirect('../../../../../')
+    return redirect('../../../../../')

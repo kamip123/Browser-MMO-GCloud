@@ -5,7 +5,7 @@ from .models import Server
 from .models import CityPositions
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout
-from .forms import ExtendedUserCreationForm
+from .forms import ExtendedUserCreationForm, CommentForm
 from django.http import HttpResponse
 from cityMap.models import CityOwned, Housing, Farms, PowerPlant, Mines, Roads, TownHall, Barracks
 from cityMap.models import Infantry, HInfantry, LTanks, HTanks, Motorized, Planes
@@ -115,7 +115,18 @@ def main_page(request):
 
 def show_article_details(request, id_of_article):
     post = Post.objects.get(id=id_of_article)
-    return render(request, 'articleDetail.html', {'post': post})
+    form = CommentForm()
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            form = form.save(commit=False)
+            form.author = request.user
+            form.save()
+            post.comments.add(form)
+            post.save()
+            form = CommentForm()
+
+    return render(request, 'articleDetail.html', {'post': post, 'form': form})
 
 
 def show_forum(request):
