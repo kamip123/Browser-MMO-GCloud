@@ -132,3 +132,11 @@ def show_article_details(request, id_of_article):
 def show_forum(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     return render(request, 'forum.html', {'posts': posts})
+
+
+def show_support(request):
+    return render(request, 'support.html')
+
+
+def show_faq(request):
+    return render(request, 'faq.html')
