@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'kontakt',
     'rest_framework',
     'background_task',
+    'scheduleTasks',
 ]
 
 MIDDLEWARE = [

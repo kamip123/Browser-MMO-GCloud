@@ -18,7 +18,6 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 from .routers import router
-from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -33,6 +32,7 @@ urlpatterns = [
     path('api/', include(router.urls)),
     path('rankingi/', include('rankings.urls')),
     path('kontakt/', include('kontakt.urls')),
+    path('test/', include('scheduleTasks.urls')),
 ]
 
 if settings.DEBUG:

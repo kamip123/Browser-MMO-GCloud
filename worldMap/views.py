@@ -1,10 +1,13 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 import cityMap.models
-from django.http import JsonResponse
 from mainPage.models import Profile
 from django.contrib.auth.models import User
 from .models import Attack
+from cityMap.models import CityOwned
+from rest_framework.utils import json
+import math
+from django.utils import timezone
 # Create your views here.
 
 
@@ -16,21 +19,31 @@ def main_page_map(request):
 
 
 @login_required(login_url='../../../../../../../')
-def return_citys_list(request):
-    data = cityMap.models.CityOwned.objects.all().values()
-    data = list(data)
-    return JsonResponse(data, safe=False)
-
-
-@login_required(login_url='../../../../../../../')
-def return_citys_list_test(request):
-    return render(request, 'test.html')
-
-
-@login_required(login_url='../../../../../../../')
 def city_detail_info(request, id_of_city):
     city = cityMap.models.CityOwned.objects.get(id=id_of_city)
     return render(request, 'cityDetailInfo.html', {'city': city})
+
+
+@login_required(login_url='../../../../../../../')
+def city_attack(request, id_of_city):
+    attack_succesfull = 0
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        attack_correct = data['attack_correct']
+        if attack_correct == 1:
+            attacker_city = CityOwned.objects.get(id=data['attacking_city'])
+            defender_city = CityOwned.objects.get(id=id_of_city)
+            attack = Attack(attacker=attacker_city,
+                            defender=defender_city, infantry=data['infantry'],
+                            hinfantry=data['hinfantry'], planes=data['planes'], ltanks=data['ltanks'],
+                            htanks=data['htanks'], motorized=data['motorized'])
+            distance_between_citys = math.sqrt((defender_city.x - attacker_city.x)**2 + (defender_city.y - attacker_city.y)**2)
+            attack.arrive = timezone.now + + timezone.timedelta(seconds=int(distance_between_citys))
+            attack.save()
+            attack_succesfull = 1
+            return render(request, 'attacks.html', {'id_of_city': id_of_city, 'attack_succesfull': attack_succesfull})
+        return render(request, 'attacks.html', {'id_of_city': id_of_city, 'attack_succesfull': attack_succesfull})
+    return render(request, 'attacks.html', {'id_of_city': id_of_city, 'attack_succesfull': attack_succesfull})
 
 
 @login_required(login_url='../../../../../../../')

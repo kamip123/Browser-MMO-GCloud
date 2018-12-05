@@ -51,81 +51,80 @@ class BattleRaport(models.Model):
     motorizedDS = models.IntegerField(default=0)
 
     def generateName(self):
-        self.name = self.attacker.username + " attacked city: " + self.cityD
+        self.name = str(self.attacker.username) + " attacked city: " + str(self.cityD.city_name)
 
     def makeBattle(self):
-        self.created_date = timezone.now
 
-        infantry = cityMap.models.Infantry.objects.get(id=0)
-        hinfantry = cityMap.models.HInfantry.objects.get(id=0)
-        ltanks = cityMap.models.LTanks.objects.get(id=0)
-        htanks = cityMap.models.HTanks.objects.get(id=0)
-        planes = cityMap.models.Planes.objects.get(id=0)
-        motorized = cityMap.models.Motorized.objects.get(id=0)
+        infantry = cityMap.models.Infantry.objects.get(id=1)
+        hinfantry = cityMap.models.HInfantry.objects.get(id=1)
+        ltanks = cityMap.models.LTanks.objects.get(id=1)
+        htanks = cityMap.models.HTanks.objects.get(id=1)
+        planes = cityMap.models.Planes.objects.get(id=1)
+        motorized = cityMap.models.Motorized.objects.get(id=1)
 
         # --------------------------------------- #
         if self.infantryD >= self.infantryA:
-            self.infantryDS = self.infantryD - self.infantryA
+            self.infantryDS = self.infantryA
             self.infantryAS = self.infantryA
             self.infantryD = self.infantryD - self.infantryA
             self.infantryA = 0
         else:
-            self.infantryAS = self.infantryA - self.infantryD
+            self.infantryAS = self.infantryD
             self.infantryDS = self.infantryD
             self.infantryA = self.infantryA - self.infantryD
             self.infantryD = 0
         # --------------------------------------- #
         if self.hinfantryD >= self.hinfantryA:
-            self.hinfantryDS = self.hinfantryD - self.hinfantryA
+            self.hinfantryDS = self.hinfantryA
             self.hinfantryAS = self.hinfantryA
             self.hinfantryD = self.hinfantryD - self.hinfantryA
             self.hinfantryA = 0
         else:
-            self.hinfantryAS = self.hinfantryA - self.hinfantryD
+            self.hinfantryAS = self.hinfantryD
             self.hinfantryDS = self.hinfantryD
             self.hinfantryA = self.hinfantryA - self.hinfantryD
             self.hinfantryD = 0
         # -------------------------------------- #
         if self.planesD >= self.planesA:
-            self.planesDS = self.planesD - self.planesA
+            self.planesDS = self.planesA
             self.planesAS = self.planesA
             self.planesD = self.planesD - self.planesA
             self.planesA = 0
         else:
-            self.planesAS = self.planesA - self.planesD
+            self.planesAS = self.planesD
             self.planesDS = self.planesD
             self.planesA = self.planesA - self.planesD
             self.planesD = 0
         # --------------------------------------- #
         if self.ltanksD >= self.ltanksA:
-            self.ltanksDS = self.ltanksD - self.ltanksA
+            self.ltanksDS = self.ltanksA
             self.ltanksAS = self.ltanksA
             self.ltanksD = self.ltanksD - self.ltanksA
             self.ltanksA = 0
         else:
-            self.ltanksAS = self.ltanksA - self.ltanksD
+            self.ltanksAS = self.ltanksD
             self.ltanksDS = self.ltanksD
             self.ltanksA = self.ltanksA - self.ltanksD
             self.ltanksD = 0
         # --------------------------------------- #
         if self.htanksD >= self.htanksA:
-            self.htanksDS = self.htanksD - self.htanksA
+            self.htanksDS = self.htanksA
             self.htanksAS = self.htanksA
             self.htanksD = self.htanksD - self.htanksA
             self.htanksA = 0
         else:
-            self.htanksAS = self.htanksA - self.htanksD
+            self.htanksAS = self.htanksD
             self.htanksDS = self.htanksD
             self.htanksA = self.htanksA - self.htanksD
             self.htanksD = 0
         # --------------------------------------- #
         if self.motorizedD >= self.motorizedA:
-            self.motorizedDS = self.motorizedD - self.motorizedA
+            self.motorizedDS = self.motorizedA
             self.motorizedAS = self.motorizedA
             self.motorizedD = self.motorizedD - self.motorizedA
             self.motorizedA = 0
         else:
-            self.motorizedAS = self.motorizedA - self.motorizedD
+            self.motorizedAS = self.motorizedD
             self.motorizedDS = self.motorizedD
             self.motorizedA = self.motorizedA - self.motorizedD
             self.motorizedD = 0
