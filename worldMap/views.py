@@ -37,8 +37,8 @@ def city_attack(request, id_of_city):
                             defender=defender_city, infantry=data['infantry'],
                             hinfantry=data['hinfantry'], planes=data['planes'], ltanks=data['ltanks'],
                             htanks=data['htanks'], motorized=data['motorized'])
-            distance_between_citys = math.sqrt((defender_city.x - attacker_city.x)**2 + (defender_city.y - attacker_city.y)**2)
-            attack.arrive = timezone.now + + timezone.timedelta(seconds=int(distance_between_citys))
+            distance_between_citys = math.sqrt((defender_city.pos_x - attacker_city.pos_x)**2 + (defender_city.pos_y - attacker_city.pos_y)**2)
+            attack.arrive = timezone.now() + timezone.timedelta(seconds=int(distance_between_citys))
             attack.save()
             attack_succesfull = 1
             return render(request, 'attacks.html', {'id_of_city': id_of_city, 'attack_succesfull': attack_succesfull})

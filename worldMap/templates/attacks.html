@@ -48,39 +48,39 @@
                                 <label class="d-flex" for="attackingCity">Choose Attacking City</label>
                                 <select class="custom-select" v-model="attackingCity" id="attackingCity">
                                     <option v-for="city in cities" :value="city">
-                                        [[ city.name ]]
+                                        [[ city.city_name ]]
                                     </option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="infantry" class="d-flex">Infantry</label>
                                 <div v-show="errorSendInfantry" class="font-weight-bold small text-danger">You don't have enough infantry!</div>
-                                <input type="number" class="form-control" v-model="infantryToSend" id="infantry" placeholder="Enter Infantry Quantity" min="0">
+                                <input type="number" class="form-control" v-model.number="infantryToSend" id="infantry" placeholder="Enter Infantry Quantity" min="0">
                             </div>
                             <div class="form-group">
                                 <label for="hinfantry" class="d-flex">Heavy Infantry</label>
                                 <div v-show="errorSendHInfantry" class="font-weight-bold small text-danger">You don't have enough heavy infantry!</div>
-                                <input type="number" class="form-control" v-model="hinfantryToSend" id="hinfantry" placeholder="Enter Heavy Infantry Quantity" min="0">
+                                <input type="number" class="form-control" v-model.number="hinfantryToSend" id="hinfantry" placeholder="Enter Heavy Infantry Quantity" min="0">
                             </div>
                             <div class="form-group">
                                 <label for="planes" class="d-flex">Planes</label>
                                 <div v-show="errorSendPlanes" class="font-weight-bold small text-danger">You don't have enough planes!</div>
-                                <input type="number" class="form-control" v-model="planesToSend" id="planes" placeholder="Enter Planes Quantity" min="0">
+                                <input type="number" class="form-control" v-model.number="planesToSend" id="planes" placeholder="Enter Planes Quantity" min="0">
                             </div>
                             <div class="form-group">
                                 <label for="ltanks" class="d-flex">Light Tanks</label>
                                 <div v-show="errorSendLTanks" class="font-weight-bold small text-danger">You don't have enough light tanks!</div>
-                                <input type="number" class="form-control" v-model="ltanksToSend" id="ltanks" placeholder="Enter Light Tanks Quantity" min="0">
+                                <input type="number" class="form-control" v-model.number="ltanksToSend" id="ltanks" placeholder="Enter Light Tanks Quantity" min="0">
                             </div>
                             <div class="form-group">
                                 <label for="htanks" class="d-flex">Heavy Infantry</label>
                                 <div v-show="errorSendHTanks" class="font-weight-bold small text-danger">You don't have enough heavy tanks!</div>
-                                <input type="number" class="form-control" v-model="htanksToSend" id="htanks" placeholder="Enter Heavy Tanks Quantity" min="0">
+                                <input type="number" class="form-control" v-model.number="htanksToSend" id="htanks" placeholder="Enter Heavy Tanks Quantity" min="0">
                             </div>
                             <div class="form-group">
                                 <label for="motorized" class="d-flex">Motorized</label>
                                 <div v-show="errorSendMotorized" class="font-weight-bold small text-danger">You don't have enough motorized!</div>
-                                <input type="number" class="form-control" v-model="motorizedToSend" id="motorized" placeholder="Enter Motorized Quantity" min="0">
+                                <input type="number" class="form-control" v-model.number="motorizedToSend" id="motorized" placeholder="Enter Motorized Quantity" min="0">
                             </div>
                             <div class="form-group">
                                 <div v-show="errorSendAttack" class="font-weight-bold small text-danger">You don't have enough resources!</div>
@@ -93,36 +93,36 @@
                         <h2>Available Army</h2>
                         <table class="table table-borderless table-dark table-hover">
                             <thead>
-                            <tr>
-                                <th>Unit Name</th>
-                                <th>Quantity</th>
-                            </tr>
+                                <tr>
+                                    <th>Unit Name</th>
+                                    <th>Quantity</th>
+                                </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>Infantry</td>
-                                <td>[[ city.infantry ]]</td>
-                            </tr>
-                            <tr>
-                                <td>Heavy Infantry</td>
-                                <td>[[ city.hinfantry ]]</td>
-                            </tr>
-                            <tr>
-                                <td>Planes</td>
-                                <td>[[ city.planes ]]</td>
-                            </tr>
-                            <tr>
-                                <td>Light Tanks</td>
-                                <td>[[ city.ltanks ]]</td>
-                            </tr>
-                            <tr>
-                                <td>Heavy Tanks</td>
-                                <td>[[ city.htanks ]]</td>
-                            </tr>
-                            <tr>
-                                <td>Motorized</td>
-                                <td>[[ city.motorized ]]</td>
-                            </tr>
+                                <tr>
+                                    <td>Infantry</td>
+                                    <td>[[ attackingCity.infantry ]]</td>
+                                </tr>
+                                <tr>
+                                    <td>Heavy Infantry</td>
+                                    <td>[[ attackingCity.hinfantry ]]</td>
+                                </tr>
+                                <tr>
+                                    <td>Planes</td>
+                                    <td>[[ attackingCity.planes ]]</td>
+                                </tr>
+                                <tr>
+                                    <td>Light Tanks</td>
+                                    <td>[[ attackingCity.ltanks ]]</td>
+                                </tr>
+                                <tr>
+                                    <td>Heavy Tanks</td>
+                                    <td>[[ attackingCity.htanks ]]</td>
+                                </tr>
+                                <tr>
+                                    <td>Motorized</td>
+                                    <td>[[ attackingCity.motorized ]]</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -164,7 +164,7 @@
                         this.$http.get('/api/city')
                             .then(response => {
                                 this.cities = response.data;
-                                this.cities.filter(city => city.city_owner === userId);
+                                this.cities = this.cities.filter(city => city.city_owner === userId);
                                 console.log(response)
                             })
                             .catch(error => {
@@ -190,25 +190,26 @@
                             this.attackingCity.ltanks -= this.ltanksToSend;
                             this.attackingCity.htanks -= this.htanksToSend;
                             this.attackingCity.motorized -= this.motorizedToSend;
-                            const payload = {
-                                attack_correct: 1,
-                                attacking_city: this.attackingCity.id,
-                                infantry: this.infantryToSend,
-                                hinfantry: this.hinfantryToSend,
-                                planes: this.planesToSend,
-                                ltanks: this.ltanksToSend,
-                                htanks: this.htanksToSend,
-                                motorized: this.motorizedToSend
-                            };
-                            this.$http({url: '/mapa/' + cityId + '/atak/', payload: payload, method: 'POST'}).then(function (response) {
-                                this.attackSuccess = response.data.attack_succesfull;
-                                this.getData();
-                                console.log(response.data);
-                            }, function (response) {
-                                this.attackSuccess = 0;
-                                this.getData();
-                                console.error(response.data);
-                            });
+                            this.$http.post('/mapa/' + cityId + '/atak/', {
+                                    attack_correct: 1,
+                                    attacking_city: this.attackingCity.id,
+                                    infantry: this.infantryToSend,
+                                    hinfantry: this.hinfantryToSend,
+                                    planes: this.planesToSend,
+                                    ltanks: this.ltanksToSend,
+                                    htanks: this.htanksToSend,
+                                    motorized: this.motorizedToSend
+                                })
+                                .then(response => {
+                                    this.attackSuccess = response.data.attack_succesfull;
+                                    this.getData();
+                                    console.log(response.data);
+                                })
+                                .catch(error => {
+                                    this.attackSuccess = 0;
+                                    this.getData();
+                                    console.error(error.data);
+                                });
                             this.$http.put('/api/city/' + this.attackingCity.id + '/', this.attackingCity)
                                 .then(response => {
                                     this.getData();
