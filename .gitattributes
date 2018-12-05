@@ -1,2 +1,3 @@
 cityMap/static/cityMap/js/phaser.js linguist-vendored=true
 worldMap/static/worldMap/js/phaser.js linguist-vendored=true
+venv/* linguist-vendored=true
