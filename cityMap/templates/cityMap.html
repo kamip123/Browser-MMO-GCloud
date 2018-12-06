@@ -9,17 +9,16 @@
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
       <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+      <link rel="stylesheet" href="{% static 'cityMap/cityMapCss.css' %}">
+
+      <script src="{% static 'cityMap/js/phaser.js' %}"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js" crossorigin="anonymous"></script>
 
-      <link rel="stylesheet" href="{% static 'cityMap/cityMapCss.css' %}">
-      <script src="{% static 'cityMap/js/phaser.js' %}"></script>
       <title>CCPX</title>
       {% if brak_miasta == 1 %}
 
       {% else %}
         <script src="{% static 'cityMap/js/testMiasta.js' %}"></script>
-
-
           <script>
               var background = "{% static 'cityMap/assets/background.png' %}"
               var barracks_1 = "{% static 'cityMap/assets/barracks_1.png' %}"
@@ -48,6 +47,7 @@
       {% endif %}
   </head>
   <body>
+
         {% if user.is_authenticated %}
             {% if brak_miasta == 1 %}
                 {% block createCity %}

@@ -1,69 +1,83 @@
 body {
-    background-color: #d8ac1d;
-    background-image:url('../cityMap/assets/yellowBackground2.png');
-	background-position: top;
+    background: url('../cityMap/assets/yellowBackground2.png') no-repeat center center fixed;
+    background-size: cover;
 }
 
 nav {
-    background-color: #785800;
-    background-image:url('../cityMap/assets/yellowBackground3.png');
-	background-position: top;
+    background: url('../cityMap/assets/yellowBackground3.png');
+    background-size: 100%;
+    border-bottom-left-radius: 20%;
+    border-bottom-right-radius: 20%;
+    font-family: 'Lobster';
 }
 
-nav div {
-    float:left;
-    width:7em; /*Fixes the width of all elements*/
-    padding-right:10px;
+.custom-center {
+    margin: auto;
 }
 
-nav div a{
-    color: white;
+nav li:hover {
+    background: #785800;
+    border-radius: 25%;
 }
 
-nav div a:link {
-    display: block;
-    width: 100%;
-    text-align:center;
-    padding: 8px 8px 8px 0.8em;
-    background-color: #000;
-    color: white;
-    color: #FFFFFF;
-    text-decoration: none;
+nav li {
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
-nav div a:hover {
-    background-color: #1c1c1c;
-    color: #5d5d5d;
-}
-
-.navbar .navbar-collapse {
-  text-align: center;
-}
-
-.cityListPanel {
-    background-color: #cc9a16;
-    border: 10px solid transparent;
-    -webkit-border-image: url('../cityMap/assets/border.png') 30 round; /* Safari 3.1-5 */
-    -o-border-image: url('../cityMap/assets/border.png') 30 round; /* Opera 11-12.1 */
+.profilePanel {
+    background-color: rgb(223, 206, 162);
+    border: 15px solid transparent;
     border-image: url('../cityMap/assets/border8.png') 30 round;
-    padding:10px;
+    height: 100%;
+    margin-top: 20px;
 }
 
-table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
+.profilePanel h3 {
+    font-family: 'Lobster';
+    margin-bottom: 20px;
+
 }
 
-td, th {
-    border: 1px solid #edb41e;
-    text-align: left;
-    padding: 8px;
+.profileLabel {
+    font-family: 'Lobster';
+    font-size: 1.2em;
+    color: black;
 }
 
-tr:nth-child(even) {
-    background-color: #edb41e;
+.profileImage {
+    border: 10px solid transparent;
+    border-image: url('../cityMap/assets/border3.png') 30 round;
+
 }
+.profileText a {
+    font-family: 'Lobster';
+    font-size: 1.2em;
+    color: black;
+}
+
+.profileText a:hover {
+    background: #785800;
+    border-radius: 25%;
+}
+
+input[type=submit] {
+    background-color: darkred;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    margin: 3px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-family: 'Lobster';
+}
+
+input[type=submit]:hover {
+    background-color: #bc0101;
+}
+
 
 
 

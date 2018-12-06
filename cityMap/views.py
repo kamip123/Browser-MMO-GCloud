@@ -134,7 +134,7 @@ def main_page_city(request):
 @login_required(login_url='../../../../../../../')
 def colonize_new_city(request):
     if request.method == 'POST':
-        data = json.loads(request.body)
+        data = json.loads(request.body.decode('utf-8'))
         have_enought_resources = data['resource_check']
         if have_enought_resources == 1:
             city = CityOwned(city_name=data['city_name'])

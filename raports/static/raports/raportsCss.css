@@ -25,6 +25,9 @@ nav li {
     margin-right: 20px;
 }
 
+a, a:hover {
+    color: #9d6600;
+}
 .raportPanel h3 {
     font-family: 'Lobster';
     margin-top: 10px;
@@ -62,6 +65,44 @@ th, td {
 table {
     font-family: arial, sans-serif;
 
+}
+button {
+    background-color: #8b0000;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    margin: 3px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-family: 'Lobster';
+}
+
+button:hover {
+    background-color: #bc0101;
+}
+
+
+input[type=button] {
+    margin-top: 30px;
+    margin-left: 50px;
+    margin-bottom: 10px;
+    background-color: darkred;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-family: 'Lobster';
+
+}
+
+input[type=button]:hover {
+    background-color: #bc0101;
+    cursor: pointer;
 }
 
 

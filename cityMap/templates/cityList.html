@@ -3,18 +3,17 @@
 <head>
     {% load static %}
 
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
           integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{% static 'cityMap/cityListCss.css' %}">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js" crossorigin="anonymous"></script>
 
     <title>CCPX</title>
 </head>
@@ -39,19 +38,19 @@
                         <a class="nav-link" href="../../wiadomosci/"><i class="fa fa-envelope"></i> Messages</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="../raporty/"><i class="fa fa-envelope-square"></i> Raports</a>
+                        <a class="nav-link" href="../../raporty/"><i class="fa fa-envelope-square"></i> Raports</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="../sojusz/"><i class="fa fa-rebel"></i> Alliance</a>
+                        <a class="nav-link" href="../../sojusz/"><i class="fab fa-rebel"></i> Alliance</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="../rankingi/"><i class="fa fa-align-justify"></i> Rankings</a>
+                        <a class="nav-link" href="../../rankingi/"><i class="fa fa-align-justify"></i> Rankings</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="../profil/"><i class="fa fa-user-circle"></i> Profil</a>
+                        <a class="nav-link" href="../../profil/"><i class="fa fa-user-circle"></i> Profil</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="../premium/"><i class="fas fa-yen-sign"></i> Premium</a>
+                        <a class="nav-link" href="../../premium/"><i class="fas fa-yen-sign"></i> Premium</a>
                     </li>
 
                 </ul>
@@ -59,13 +58,13 @@
         </div>
     </nav>
 </div>
-<div class="container">
-    <div class="row">
+<h1 class="text-center" style="font-family:'Lobster'; margin: 20px;"><u>City list</u></h1>
 
-    </div>
+<div class="container">
+    <div class="row"></div>
     {% block cityListPanel %}
     <div class="col-lg-12">
-        <h1>not found 404</h1>
+        <h1>Not found 404</h1>
     </div>
     {% endblock %}
 </div>

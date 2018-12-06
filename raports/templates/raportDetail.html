@@ -12,7 +12,8 @@
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'raports/raportsCss.css' %}">
     <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+          integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <title>CCPX</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js" crossorigin="anonymous"></script>
 </head>
@@ -31,25 +32,25 @@
                         <a class="nav-link" href="/miasto/city_list/  "><i class="fa fa-list-ul"></i> City List</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="../mapa/"><i class="fa fa-globe"></i> Map</a>
+                        <a class="nav-link" href="../../mapa/"><i class="fa fa-globe"></i> Map</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="../wiadomosci/"><i class="fa fa-envelope"></i> Messages</a>
+                        <a class="nav-link" href="../../wiadomosci/"><i class="fa fa-envelope"></i> Messages</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="../raporty/"><i class="fa fa-envelope-square"></i> Raports</a>
+                        <a class="nav-link" href="../../raporty/"><i class="fa fa-envelope-square"></i> Raports</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="../sojusz/"><i class="fa fa-rebel"></i> Alliance</a>
+                        <a class="nav-link" href="../../sojusz/"><i class="fab fa-rebel"></i> Alliance</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="../rankingi/"><i class="fa fa-align-justify"></i> Rankings</a>
+                        <a class="nav-link" href="../../rankingi/"><i class="fa fa-align-justify"></i> Rankings</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="../profil/"><i class="fa fa-user-circle"></i> Profil</a>
+                        <a class="nav-link" href="../../profil/"><i class="fa fa-user-circle"></i> Profil</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="../premium/"><i class="fas fa-yen-sign"></i> Premium</a>
+                        <a class="nav-link" href="../../premium/"><i class="fas fa-yen-sign"></i> Premium</a>
                     </li>
 
                 </ul>
@@ -57,7 +58,7 @@
         </div>
     </nav>
 </div>
-
+<h1 class="text-center" style="font-family:'Lobster'; margin: 20px;"><u>Reports </u></h1>
 <div class="container">
 
     <div class="row">
@@ -97,22 +98,7 @@
                         <td>Heavy Tanks</td>
                         <td>Planes</td>
                     </tr>
-                    <tr>
-                        <td>{{ infantryA }}</td>
-                        <td>{{ hinfantryA }}</td>
-                        <td>{{ motorizedA }}</td>
-                        <td>{{ ltanksA }}</td>
-                        <td>{{ htanksA }}</td>
-                        <td>{{ planesA }}</td>
-                    </tr>
-                    <tr>
-                        <td>- {{ raport.infantryAS }}</td>
-                        <td>- {{ raport.hinfantryAS }}</td>
-                        <td>- {{ raport.motorizedAS }}</td>
-                        <td>- {{ raport.ltanksAS }}</td>
-                        <td>- {{ raport.htanksAS }}</td>
-                        <td>- {{ raport.planesAS }}</td>
-                    </tr>
+
                     <tr>
                         <td>{{ raport.infantryA }}</td>
                         <td>{{ raport.hinfantryA }}</td>
@@ -130,22 +116,6 @@
                         <td>Light Tanks</td>
                         <td>Heavy Tanks</td>
                         <td>Planes</td>
-                    </tr>
-                    <tr>
-                        <td>{{ infantryD }}</td>
-                        <td>{{ hinfantryD }}</td>
-                        <td>{{ motorizedD }}</td>
-                        <td>{{ ltanksD }}</td>
-                        <td>{{ htanksD }}</td>
-                        <td>{{ planesD }}</td>
-                    </tr>
-                    <tr>
-                        <td>- {{ raport.infantryDS }}</td>
-                        <td>- {{ raport.hinfantryDS }}</td>
-                        <td>- {{ raport.motorizedDS }}</td>
-                        <td>- {{ raport.ltanksDS }}</td>
-                        <td>- {{ raport.htanksDS }}</td>
-                        <td>- {{ raport.planesDS }}</td>
                     </tr>
                     <tr>
                         <td>{{ raport.infantryD }}</td>
@@ -174,10 +144,11 @@
                     <td>{{ raport.alliance.name }}</td>
                     <td>{{ raport.created_date }}</td>
                 </tr>
-                <tr>
-                    <td><a href="invite/">accept invite</a></td>
-                </tr>
             </table>
+            <form>
+                <input type="button" value="Accept invite"
+                       onclick="window.location.href='invite/'"/>
+            </form>
 
             {% endif %}
 

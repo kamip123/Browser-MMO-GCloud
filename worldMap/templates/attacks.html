@@ -201,6 +201,7 @@
                                     motorized: this.motorizedToSend
                                 })
                                 .then(response => {
+									//this.attackSuccess = 1;
                                     this.attackSuccess = response.data.attack_succesfull;
                                     this.getData();
                                     console.log(response.data);

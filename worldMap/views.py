@@ -8,6 +8,7 @@ from cityMap.models import CityOwned
 from rest_framework.utils import json
 import math
 from django.utils import timezone
+from django.http import JsonResponse
 # Create your views here.
 
 
@@ -28,7 +29,7 @@ def city_detail_info(request, id_of_city):
 def city_attack(request, id_of_city):
     attack_succesfull = 0
     if request.method == 'POST':
-        data = json.loads(request.body)
+        data = json.loads(request.body.decode('utf-8'))
         attack_correct = data['attack_correct']
         if attack_correct == 1:
             attacker_city = CityOwned.objects.get(id=data['attacking_city'])
@@ -41,9 +42,9 @@ def city_attack(request, id_of_city):
             attack.arrive = timezone.now() + timezone.timedelta(seconds=int(distance_between_citys))
             attack.save()
             attack_succesfull = 1
-            return render(request, 'attacks.html', {'id_of_city': id_of_city, 'attack_succesfull': attack_succesfull})
-        return render(request, 'attacks.html', {'id_of_city': id_of_city, 'attack_succesfull': attack_succesfull})
-    return render(request, 'attacks.html', {'id_of_city': id_of_city, 'attack_succesfull': attack_succesfull})
+            return JsonResponse({'attack_succesfull': attack_succesfull})
+        return JsonResponse({'attack_succesfull': attack_succesfull})
+    return render(request, 'attacks.html', {'id_of_city': id_of_city})
 
 
 @login_required(login_url='../../../../../../../')

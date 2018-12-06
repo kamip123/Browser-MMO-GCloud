@@ -25,6 +25,9 @@ nav li {
     margin-right: 20px;
 }
 
+a, a:hover {
+    color: #9d6600;
+}
 
 .cityListPanel {
     background-color: rgb(223, 206, 162);
@@ -51,6 +54,22 @@ th, td {
 table {
     font-family: arial, sans-serif;
 
+}
+button {
+    background-color: #8b0000;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    margin: 3px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-family: 'Lobster';
+}
+
+button:hover {
+    background-color: #bc0101;
 }
 
 
