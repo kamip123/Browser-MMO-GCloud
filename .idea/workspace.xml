@@ -2,6 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ea2b1214-f616-4858-b4c1-b71e812d2c62" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/alliance/static/alliance/defaultProfilePic.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cityMap/static/cityMap/barracks.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cityMap/static/cityMap/townhall.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cityMap/templates/townhall_wyglad.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rankings/static/rankings/rankings.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/alliance/static/alliance/allianceCss.css" beforeDir="false" afterPath="$PROJECT_DIR$/alliance/static/alliance/allianceCss.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/alliance/templates/alliance.html" beforeDir="false" afterPath="$PROJECT_DIR$/alliance/templates/alliance.html" afterDir="false" />
@@ -13,7 +18,6 @@
       <change beforePath="$PROJECT_DIR$/cityMap/static/cityMap/assets/yellowBackground2.png" beforeDir="false" afterPath="$PROJECT_DIR$/cityMap/static/cityMap/assets/yellowBackground2.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cityMap/static/cityMap/cityListCss.css" beforeDir="false" afterPath="$PROJECT_DIR$/cityMap/static/cityMap/cityListCss.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cityMap/static/cityMap/cityMapCss.css" beforeDir="false" afterPath="$PROJECT_DIR$/cityMap/static/cityMap/cityMapCss.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cityMap/static/cityMap/js/phaser.js" beforeDir="false" afterPath="$PROJECT_DIR$/cityMap/static/cityMap/js/phaser.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cityMap/templates/barracks.html" beforeDir="false" afterPath="$PROJECT_DIR$/cityMap/templates/barracks.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cityMap/templates/cityList.html" beforeDir="false" afterPath="$PROJECT_DIR$/cityMap/templates/cityList.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cityMap/templates/cityMap.html" beforeDir="false" afterPath="$PROJECT_DIR$/cityMap/templates/cityMap.html" afterDir="false" />
@@ -39,19 +43,13 @@
       <change beforePath="$PROJECT_DIR$/mainPage/templates/registerPanel.html" beforeDir="false" afterPath="$PROJECT_DIR$/mainPage/templates/registerPanel.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mainPage/templates/support.html" beforeDir="false" afterPath="$PROJECT_DIR$/mainPage/templates/support.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/messagess/static/messagess/messagessCss.css" beforeDir="false" afterPath="$PROJECT_DIR$/messagess/static/messagess/messagessCss.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/messagess/templates/indexMessagess.html" beforeDir="false" afterPath="$PROJECT_DIR$/messagess/templates/indexMessagess.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/messagess/templates/messagess.html" beforeDir="false" afterPath="$PROJECT_DIR$/messagess/templates/messagess.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/messagess/templates/messagessDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/messagess/templates/messagessDetail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/messagess/templates/messagessSend.html" beforeDir="false" afterPath="$PROJECT_DIR$/messagess/templates/messagessSend.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/messagess/templates/messagessYourSend.html" beforeDir="false" afterPath="$PROJECT_DIR$/messagess/templates/messagessYourSend.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/premium/static/premium/css/zaplacCss.css" beforeDir="false" afterPath="$PROJECT_DIR$/premium/static/premium/css/zaplacCss.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/premium/static/premium/css/zaplacCss_2.css" beforeDir="false" afterPath="$PROJECT_DIR$/premium/static/premium/css/zaplacCss_2.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/premium/static/premium/js/zaplac_script.js" beforeDir="false" afterPath="$PROJECT_DIR$/premium/static/premium/js/zaplac_script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/premium/static/premium/premiumCss.css" beforeDir="false" afterPath="$PROJECT_DIR$/premium/static/premium/premiumCss.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/premium/templates/indexPremium.html" beforeDir="false" afterPath="$PROJECT_DIR$/premium/templates/indexPremium.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/premium/templates/platnosci.html" beforeDir="false" afterPath="$PROJECT_DIR$/premium/templates/platnosci.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/premium/templates/premium.html" beforeDir="false" afterPath="$PROJECT_DIR$/premium/templates/premium.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/premium/templates/zaplac.html" beforeDir="false" afterPath="$PROJECT_DIR$/premium/templates/zaplac.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/profileUser/static/profileUser/profileUserCss.css" beforeDir="false" afterPath="$PROJECT_DIR$/profileUser/static/profileUser/profileUserCss.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/profileUser/templates/indexProfileUser.html" beforeDir="false" afterPath="$PROJECT_DIR$/profileUser/templates/indexProfileUser.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/profileUser/templates/profileProfileUser.html" beforeDir="false" afterPath="$PROJECT_DIR$/profileUser/templates/profileProfileUser.html" afterDir="false" />
@@ -64,7 +62,6 @@
       <change beforePath="$PROJECT_DIR$/worldMap/static/worldMap/worldMapCss.css" beforeDir="false" afterPath="$PROJECT_DIR$/worldMap/static/worldMap/worldMapCss.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/worldMap/templates/attacks.html" beforeDir="false" afterPath="$PROJECT_DIR$/worldMap/templates/attacks.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/worldMap/templates/cityDetailInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/worldMap/templates/cityDetailInfo.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/worldMap/templates/indexWorldMap.html" beforeDir="false" afterPath="$PROJECT_DIR$/worldMap/templates/indexWorldMap.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/worldMap/templates/userDetailInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/worldMap/templates/userDetailInfo.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/worldMap/templates/worldMap.html" beforeDir="false" afterPath="$PROJECT_DIR$/worldMap/templates/worldMap.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/worldMap/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/worldMap/views.py" afterDir="false" />
@@ -78,11 +75,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="cityDetailInfo.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/worldMap/templates/cityDetailInfo.html">
+      <file leaf-file-name="attacks.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/worldMap/templates/attacks.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="707">
-              <caret line="73" column="12" selection-start-line="73" selection-start-column="12" selection-end-line="73" selection-end-column="12" />
+            <state relative-caret-position="-2401">
+              <caret line="43" column="39" selection-start-line="43" selection-start-column="39" selection-end-line="43" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -626,13 +623,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/worldMap/templates/attacks.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="43" column="39" selection-start-line="43" selection-start-column="39" selection-end-line="43" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/worldMap/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="560">
@@ -667,8 +657,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/worldMap/templates/cityDetailInfo.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="707">
-          <caret line="73" column="12" selection-start-line="73" selection-start-column="12" selection-end-line="73" selection-end-column="12" />
+        <state relative-caret-position="741">
+          <caret line="75" column="10" lean-forward="true" selection-start-line="75" selection-start-column="10" selection-end-line="75" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/worldMap/templates/attacks.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2401">
+          <caret line="43" column="39" selection-start-line="43" selection-start-column="39" selection-end-line="43" selection-end-column="39" />
         </state>
       </provider>
     </entry>
