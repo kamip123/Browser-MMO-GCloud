@@ -1,9 +1,9 @@
 from django.shortcuts import render
 import cityMap.models
 from django.http import HttpResponse
-from worldMap.models import Attack
+from worldMap.models import Attack, Support
 import time
-from raports.models import BattleRaport
+from raports.models import BattleRaport, HelpRaport
 from cityMap.models import CityOwned
 # Create your views here.
 
@@ -18,6 +18,35 @@ def dodaj_surowce(request):
         city.save()
 
     return HttpResponse('Updated Resources')
+
+
+def zaktualizuj_wsparcie(request):
+    supports = Support.objects.all()
+    for support in supports:
+        defender_city = CityOwned.objects.get(id=support.defender.id)
+        defender_city.infantry += support.infantry
+        defender_city.hinfantry += support.hinfantry
+        defender_city.planes += support.planes
+        defender_city.ltanks += support.ltanks
+        defender_city.htanks += support.htanks
+        defender_city.motorized += support.motorized
+        defender_city.save()
+
+        raport = HelpRaport(sender=support.support.city_owner, receiver=support.defender.city_owner,
+                            city=support.defender)
+        raport.generateName()
+
+        raport.infantry = support.infantry
+        raport.hinfantry = support.hinfantry
+        raport.planes = support.planes
+        raport.ltanks = support.ltanks
+        raport.htanks = support.htanks
+        raport.motorized = support.motorized
+
+        raport.save()
+        support.delete()
+
+    return HttpResponse('Deleted old supports')
 
 
 def zaktualizuj_ataki(request):
@@ -46,6 +75,31 @@ def zaktualizuj_ataki(request):
             # make battle
             raport.generateName()
             raport.makeBattle()
+
+            if defender_city.food > raport.stolen_food:
+                defender_city.food -= raport.stolen_food
+                attacker_city.food += raport.stolen_food
+            else:
+                attacker_city.food += defender_city.food
+                raport.stolen_food = defender_city.food
+                defender_city.food = 0
+
+            if defender_city.electricity > raport.stolen_energy:
+                defender_city.electricity -= raport.stolen_energy
+                attacker_city.electricity += raport.stolen_energy
+            else:
+                attacker_city.electricity += defender_city.electricity
+                raport.stolen_energy = defender_city.electricity
+                defender_city.electricity = 0
+
+            if defender_city.ore > raport.stolen_minerals:
+                defender_city.ore -= raport.stolen_minerals
+                attacker_city.ore += raport.stolen_minerals
+            else:
+                attacker_city.ore += defender_city.ore
+                raport.stolen_minerals = defender_city.ore
+                defender_city.ore = 0
+
             raport.save()
             # update city army
             # attacker

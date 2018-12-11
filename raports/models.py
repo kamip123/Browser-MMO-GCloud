@@ -148,6 +148,12 @@ class BattleRaport(models.Model):
             self.ltanksD = 0
             self.htanksD = 0
             self.motorizedD = 0
+
+            capacity = self.infantryA * infantry.capacity + self.hinfantryA * hinfantry.capacity + self.ltanksA * ltanks.capacity + self.htanksA * htanks.capacity + self.planesA * planes.capacity + self.motorizedA * motorized.capacity
+            capacity = capacity / 3
+            self.stolen_energy = capacity
+            self.stolen_food = capacity
+            self.stolen_minerals = capacity
         elif defenderPower == attackerPower:
             self.infantryAS += self.infantryA
             self.hinfantryAS += self.hinfantryA
@@ -191,9 +197,6 @@ class BattleRaport(models.Model):
             self.htanksDS += self.htanksD
             self.motorizedDS += self.motorizedD
 
-    def stoleResources(self):
-        pass
-
 
 class AllianceInvite(models.Model):
     sender = models.ForeignKey(User, related_name='senderair', on_delete=models.CASCADE)
@@ -226,8 +229,9 @@ class HelpRaport(models.Model):
     created_date = models.DateTimeField(default=timezone.now)
     city = models.ForeignKey(cityMap.models.CityOwned, related_name='cityhr', on_delete=models.CASCADE)
     have_seen = models.BooleanField(default=False)
+
     def generateName(self):
-        self.name = "your army helped: " + self.sender.username
+        self.name = "help to: " + str(self.sender.username) + " city: " + str(self.city)
 
 
 class SpecialResourceRaport(models.Model):

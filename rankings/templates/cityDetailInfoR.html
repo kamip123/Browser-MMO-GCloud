@@ -25,28 +25,28 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a class="nav-link" href="../../miasto/city_list/  "><i class="fa fa-list-ul"></i> City List</a>
+                        <a class="nav-link" href="../../../miasto/city_list/  "><i class="fa fa-list-ul"></i> City List</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="../../mapa/"><i class="fa fa-globe"></i> Map</a>
+                        <a class="nav-link" href="../../../mapa/"><i class="fa fa-globe"></i> Map</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="../../wiadomosci/"><i class="fa fa-envelope"></i> Messages</a>
+                        <a class="nav-link" href="../../../wiadomosci/"><i class="fa fa-envelope"></i> Messages</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="../../raporty/"><i class="fa fa-envelope-square"></i> Raports</a>
+                        <a class="nav-link" href="../../../raporty/"><i class="fa fa-envelope-square"></i> Raports</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="../../sojusz/"><i class="fab fa-rebel"></i> Alliance</a>
+                        <a class="nav-link" href="../../../sojusz/"><i class="fab fa-rebel"></i> Alliance</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="../../rankingi/"><i class="fa fa-align-justify"></i> Rankings</a>
+                        <a class="nav-link" href="../../../rankingi/"><i class="fa fa-align-justify"></i> Rankings</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="../../profil/"><i class="fa fa-user-circle"></i> Profil</a>
+                        <a class="nav-link" href="../../../profil/"><i class="fa fa-user-circle"></i> Profil</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="../../premium/"><i class="fas fa-yen-sign"></i> Premium</a>
+                        <a class="nav-link" href="../../../premium/"><i class="fas fa-yen-sign"></i> Premium</a>
                     </li>
 
                 </ul>
@@ -60,7 +60,7 @@
     <div class="row">
         <div class="col-lg-12 profilePanel text-center">
 
-            <p class="text-center profileLabel"> Owner: <a href='{{ city.city_owner.id }}'>{{ city.city_owner }}</a></p>
+            <p class="text-center profileLabel"> Owner: <a href='../'>{{ city.city_owner }}</a></p>
 
             <p class="text-center profileLabel"> Name: {{ city.city_name }}</p>
 
@@ -70,10 +70,6 @@
 
             <p class="text-center profileLabel"> PozY: {{ city.pos_y }}</p>
 
-            <p class="text-center profileLabel"><button><a href="atak/">Attack this city!</a></button></p>
-            {% if same_alliance == 1%}
-            <p class="text-center profileLabel"><button><a href="wsparcie/">Send support!</a></button></p>
-            {% endif %}
         </div>
     </div>
 </div>

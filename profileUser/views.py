@@ -1,19 +1,21 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
+
+from mainPage.views import main_page
 from .forms import EditEmailForm, EditProfileForm
 from mainPage.models import Profile
 from django.contrib.auth.forms import PasswordChangeForm
 # Create your views here.
 
 
-@login_required(login_url='../../../../../../../')
+@login_required(login_url=main_page)
 def profile_page(request):
     user = request.user
     profil = Profile.objects.get(user=user)
     return render(request, 'indexProfileUser.html', {'user': user, 'profil': profil})
 
 
-@login_required(login_url='../../../../../../../')
+@login_required(login_url=main_page)
 def profilowe_page(request):
 
     profil = Profile.objects.get(user=request.user)

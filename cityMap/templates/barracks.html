@@ -85,6 +85,7 @@
                                         <input type="number" class="form-control" v-model.number="infantryToAdd" placeholder="Add Infantry" min="0" />
                                         <button type="submit" class="btn btn-primary"><i class="fa fa-plus-circle"></i></button>
                                     </form>
+                                    <div v-show="inputMessageInfantry" id="infantryRequirementMessage" class="font-weight-bold small text-info"></div>
                                     <div v-show="errorAddInfantry" class="font-weight-bold small text-danger">You don't have enough resources!</div>
                                 </td>
                                 <td>
@@ -102,6 +103,7 @@
                                         <input type="number" class="form-control" v-model.number="hinfantryToAdd" placeholder="Add Heavy Infantry" min="0" />
                                         <button type="submit" class="btn btn-primary"><i class="fa fa-plus-circle"></i></button>
                                     </form>
+                                    <div v-show="inputMessageHInfantry" id="hinfantryRequirementMessage" class="font-weight-bold small text-info"></div>
                                     <div v-show="errorAddHInfantry" class="font-weight-bold small text-danger">You don't have enough resources!</div>
                                 </td>
                                 <td>
@@ -119,6 +121,7 @@
                                         <input type="number" class="form-control" v-model.number="planesToAdd" placeholder="Add Planes" min="0" />
                                         <button type="submit" class="btn btn-primary"><i class="fa fa-plus-circle"></i></button>
                                     </form>
+                                    <div v-show="inputMessagePlanes" id="planesRequirementMessage" class="font-weight-bold small text-info"></div>
                                     <div v-show="errorAddPlanes" class="font-weight-bold small text-danger">You don't have enough resources!</div>
                                 </td>
                                 <td>
@@ -137,6 +140,7 @@
                                         <input type="number" class="form-control" v-model.number="ltanksToAdd" placeholder="Add Light Tanks" min="0" />
                                         <button type="submit" class="btn btn-primary"><i class="fa fa-plus-circle"></i></button>
                                     </form>
+                                    <div v-show="inputMessageLTanks" id="ltanksRequirementMessage" class="font-weight-bold small text-info"></div>
                                     <div v-show="errorAddLTanks" class="font-weight-bold small text-danger">You don't have enough resources!</div>
                                 </td>
                                 <td>
@@ -155,6 +159,7 @@
                                         <input type="number" class="form-control" v-model.number="htanksToAdd" placeholder="Add Heavy Tanks" min="0" />
                                         <button type="submit" class="btn btn-primary"><i class="fa fa-plus-circle"></i></button>
                                     </form>
+                                    <div v-show="inputMessageHTanks" id="htanksRequirementMessage" class="font-weight-bold small text-info"></div>
                                     <div v-show="errorAddHTanks" class="font-weight-bold small text-danger">You don't have enough resources!</div>
                                 </td>
                                 <td>
@@ -173,6 +178,7 @@
                                         <input type="number" class="form-control" v-model.number="motorizedToAdd" placeholder="Add Motorized" min="0" />
                                         <button type="submit" class="btn btn-primary"><i class="fa fa-plus-circle bg-primary"></i></button>
                                     </form>
+                                    <div v-show="inputMessageMotorized" id="motorizedRequirementMessage" class="font-weight-bold small text-info"></div>
                                     <div v-show="errorAddMotorized" class="font-weight-bold small text-danger">You don't have enough resources!</div>
                                 </td>
                                 <td>
@@ -241,7 +247,13 @@
                   errorAddPlanes: false,
                   errorAddLTanks: false,
                   errorAddHTanks: false,
-                  errorAddMotorized: false
+                  errorAddMotorized: false,
+                  inputMessageInfantry: false,
+                  inputMessageHInfantry: false,
+                  inputMessagePlanes: false,
+                  inputMessageLTanks: false,
+                  inputMessageHTanks: false,
+                  inputMessageMotorized: false
               },
               mounted: function () {
                   this.getData()
@@ -258,7 +270,7 @@
                           })
                   },
                   AddInfantry() {
-                      const requirementPopulation = this.infantryToAdd ;
+                      const requirementPopulation = this.infantryToAdd;
                       const requirementFood = this.infantryToAdd;
                       if (this.infantryToAdd <= 0 || this.infantryToAdd === null) {
                           this.infantryToAdd = 0;
@@ -275,15 +287,12 @@
                           this.city.food -= requirementFood;
                           this.$http.put('/api/city/' + cityId + '/', this.city)
                               .then(response => {
-                                  this.infantryToAdd = 0;
-                                  this.getData();
                                   console.log(response)
                               })
                               .catch(error => {
-                                  this.infantryToAdd = 0;
-                                  this.getData();
                                   console.error(error)
                               })
+                              .finally(() => this.infantryToAdd = 0)
                       }
                   },
                   AddHeavyInfantry() {
@@ -304,15 +313,12 @@
                           this.city.food -= requirementFood;
                           this.$http.put('/api/city/' + cityId + '/', this.city)
                               .then(response => {
-                                  this.hinfantryToAdd = 0;
-                                  this.getData();
                                   console.log(response)
                               })
                               .catch(error => {
-                                  this.hinfantryToAdd = 0;
-                                  this.getData();
                                   console.error(error)
                               })
+                              .finally(() => this.hinfantryToAdd = 0)
                       }
                   },
                   AddPlanes() {
@@ -335,15 +341,12 @@
                           this.city.electrity -= requirementElectricity;
                           this.$http.put('/api/city/' + cityId + '/', this.city)
                               .then(response => {
-                                  this.planesToAdd = 0;
-                                  this.getData();
                                   console.log(response)
                               })
                               .catch(error => {
-                                  this.planesToAdd = 0;
-                                  this.getData();
                                   console.error(error)
                               })
+                              .finally(() => this.planesToAdd = 0)
                       }
                   },
                   AddLightTanks() {
@@ -366,15 +369,12 @@
                           this.city.ore -= requirementOre;
                           this.$http.put('/api/city/' + cityId + '/', this.city)
                               .then(response => {
-                                  this.ltanksToAdd = 0;
-                                  this.getData();
                                   console.log(response)
                               })
                               .catch(error => {
-                                  this.ltanksToAdd = 0;
-                                  this.getData();
                                   console.error(error)
                               })
+                              .finally(() => this.ltanksToAdd = 0)
                       }
                   },
                   AddHeavyTanks() {
@@ -397,15 +397,12 @@
                           this.city.ore -= requirementOre;
                           this.$http.put('/api/city/' + cityId + '/', this.city)
                               .then(response => {
-                                  this.htanksToAdd = 0;
-                                  this.getData();
                                   console.log(response)
                               })
                               .catch(error => {
-                                  this.htanksToAdd = 0;
-                                  this.getData();
                                   console.error(error)
                               })
+                              .finally(() => this.htanksToAdd = 0)
                       }
                   },
                   AddMotorized() {
@@ -428,18 +425,93 @@
                           this.city.electrity -= requirementElectricity;
                           this.$http.put('/api/city/' + cityId +'/', this.city)
                               .then(response => {
-                                  this.motorizedToAdd = 0;
-                                  this.getData();
                                   console.log(response)
                               })
                               .catch(error => {
-                                  this.motorizedToAdd = 0;
-                                  this.getData();
                                   console.error(error)
                               })
+                              .finally(() => this.motorizedToAdd = 0)
                       }
                   }
-              }
+              },
+              watch: {
+                  infantryToAdd() {
+                      if ((this.infantryToAdd !== null) && (this.infantryToAdd > 0) && (typeof(this.infantryToAdd) === 'number')) {
+                          this.inputMessageInfantry = true;
+                          const requirementPopulation = this.infantryToAdd;
+                          const requirementFood = this.infantryToAdd;
+                          const infantryRequirementMessage = document.getElementById("infantryRequirementMessage");
+                          infantryRequirementMessage.innerHTML = 'It will cost ' + requirementPopulation + ' population and ' + requirementFood + ' food';
+                      }
+                      else {
+                          this.inputMessageInfantry = false;
+                      }
+                  },
+                  hinfantryToAdd() {
+                      if ((this.hinfantryToAdd !== null) && (this.hinfantryToAdd > 0) && (typeof(this.hinfantryToAdd) === 'number')) {
+                          this.inputMessageHInfantry = true;
+                          const requirementPopulation = this.hinfantryToAdd;
+                          const requirementFood = this.hinfantryToAdd * 2;
+                          const hinfantryRequirementMessage = document.getElementById("hinfantryRequirementMessage");
+                          hinfantryRequirementMessage.innerHTML = 'It will cost ' + requirementPopulation + ' population and ' + requirementFood + ' food';
+                      }
+                      else {
+                          this.inputMessageHInfantry = false;
+                      }
+                  },
+                  planesToAdd() {
+                      if ((this.planesToAdd !== null) && (this.planesToAdd > 0) && (typeof(this.planesToAdd) === 'number')) {
+                          this.inputMessagePlanes = true;
+                          const requirementPopulation = this.planesToAdd;
+                          const requirementFood = this.planesToAdd * 2;
+                          const requirementElectricity = this.planesToAdd;
+                          const planesRequirementMessage = document.getElementById("planesRequirementMessage");
+                          planesRequirementMessage.innerHTML = 'It will cost ' + requirementPopulation + ' population and ' + requirementFood + ' food and ' + requirementElectricity + ' electricity';
+                      }
+                      else {
+                          this.inputMessagePlanes = false;
+                      }
+                  },
+                  ltanksToAdd() {
+                      if ((this.ltanksToAdd !== null) && (this.ltanksToAdd > 0) && (typeof(this.ltanksToAdd) === 'number')) {
+                          this.inputMessageLTanks = true;
+                          const requirementPopulation = this.ltanksToAdd * 4;
+                          const requirementFood = this.ltanksToAdd * 4;
+                          const requirementOre = this.ltanksToAdd;
+                          const ltanksRequirementMessage = document.getElementById("ltanksRequirementMessage");
+                          ltanksRequirementMessage.innerHTML = 'It will cost ' + requirementPopulation + ' population and ' + requirementFood + ' food and ' + requirementOre + ' ore';
+                      }
+                      else {
+                          this.inputMessageLTanks = false;
+                      }
+                  },
+                  htanksToAdd() {
+                      if ((this.htanksToAdd !== null) && (this.htanksToAdd > 0) && (typeof(this.htanksToAdd) === 'number')) {
+                          this.inputMessageHTanks = true;
+                          const requirementPopulation = this.htanksToAdd * 6;
+                          const requirementFood = this.htanksToAdd * 6;
+                          const requirementOre = this.htanksToAdd * 2;
+                          const htanksRequirementMessage = document.getElementById("htanksRequirementMessage");
+                          htanksRequirementMessage.innerHTML = 'It will cost ' + requirementPopulation + ' population and ' + requirementFood + ' food and ' + requirementOre + ' ore';
+                      }
+                      else {
+                          this.inputMessageHTanks = false;
+                      }
+                  },
+                  motorizedToAdd() {
+                      if ((this.motorizedToAdd !== null) && (this.motorizedToAdd > 0) && (typeof(this.motorizedToAdd) === 'number')) {
+                          this.inputMessageMotorized = true;
+                          const requirementPopulation = this.motorizedToAdd * 3;
+                          const requirementFood = this.motorizedToAdd * 3;
+                          const requirementElectricity = this.motorizedToAdd;
+                          const motorizedRequirementMessage = document.getElementById("motorizedRequirementMessage");
+                          motorizedRequirementMessage.innerHTML = 'It will cost ' + requirementPopulation + ' population and ' + requirementFood + ' food and ' + requirementElectricity + ' electricity';
+                      }
+                      else {
+                          this.inputMessageMotorized = false;
+                      }
+                  }
+             }
          });
     </script>
 

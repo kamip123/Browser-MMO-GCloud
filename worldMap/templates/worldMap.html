@@ -25,6 +25,10 @@
           var infoPanel = "{% static 'worldMap/assets/infoPanel.png' %}"
           var tankGif = "{% static 'worldMap/assets/tank_gif.png' %}"
           var tankGif_rules = "{% static 'worldMap/assets/tank_gif.json' %}"
+
+          var tankGifS = "{% static 'worldMap/assets/tank_gifs.png' %}"
+          var tankGifS_rules = "{% static 'worldMap/assets/tank_gifs.json' %}"
+
           var cityListNames = []
           var cityListOwnerNames = []
           var cityListX = []
@@ -32,6 +36,7 @@
           var cityListPoints = []
           var i = 0
 		  var cityListId = []
+
           var cityListAttackerX = []
           var cityListAttackerY = []
           var cityListDefenderX = []
@@ -39,6 +44,14 @@
           var cityListAttackerTime = []
           var cityLisDefenderTime = []
           liczbaArmi = 0
+
+          var cityListAttackerXS = []
+          var cityListAttackerYS = []
+          var cityListDefenderXS = []
+          var cityListDefenderYS = []
+          var cityListAttackerTimeS = []
+          var cityLisDefenderTimeS = []
+          liczbaArmiS = 0
       </script>
   </head>
   <body>
@@ -110,6 +123,20 @@
 				
                 i = i + 1
                 liczbaArmi = liczbaArmi + 1
+            {% endfor %}
+
+            i = 0;
+
+            {% for support in supports %}
+                cityListAttackerXS[i] = "{{ support.support.pos_x }}"
+                cityListAttackerYS[i] = "{{ support.support.pos_y }}"
+                cityListDefenderXS[i] = "{{ support.defender.pos_x }}"
+                cityListDefenderYS[i] = "{{ support.defender.pos_y }}"
+                cityListAttackerTimeS[i] = "{{ support.send.timestamp }}"
+                cityLisDefenderTimeS[i] = "{{ support.arrive.timestamp }}"
+
+                i = i + 1
+                liczbaArmiS = liczbaArmiS + 1
             {% endfor %}
         </script>
         {% block mapPanel %}

@@ -1,5 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
+
+from mainPage.views import main_page
 from .models import BattleRaport, AllianceInvite, HelpRaport, SpecialResourceRaport, TradeRaport
 from alliance.models import Alliance
 from mainPage.models import Profile
@@ -9,7 +11,7 @@ from django.db.models import Q
 # Create your views here.
 
 
-@login_required(login_url='../../../../../../../')
+@login_required(login_url=main_page)
 def raport_page(request):
     battleraports = BattleRaport.objects.filter(Q(defender=request.user) | Q(attacker=request.user)).order_by('created_date')
     alliancereports = AllianceInvite.objects.filter(receiver=request.user).order_by('created_date')
@@ -21,7 +23,7 @@ def raport_page(request):
                    'specialresourceraports': specialresourceraports, 'tradeeraports': tradeeraports})
 
 
-@login_required(login_url='../../../../../../../')
+@login_required(login_url=main_page)
 def raport_detail_page(request, id_of_raport, type_of_raport):
     if type_of_raport == 0:
         raport = BattleRaport.objects.get(id=id_of_raport)
@@ -66,7 +68,7 @@ def raport_detail_page(request, id_of_raport, type_of_raport):
     return render(request, 'raportDetail.html', {'raport': raport, 'type_of_raport': type_of_raport})
 
 
-@login_required(login_url='../../../../../../../')
+@login_required(login_url=main_page)
 def accept_alliance_invite(request, id_of_raport):
     raport = AllianceInvite.objects.get(id=id_of_raport)
     user = request.user

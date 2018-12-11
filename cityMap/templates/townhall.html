@@ -68,6 +68,7 @@
                                 <td>
                                     <form @submit.prevent="AddTownHallLevel">
                                         <input type="number" class="form-control" v-model.number="townHallLevelToAdd" placeholder="Add Town Hall Level" min="0" />
+                                        <div v-show="inputMessageTownHall" id="townHallRequirementMessage" class="font-weight-bold small text-info"></div>
                                         <div v-show="errorAddTownHallLevel" class="font-weight-bold small text-danger">You don't have enough resources!</div>
                                         <button type="submit" class="btn btn-primary"><i class="fa fa-plus-circle"></i></button>
                                     </form>
@@ -87,6 +88,7 @@
                                 <td>
                                     <form @submit.prevent="AddBarracksLevel">
                                         <input type="number" class="form-control" v-model.number="barracksLevelToAdd" placeholder="Add Barracks Level" min="0" />
+                                        <div v-show="inputMessageBarracks" id="barracksRequirementMessage" class="font-weight-bold small text-info"></div>
                                         <div v-show="errorAddBarracksLevel" class="font-weight-bold small text-danger">You don't have enough resources!</div>
                                         <button type="submit" class="btn btn-primary"><i class="fa fa-plus-circle"></i></button>
                                     </form>
@@ -106,6 +108,7 @@
                                 <td>
                                     <form @submit.prevent="AddRoadsLevel">
                                         <input type="number" class="form-control" v-model.number="roadsLevelToAdd" placeholder="Add Roads Level" min="0" />
+                                        <div v-show="inputMessageRoads" id="roadsRequirementMessage" class="font-weight-bold small text-info"></div>
                                         <div v-show="errorAddRoadsLevel" class="font-weight-bold small text-danger">You don't have enough resources!</div>
                                         <button type="submit" class="btn btn-primary"><i class="fa fa-plus-circle"></i></button>
                                     </form>
@@ -123,7 +126,8 @@
                                 <td>
                                     <form @submit.prevent="AddMineLevel">
                                         <input type="number" class="form-control" v-model.number="mineLevelToAdd" placeholder="Add Mine Level" min="0" />
-                                        <div v-show="errorAddMineLevel" class="font-weight-bold small text-danger">You don't have enough resources!</div>
+                                        <div v-show="inputMessageMines" id="minesRequirementMessage" class="font-weight-bold small text-info"></div>
+                                        <div v-show="errorAddMinesLevel" class="font-weight-bold small text-danger">You don't have enough resources!</div>
                                         <button type="submit" class="btn btn-primary"><i class="fa fa-plus-circle"></i></button>
                                     </form>
                                 </td>
@@ -142,6 +146,7 @@
                                 <td>
                                     <form @submit.prevent="AddPowerPlantLevel">
                                         <input type="number" class="form-control" v-model.number="powerPlantLevelToAdd" placeholder="Add Power Plant Level" min="0" />
+                                        <div v-show="inputMessagePowerPlant" id="powerPlantRequirementMessage" class="font-weight-bold small text-info"></div>
                                         <div v-show="errorAddPowerPlantLevel" class="font-weight-bold small text-danger">You don't have enough resources!</div>
                                         <button type="submit" class="btn btn-primary"><i class="fa fa-plus-circle"></i></button>
                                     </form>
@@ -161,6 +166,7 @@
                                 <td>
                                     <form @submit.prevent="AddFarmsLevel">
                                         <input type="number" class="form-control" v-model.number="farmsLevelToAdd" placeholder="Add Farms Level" min="0" />
+                                        <div v-show="inputMessageFarms" id="farmsRequirementMessage" class="font-weight-bold small text-info"></div>
                                         <div v-show="errorAddFarmsLevel" class="font-weight-bold small text-danger">You don't have enough resources!</div>
                                         <button type="submit" class="btn btn-primary"><i class="fa fa-plus-circle bg-primary"></i></button>
                                     </form>
@@ -180,6 +186,7 @@
                                 <td>
                                     <form @submit.prevent="AddHousingLevel">
                                         <input type="number" class="form-control" v-model.number="housingLevelToAdd" placeholder="Add Housing Level" min="0" />
+                                        <div v-show="inputMessageHousing" id="housingRequirementMessage" class="font-weight-bold small text-info"></div>
                                         <div v-show="errorAddHousingLevel" class="font-weight-bold small text-danger">You don't have enough resources!</div>
                                         <button type="submit" class="btn btn-primary"><i class="fa fa-plus-circle bg-primary"></i></button>
                                     </form>
@@ -199,28 +206,28 @@
                     <h2>Available Resources</h2>
                     <table class="table table-borderless table-dark table-hover">
                         <thead>
-                        <tr>
-                            <th>Resource Name</th>
-                            <th>Quantity</th>
-                        </tr>
+                            <tr>
+                                <th>Resource Name</th>
+                                <th>Quantity</th>
+                            </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>Food</td>
-                            <td>[[ city.food ]]</td>
-                        </tr>
-                        <tr>
-                            <td>Electricity</td>
-                            <td>[[ city.electricity ]]</td>
-                        </tr>
-                        <tr>
-                            <td>Ore</td>
-                            <td>[[ city.ore ]]</td>
-                        </tr>
-                        <tr>
-                            <td>Population</td>
-                            <td>[[ city.population ]]</td>
-                        </tr>
+                            <tr>
+                                <td>Food</td>
+                                <td>[[ city.food ]]</td>
+                            </tr>
+                            <tr>
+                                <td>Electricity</td>
+                                <td>[[ city.electricity ]]</td>
+                            </tr>
+                            <tr>
+                                <td>Ore</td>
+                                <td>[[ city.ore ]]</td>
+                            </tr>
+                            <tr>
+                                <td>Population</td>
+                                <td>[[ city.population ]]</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -250,7 +257,14 @@
                 errorAddMinesLevel: false,
                 errorAddPowerPlantLevel: false,
                 errorAddFarmsLevel: false,
-                errorAddHousingLevel: false
+                errorAddHousingLevel: false,
+                inputMessageTownHall: false,
+                inputMessageBarracks: false,
+                inputMessageRoads: false,
+                inputMessageMines: false,
+                inputMessagePowerPlant: false,
+                inputMessageFarms: false,
+                inputMessageHousing: false
             },
             mounted: function () {
                 this.getData()
@@ -289,15 +303,12 @@
                         this.city.points += this.townHallLevelToAdd * 100;
                         this.$http.put('/api/city/' + cityId + '/', this.city)
                             .then(response => {
-                                this.townHallLevelToAdd = 0;
-                                this.getData();
                                 console.log(response)
                             })
                             .catch(error => {
-                                this.townHallLevelToAdd = 0;
-                                this.getData();
                                 console.error(error)
                             })
+                            .finally(() => this.townHallLevelToAdd = 0);
                     }
                 },
                 AddBarracksLevel() {
@@ -323,15 +334,12 @@
                         this.city.points += this.barracksLevelToAdd * 100;
                         this.$http.put('/api/city/' + cityId + '/', this.city)
                             .then(response => {
-                                this.barracksLevelToAdd = 0;
-                                this.getData();
                                 console.log(response)
                             })
                             .catch(error => {
-                                this.barracksLevelToAdd = 0;
-                                this.getData();
                                 console.error(error)
                             })
+                            .finally(() => this.barracksLevelToAdd = 0);
                     }
                 },
                 AddRoadsLevel() {
@@ -353,15 +361,12 @@
                         this.city.points += this.roadsLevelToAdd * 100;
                         this.$http.put('/api/city/' + cityId + '/', this.city)
                             .then(response => {
-                                this.roadsLevelToAdd = 0;
-                                this.getData();
                                 console.log(response)
                             })
                             .catch(error => {
-                                this.roadsLevelToAdd = 0;
-                                this.getData();
                                 console.error(error)
                             })
+                            .finally(() => this.roadsLevelToAdd = 0);
                     }
                 },
                 AddMineLevel() {
@@ -371,14 +376,14 @@
                     const requirementElectricity = this.mineLevelToAdd * 3;
                     if (this.mineLevelToAdd <= 0 || this.mineLevelToAdd === null) {
                         this.mineLevelToAdd = 0;
-                        this.errorAddMineLevel = false;
+                        this.errorAddMinesLevel = false;
                     }
                     else if (requirementPopulation > this.city.population || requirementFood > this.city.food || requirementOre > this.city.ore || requirementElectricity > this.city.electricity) {
                         this.mineLevelToAdd = 0;
-                        this.errorAddMineLevel = true;
+                        this.errorAddMinesLevel = true;
                     }
                     else {
-                        this.errorAddMineLevel = false;
+                        this.errorAddMinesLevel = false;
                         this.city.mines += this.mineLevelToAdd;
                         this.city.population -= requirementPopulation;
                         this.city.food -= requirementFood;
@@ -387,15 +392,12 @@
                         this.city.points += this.mineLevelToAdd * 100;
                         this.$http.put('/api/city/' + cityId + '/', this.city)
                             .then(response => {
-                                this.mineLevelToAdd = 0;
-                                this.getData();
                                 console.log(response)
                             })
                             .catch(error => {
-                                this.mineLevelToAdd = 0;
-                                this.getData();
                                 console.error(error)
                             })
+                            .finally(() => this.mineLevelToAdd = 0);
                     }
                 },
                 AddPowerPlantLevel() {
@@ -421,15 +423,12 @@
                         this.city.points += this.powerPlantLevelToAdd * 100;
                         this.$http.put('/api/city/' + cityId + '/', this.city)
                             .then(response => {
-                                this.powerPlantLevelToAdd = 0;
-                                this.getData();
                                 console.log(response)
                             })
                             .catch(error => {
-                                this.powerPlantLevelToAdd = 0;
-                                this.getData();
                                 console.error(error)
                             })
+                            .finally(() => this.powerPlantLevelToAdd = 0);
                     }
                 },
                 AddFarmsLevel() {
@@ -455,15 +454,12 @@
                         this.city.points += this.farmsLevelToAdd * 100;
                         this.$http.put('/api/city/' + cityId +'/', this.city)
                             .then(response => {
-                                this.farmsLevelToAdd = 0;
-                                this.getData();
                                 console.log(response)
                             })
                             .catch(error => {
-                                this.farmsLevelToAdd = 0;
-                                this.getData();
                                 console.error(error)
                             })
+                            .finally(() => this.farmsLevelToAdd = 0);
                     }
                 },
                 AddHousingLevel() {
@@ -488,13 +484,109 @@
                         this.city.points += this.housingLevelToAdd * 100;
                         this.$http.put('/api/city/' + cityId + '/', this.city)
                             .then(response => {
-                                this.housingLevelToAdd = 0;
-                                this.getData();
                                 console.log(response)
                             })
                             .catch(error => {
                                 console.error(error)
                             })
+                            .finally(() => this.housingLevelToAdd = 0);
+                    }
+                },
+            },
+            watch: {
+                townHallLevelToAdd() {
+                    if ((this.townHallLevelToAdd !== null) && (this.townHallLevelToAdd > 0) && (typeof(this.townHallLevelToAdd) === 'number')) {
+                        this.inputMessageTownHall = true;
+                        const requirementPopulation = this.townHallLevelToAdd * 15;
+                        const requirementFood = this.townHallLevelToAdd * 15;
+                        const requirementOre = this.townHallLevelToAdd * 5;
+                        const requirementElectricity = this.townHallLevelToAdd * 4;
+                        const townHallRequirementMessage = document.getElementById("townHallRequirementMessage");
+                        townHallRequirementMessage.innerHTML = 'It will cost ' + requirementPopulation + ' population and ' + requirementFood + ' food and ' + requirementOre + " ore and " + requirementElectricity + " electricity";
+                    }
+                    else {
+                        this.inputMessageTownHall = false;
+                    }
+                },
+                barracksLevelToAdd() {
+                    if ((this.barracksLevelToAdd !== null) && (this.barracksLevelToAdd > 0) && (typeof(this.barracksLevelToAdd) === 'number')) {
+                        this.inputMessageBarracks = true;
+                        const requirementPopulation = this.barracksLevelToAdd * 12;
+                        const requirementFood = this.barracksLevelToAdd * 12;
+                        const requirementOre = this.barracksLevelToAdd * 2;
+                        const requirementElectricity = this.barracksLevelToAdd * 2;
+                        const barracksRequirementMessage = document.getElementById("barracksRequirementMessage");
+                        barracksRequirementMessage.innerHTML = 'It will cost ' + requirementPopulation + ' population and ' + requirementFood + ' food and ' + requirementOre + " ore and " + requirementElectricity + " electricity";
+                    }
+                    else {
+                        this.inputMessageBarracks = false;
+                    }
+                },
+                roadsLevelToAdd() {
+                    if ((this.roadsLevelToAdd !== null) && (this.roadsLevelToAdd > 0) && (typeof(this.roadsLevelToAdd) === 'number')) {
+                        this.inputMessageRoads = true;
+                        const requirementPopulation = this.roadsLevelToAdd * 3;
+                        const requirementFood = this.roadsLevelToAdd * 3;
+                        const roadsRequirementMessage = document.getElementById("roadsRequirementMessage");
+                        roadsRequirementMessage.innerHTML = 'It will cost ' + requirementPopulation + ' population and ' + requirementFood + ' food';
+                    }
+                    else {
+                        this.inputMessageRoads = false;
+                    }
+                },
+                mineLevelToAdd() {
+                    if ((this.mineLevelToAdd !== null) && (this.mineLevelToAdd > 0) && (typeof(this.mineLevelToAdd) === 'number')) {
+                        this.inputMessageMines = true;
+                        const requirementPopulation = this.mineLevelToAdd * 10;
+                        const requirementFood = this.mineLevelToAdd * 10;
+                        const requirementOre = this.mineLevelToAdd * 4;
+                        const requirementElectricity = this.mineLevelToAdd * 3;
+                        const minesRequirementMessage = document.getElementById("minesRequirementMessage");
+                        minesRequirementMessage.innerHTML = 'It will cost ' + requirementPopulation + ' population and ' + requirementFood + ' food and ' + requirementOre + " ore and " + requirementElectricity + " electricity";
+                    }
+                    else {
+                        this.inputMessageMines = false;
+                    }
+                },
+                powerPlantLevelToAdd() {
+                    if ((this.powerPlantLevelToAdd !== null) && (this.powerPlantLevelToAdd > 0) && (typeof(this.powerPlantLevelToAdd) === 'number')) {
+                        this.inputMessagePowerPlant = true;
+                        const requirementPopulation = this.powerPlantLevelToAdd * 10;
+                        const requirementFood = this.powerPlantLevelToAdd * 10;
+                        const requirementOre = this.powerPlantLevelToAdd * 3;
+                        const requirementElectricity = this.powerPlantLevelToAdd * 5;
+                        const powerPlantRequirementMessage = document.getElementById("powerPlantRequirementMessage");
+                        powerPlantRequirementMessage.innerHTML = 'It will cost ' + requirementPopulation + ' population and ' + requirementFood + ' food and ' + requirementOre + " ore and " + requirementElectricity + " electricity";
+                    }
+                    else {
+                        this.inputMessagePowerPlant = false;
+                    }
+                },
+                farmsLevelToAdd() {
+                    if ((this.farmsLevelToAdd !== null) && (this.farmsLevelToAdd > 0) && (typeof(this.farmsLevelToAdd) === 'number')) {
+                        this.inputMessageFarms = true;
+                        const requirementPopulation = this.farmsLevelToAdd * 5;
+                        const requirementFood = this.farmsLevelToAdd * 5;
+                        const requirementOre = this.farmsLevelToAdd;
+                        const requirementElectricity = this.farmsLevelToAdd;
+                        const farmsRequirementMessage = document.getElementById("farmsRequirementMessage");
+                        farmsRequirementMessage.innerHTML = 'It will cost ' + requirementPopulation + ' population and ' + requirementFood + ' food and ' + requirementOre + " ore and " + requirementElectricity + " electricity";
+                    }
+                    else {
+                        this.inputMessageFarms = false;
+                    }
+                },
+                housingLevelToAdd() {
+                    if ((this.housingLevelToAdd !== null) && (this.housingLevelToAdd > 0) && (typeof(this.housingLevelToAdd) === 'number')) {
+                        this.inputMessageHousing = true;
+                        const requirementFood = this.housingLevelToAdd * 10;
+                        const requirementOre = this.housingLevelToAdd * 10;
+                        const requirementElectricity = this.housingLevelToAdd * 10;
+                        const housingRequirementMessage = document.getElementById("housingRequirementMessage");
+                        housingRequirementMessage.innerHTML = 'It will cost ' + requirementFood + ' food and ' + requirementOre + " ore and " + requirementElectricity + " electricity";
+                    }
+                    else {
+                        this.inputMessageHousing = false;
                     }
                 }
             }

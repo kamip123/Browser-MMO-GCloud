@@ -42,10 +42,10 @@
             <div class="container">
                 <div class="row">
                     <div class="col-8">
-                        <h2>Attacking City</h2>
+                        <h2>Supporting City</h2>
                         <form @submit.prevent="sendAttack">
                             <div class="form-group">
-                                <label class="d-flex" for="attackingCity">Choose Attacking City</label>
+                                <label class="d-flex" for="attackingCity">Choose Supporting City</label>
                                 <select class="custom-select" v-model="attackingCity" id="attackingCity">
                                     <option v-for="city in cities" :value="city">
                                         [[ city.city_name ]]
@@ -190,9 +190,9 @@
                             this.attackingCity.ltanks -= this.ltanksToSend;
                             this.attackingCity.htanks -= this.htanksToSend;
                             this.attackingCity.motorized -= this.motorizedToSend;
-                            this.$http.post('/mapa/' + cityId + '/atak/', {
-                                    attack_correct: 1,
-                                    attacking_city: this.attackingCity.id,
+                            this.$http.post('/mapa/' + cityId + '/wsparcie/', {
+                                    support_correct: 1,
+                                    support_city: this.attackingCity.id,
                                     infantry: this.infantryToSend,
                                     hinfantry: this.hinfantryToSend,
                                     planes: this.planesToSend,
@@ -203,17 +203,21 @@
                                 .then(response => {
 									//this.attackSuccess = 1;
                                     this.attackSuccess = response.data.attack_succesfull;
+                                    this.getData();
                                     console.log(response.data);
                                 })
                                 .catch(error => {
                                     this.attackSuccess = 0;
+                                    this.getData();
                                     console.error(error.data);
                                 });
                             this.$http.put('/api/city/' + this.attackingCity.id + '/', this.attackingCity)
                                 .then(response => {
+                                    this.getData();
                                     console.log(response)
                                 })
                                 .catch(error => {
+                                    this.getData();
                                     console.error(error)
                                 });
                             this.infantryToSend = 0;

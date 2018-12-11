@@ -76,7 +76,7 @@ def main_page(request):
                 return redirect('miasto/')
             login_form = AuthenticationForm()
             posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-            return render(request, 'index.html', {'posts': posts, 'form': form, 'login_form': login_form})
+            return render(request, 'index.html', {'posts': posts, 'form': form, 'login_form': login_form, 'servers': servers})
 
         elif 'LogInForm' in request.POST:
             login_form = AuthenticationForm(data=request.POST)

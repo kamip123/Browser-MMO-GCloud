@@ -19,6 +19,19 @@ class Attack(models.Model):
     motorized = models.IntegerField(default=0)
 
 
+class Support(models.Model):
+    support = models.ForeignKey(CityOwned, related_name='supportwm', on_delete=models.CASCADE)
+    defender = models.ForeignKey(CityOwned, related_name='defenderswm', on_delete=models.CASCADE)
+    arrive = models.DateTimeField(default=timezone.now)
+    send = models.DateTimeField(default=timezone.now)
+    infantry = models.IntegerField(default=0)
+    hinfantry = models.IntegerField(default=0)
+    planes = models.IntegerField(default=0)
+    ltanks = models.IntegerField(default=0)
+    htanks = models.IntegerField(default=0)
+    motorized = models.IntegerField(default=0)
+
+
 @receiver(post_save, sender=Attack)
 def delete_attack_recive(sender, instance, created, **kwargs):
     if created:

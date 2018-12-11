@@ -1,5 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
+from mainPage.views import main_page
 from .models import Alliance
 from mainPage.models import Profile
 from django.contrib.auth.models import User
@@ -8,7 +9,12 @@ from django.utils import timezone
 # Create your views here.
 
 
-@login_required(login_url='../../../../../../../')
+@login_required(login_url=main_page)
+def show_alliance_forum(request, id_of_alliance):
+    return render(request, 'allianceForum.html', {'id_of_alliance': id_of_alliance})
+
+
+@login_required(login_url=main_page)
 def invite_to_your_alliance(request):
     profile = Profile.objects.get(user=request.user)
     if profile.alliance is not None:
@@ -33,7 +39,7 @@ def invite_to_your_alliance(request):
         return redirect('../')
 
 
-@login_required(login_url='../../../../../../../')
+@login_required(login_url=main_page)
 def edit_your_alliance(request):
     profile = Profile.objects.get(user=request.user)
     if profile.alliance is not None:
@@ -58,7 +64,7 @@ def edit_your_alliance(request):
         return redirect('../')
 
 
-@login_required(login_url='../../../../../../../')
+@login_required(login_url=main_page)
 def show_your_alliance(request):
     user = request.user
     profile = Profile.objects.get(user=user)
@@ -84,26 +90,26 @@ def show_your_alliance(request):
         return render(request, 'indexAlliance.html', {'form': form, 'alliance': alliance})
 
 
-@login_required(login_url='../../../../../../../')
+@login_required(login_url=main_page)
 def alliance_list_page(request):
     alliances = Alliance.objects.all()
     return render(request, 'allianceList.html', {'alliances': alliances})
 
 
-@login_required(login_url='../../../../../../../')
+@login_required(login_url=main_page)
 def alliance_detail_page(request, id_of_alliance):
     alliance = Alliance.objects.get(id=id_of_alliance)
     return render(request, 'allianceDetail.html', {'alliance': alliance})
 
 
-@login_required(login_url='../../../../../../../')
+@login_required(login_url=main_page)
 def user_detail_page(request, id_of_alliance, id_of_user):
     user = User.objects.get(id=id_of_user)
     profil = Profile.objects.get(user=user)
     return render(request, 'userDetail.html', {'user': user, 'profil': profil})
 
 
-@login_required(login_url='../../../../../../../')
+@login_required(login_url=main_page)
 def user_your_alliance_detail_page(request, id_of_user):
     user = User.objects.get(id=id_of_user)
     profil = Profile.objects.get(user=user)

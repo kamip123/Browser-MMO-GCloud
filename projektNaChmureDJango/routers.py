@@ -2,7 +2,7 @@ from rest_framework import routers
 from cityMap.viewsets import CityOwnedViewSet, HousingViewSet, FarmsViewSet, PowerPlantViewSet, MinesViewSet
 from cityMap.viewsets import HInfantryViewSet, InfantryViewSet, LTanksViewSet, HTanksViewSet, MotorizedViewSet
 from cityMap.viewsets import PlanesViewSet, BarracksViewSet, TownHallViewSet, RoadsViewSet
-from alliance.viewsets import AllianceViewSet
+from alliance.viewsets import AllianceViewSet, ForumViewSet, SubForumViewSet, TopicViewSet, PostForumViewSet
 from mainPage.viewsets import UserViewSet, ProfileViewSet, CityPositionsViewSet, ServerViewSet
 
 router = routers.DefaultRouter()
@@ -25,3 +25,10 @@ router.register(r'profile', ProfileViewSet)
 router.register(r'user', UserViewSet)
 router.register(r'cityPosition', CityPositionsViewSet)
 router.register(r'server', ServerViewSet)
+
+router.register(r'forum', ForumViewSet)
+router.register(r'subForum', SubForumViewSet)
+router.register(r'topic', TopicViewSet)
+router.register(r'postForum', PostForumViewSet)
+
+
