@@ -165,6 +165,16 @@ class CityOwned(models.Model):
     population = models.IntegerField(default=100)
     points = models.IntegerField(default=100)
 
+    # technologie
+    research_th1 = models.IntegerField(default=0)
+    research_th2 = models.IntegerField(default=0)
+    research_m = models.IntegerField(default=0)
+    research_f = models.IntegerField(default=0)
+    research_pp = models.IntegerField(default=0)
+    research_r = models.IntegerField(default=0)
+    research_h = models.IntegerField(default=0)
+    research_b = models.IntegerField(default=0)
+
     def update_points(self, building):
         self.points += building.pointsPerLvl
 

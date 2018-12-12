@@ -13,4 +13,5 @@ urlpatterns = [
     path('<int:id_of_city>/drogi', views.roads_city_id, name='roads_city_id'),
     path('<int:id_of_city>/elektrownia', views.powerPlant_city_id, name='powerPlant_city_id'),
     path('<int:id_of_city>/kopalnia', views.mines_city_id, name='mines_city_id'),
+    path('<int:id_of_city>/laboratorium', views.science_center_city_id, name='science_center_city_id'),
 ]

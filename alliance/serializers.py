@@ -12,9 +12,11 @@ class AllianceSerializer(serializers.ModelSerializer):
 
 
 class PostForumSerializer(serializers.ModelSerializer):
+    author_name = serializers.CharField(source='get_name')
+
     class Meta:
         model = PostForum
-        fields = ('author', 'text', 'created_date')
+        fields = ('author', 'author_name', 'text', 'created_date')
 
 
 class TopicSerializer(serializers.ModelSerializer):

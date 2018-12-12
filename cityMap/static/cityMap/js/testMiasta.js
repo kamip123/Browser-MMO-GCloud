@@ -19,11 +19,8 @@ function preload() {
 	game.load.image('town_hall_1', town_hall_1); // ready
 	game.load.image('town_hall_2', town_hall_2); // ready
 	game.load.image('town_hall_3', town_hall_3); // ready
+	game.load.image('science_center', science_center); // ready
 }
-
-var cityListInfo = [];
-var infoPanel;
-var text;
 
 function listenerClickTownHall() {
     window.location.href = "rozbudowa";
@@ -51,6 +48,10 @@ function listenerClickMine() {
 
 function listenerClickPowerPlant() {
     window.location.href = "elektrownia";
+}
+
+function listenerClickscienceCenter() {
+    window.location.href = "laboratorium";
 }
 
 class townHall{
@@ -176,7 +177,11 @@ function create() {
 	farms = new farms(lvlfarms);
 	farms.sprite.inputEnabled = true;
 	farms.sprite.events.onInputDown.add(listenerClickFarms, this);
-	
+
+	scienceCenter = game.add.sprite(510, 480, "science_center");
+    scienceCenter.inputEnabled = true;
+    scienceCenter.events.onInputDown.add(listenerClickscienceCenter, this);
+
 	townHall = new townHall(lvltownHall);
 	townHall.sprite.inputEnabled = true;
 	townHall.sprite.events.onInputDown.add(listenerClickTownHall, this);

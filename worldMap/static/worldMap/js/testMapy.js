@@ -186,7 +186,6 @@ function listenerOverCity(one, two, xx, yy, nazwaWioski, wlasciciel, punkty) {
 	infoPanel = game.add.sprite(xx+50, yy, 'infoPanel');
 	text = game.add.text(xx+50, yy, '', { font:"10px Arial", fill: 'black' });
     text.text = "Nazwa wioski: " + nazwaWioski + "\nWlasciciel: " + wlasciciel + "\npunkty: " + punkty + "\npoz X: " + xx + "\npoz Y: " + yy;
-
 }
 
 function listenerOverCityDelete() {

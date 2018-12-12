@@ -26,6 +26,9 @@ class PostForum(models.Model):
     text = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
 
+    def get_name(self):
+        return str(self.author.username)
+
 
 class Topic(models.Model):
     title = models.CharField(max_length=100)

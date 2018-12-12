@@ -29,6 +29,12 @@ def town_hall_city_id(request, id_of_city):
 
 
 @login_required(login_url=main_page)
+def science_center_city_id(request, id_of_city):
+    city = CityOwned.objects.get(id=id_of_city)
+    return render(request, 'scienceCenter.html', {'city': city})
+
+
+@login_required(login_url=main_page)
 def farms_city_id(request, id_of_city):
     city = CityOwned.objects.get(id = id_of_city)
     current_level = city.farms
