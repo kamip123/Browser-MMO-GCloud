@@ -1,12 +1,82 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from mainPage.views import main_page
-from .models import Alliance
+from .models import Alliance, SubForum, Forum, Topic, PostForum
 from mainPage.models import Profile
 from django.contrib.auth.models import User
 from .forms import CreateAllianceForm, CreateAllianceInviteForm
 from django.utils import timezone
-# Create your views here.
+from rest_framework.utils import json
+
+
+@login_required(login_url=main_page)
+def add_forum_post(request, id_of_alliance):
+    profile = Profile.objects.get(user=request.user)
+    if profile.alliance is not None:
+        if profile.alliance.id == id_of_alliance:
+            if request.method == 'POST':
+                data = json.loads(request.body.decode('utf-8'))
+                id_of_topic = data['id_of_topic']
+                text = data['text']
+                new_post = PostForum(text=text, author=request.user)
+                new_post.save()
+                topic = Topic.objects.get(id=id_of_topic)
+                topic.posts.add(new_post)
+                topic.save()
+                return redirect('../')
+            else:
+                return redirect('../')
+        else:
+            return redirect('../')
+    else:
+        return redirect('../')
+
+
+@login_required(login_url=main_page)
+def add_forum_topic(request, id_of_alliance):
+    profile = Profile.objects.get(user=request.user)
+    if profile.alliance is not None:
+        if profile.alliance.id == id_of_alliance:
+            if request.method == 'POST':
+                data = json.loads(request.body.decode('utf-8'))
+                id_of_sub_forum = data['id_of_sub_forum']
+                title = data['title']
+                new_topic = Topic(title=title)
+                new_topic.save()
+                sub_forum = SubForum.objects.get(id=id_of_sub_forum)
+                sub_forum.topics.add(new_topic)
+                sub_forum.save()
+                return redirect('../')
+            else:
+                return redirect('../')
+        else:
+            return redirect('../')
+    else:
+        return redirect('../')
+
+
+@login_required(login_url=main_page)
+def add_forum_sub_forum(request, id_of_alliance):
+    profile = Profile.objects.get(user=request.user)
+    if profile.alliance is not None:
+        alliance = Alliance.objects.get(id=profile.alliance.id)
+        if alliance.creator == request.user or alliance.vice_creator == request.user:
+            if request.method == 'POST':
+                data = json.loads(request.body.decode('utf-8'))
+                id_of_forum = data['id_of_forum']
+                title = data['title']
+                new_subforum = SubForum(title=title)
+                new_subforum.save()
+                forum = Forum.objects.get(id=id_of_forum)
+                forum.sub_forums.add(new_subforum)
+                forum.save()
+                return redirect('../')
+            else:
+                return redirect('../')
+        else:
+            return redirect('../')
+    else:
+        return redirect('../')
 
 
 @login_required(login_url=main_page)

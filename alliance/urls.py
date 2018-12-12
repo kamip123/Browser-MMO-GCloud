@@ -10,4 +10,7 @@ urlpatterns = [
     path('listOfAlliances/', views.alliance_list_page, name='alliance_list_page'),
     path('listOfAlliances/<int:id_of_alliance>/', views.alliance_detail_page, name='alliance_detail_page'),
     path('listOfAlliances/<int:id_of_alliance>/<int:id_of_user>', views.user_detail_page, name='user_detail_page'),
+    path('forum/<int:id_of_alliance>/postForum', views.add_forum_post, name='add_forum_post'),
+    path('forum/<int:id_of_alliance>/topic', views.add_forum_topic, name='add_forum_topic'),
+    path('forum/<int:id_of_alliance>/subForum', views.add_forum_sub_forum, name='add_forum_sub_forum'),
 ]

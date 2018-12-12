@@ -32,14 +32,14 @@ class PostForum(models.Model):
 
 class Topic(models.Model):
     title = models.CharField(max_length=100)
-    posts = models.ManyToManyField(PostForum)
+    posts = models.ManyToManyField(PostForum, blank=True)
 
 
 class SubForum(models.Model):
     title = models.CharField(max_length=100)
-    topics = models.ManyToManyField(Topic)
+    topics = models.ManyToManyField(Topic, blank=True)
 
 
 class Forum(models.Model):
-    sub_forums = models.ManyToManyField(SubForum)
+    sub_forums = models.ManyToManyField(SubForum, blank=True)
     owner = models.ForeignKey(Alliance, on_delete=models.CASCADE)

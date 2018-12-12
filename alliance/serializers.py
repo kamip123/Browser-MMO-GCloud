@@ -24,7 +24,7 @@ class TopicSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Topic
-        fields = ('title', 'posts')
+        fields = ('id', 'title', 'posts')
 
 
 class SubForumSerializer(serializers.ModelSerializer):
@@ -32,7 +32,7 @@ class SubForumSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = SubForum
-        fields = ('title', 'topics')
+        fields = ('id', 'title', 'topics')
 
 
 class ForumSerializer(serializers.ModelSerializer):
@@ -40,4 +40,4 @@ class ForumSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Forum
-        fields = ('sub_forums', 'owner')
+        fields = ('id', 'sub_forums', 'owner')
