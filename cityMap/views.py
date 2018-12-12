@@ -31,6 +31,42 @@ def town_hall_city_id(request, id_of_city):
 @login_required(login_url=main_page)
 def science_center_city_id(request, id_of_city):
     city = CityOwned.objects.get(id=id_of_city)
+    if request.method == 'POST':
+        tech = request.POST.get('tech', 'wrong')
+        if tech == 'wrong':
+            return render(request, 'scienceCenter.html', {'city': city})
+        if tech == 'th1':
+            city.research_th1 = 1
+            city.save()
+            return render(request, 'scienceCenter.html', {'city': city})
+        if tech == 'th2':
+            city.research_th2 = 1
+            city.save()
+            return render(request, 'scienceCenter.html', {'city': city})
+        if tech == 'm':
+            city.research_m = 1
+            city.save()
+            return render(request, 'scienceCenter.html', {'city': city})
+        if tech == 'f':
+            city.research_f = 1
+            city.save()
+            return render(request, 'scienceCenter.html', {'city': city})
+        if tech == 'pp':
+            city.research_pp = 1
+            city.save()
+            return render(request, 'scienceCenter.html', {'city': city})
+        if tech == 'r':
+            city.research_r = 1
+            city.save()
+            return render(request, 'scienceCenter.html', {'city': city})
+        if tech == 'h':
+            city.research_h = 1
+            city.save()
+            return render(request, 'scienceCenter.html', {'city': city})
+        if tech == 'b':
+            city.research_b = 1
+            city.save()
+            return render(request, 'scienceCenter.html', {'city': city})
     return render(request, 'scienceCenter.html', {'city': city})
 
 

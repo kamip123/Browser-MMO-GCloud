@@ -1,3 +1,6 @@
+var cookie = document.createElement('script');
+cookie.setAttribute('src','https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js');
+document.head.appendChild(cookie);
 
 var game = new Phaser.Game(800, 800, Phaser.CANVAS, 'techTreeRenderDiv', { preload: preload, create: create, update: update, render: render });
 
@@ -19,35 +22,195 @@ function preload() {
 }
 
 function listenerClickTH1() {
-    //window.location.href = "laboratorium";
+    var csrftoken = $.cookie('csrftoken');
+	function csrfSafeMethod(method) {
+		// these HTTP methods do not require CSRF protection
+		return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+	}
+
+	$.ajaxSetup({
+	    beforeSend: function(xhr, settings) {
+	        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+		        xhr.setRequestHeader("X-CSRFToken", csrftoken);
+			}
+		}
+	});
+
+	$.ajax('', {
+		type: 'POST',
+		data: {
+	        tech: "th1"
+	    }
+	});
+    window.location.href = "laboratorium";
 }
 
 function listenerClickTH2() {
-    //window.location.href = "laboratorium";
+    var csrftoken = $.cookie('csrftoken');
+	function csrfSafeMethod(method) {
+		// these HTTP methods do not require CSRF protection
+		return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+	}
+
+	$.ajaxSetup({
+	    beforeSend: function(xhr, settings) {
+	        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+		        xhr.setRequestHeader("X-CSRFToken", csrftoken);
+			}
+		}
+	});
+
+	$.ajax('', {
+		type: 'POST',
+		data: {
+	        tech: "th2"
+	    }
+	});
+    window.location.href = "laboratorium";
 }
 
 function listenerClickM() {
-    //window.location.href = "laboratorium";
+    var csrftoken = $.cookie('csrftoken');
+	function csrfSafeMethod(method) {
+		// these HTTP methods do not require CSRF protection
+		return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+	}
+
+	$.ajaxSetup({
+	    beforeSend: function(xhr, settings) {
+	        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+		        xhr.setRequestHeader("X-CSRFToken", csrftoken);
+			}
+		}
+	});
+
+	$.ajax('', {
+		type: 'POST',
+		data: {
+	        tech: "m"
+	    }
+	});
+    window.location.href = "laboratorium";
 }
 
 function listenerClickF() {
-    //window.location.href = "laboratorium";
+    var csrftoken = $.cookie('csrftoken');
+	function csrfSafeMethod(method) {
+		// these HTTP methods do not require CSRF protection
+		return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+	}
+
+	$.ajaxSetup({
+	    beforeSend: function(xhr, settings) {
+	        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+		        xhr.setRequestHeader("X-CSRFToken", csrftoken);
+			}
+		}
+	});
+
+	$.ajax('', {
+		type: 'POST',
+		data: {
+	        tech: "f"
+	    }
+	});
+    window.location.href = "laboratorium";
 }
 
 function listenerClickPP() {
-    //window.location.href = "laboratorium";
+    var csrftoken = $.cookie('csrftoken');
+	function csrfSafeMethod(method) {
+		// these HTTP methods do not require CSRF protection
+		return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+	}
+
+	$.ajaxSetup({
+	    beforeSend: function(xhr, settings) {
+	        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+		        xhr.setRequestHeader("X-CSRFToken", csrftoken);
+			}
+		}
+	});
+
+	$.ajax('', {
+		type: 'POST',
+		data: {
+	        tech: "pp"
+	    }
+	});
+    window.location.href = "laboratorium";
 }
 
 function listenerClickR() {
-    //window.location.href = "laboratorium";
+    var csrftoken = $.cookie('csrftoken');
+	function csrfSafeMethod(method) {
+		// these HTTP methods do not require CSRF protection
+		return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+	}
+
+	$.ajaxSetup({
+	    beforeSend: function(xhr, settings) {
+	        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+		        xhr.setRequestHeader("X-CSRFToken", csrftoken);
+			}
+		}
+	});
+
+	$.ajax('', {
+		type: 'POST',
+		data: {
+	        tech: "r"
+	    }
+	});
+    window.location.href = "laboratorium";
 }
 
 function listenerClickH() {
-    //window.location.href = "laboratorium";
+    var csrftoken = $.cookie('csrftoken');
+	function csrfSafeMethod(method) {
+		// these HTTP methods do not require CSRF protection
+		return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+	}
+
+	$.ajaxSetup({
+	    beforeSend: function(xhr, settings) {
+	        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+		        xhr.setRequestHeader("X-CSRFToken", csrftoken);
+			}
+		}
+	});
+
+	$.ajax('', {
+		type: 'POST',
+		data: {
+	        tech: "h"
+	    }
+	});
+    window.location.href = "laboratorium";
 }
 
 function listenerClickB() {
-    //window.location.href = "laboratorium";
+    var csrftoken = $.cookie('csrftoken');
+	function csrfSafeMethod(method) {
+		// these HTTP methods do not require CSRF protection
+		return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+	}
+
+	$.ajaxSetup({
+	    beforeSend: function(xhr, settings) {
+	        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+		        xhr.setRequestHeader("X-CSRFToken", csrftoken);
+			}
+		}
+	});
+
+	$.ajax('', {
+		type: 'POST',
+		data: {
+	        tech: "b"
+	    }
+	});
+    window.location.href = "laboratorium";
 }
 
 function listenerTH1(one, two, xx, yy) {
@@ -319,7 +482,7 @@ function create() {
         pp = game.add.sprite(570, 510, "energy_2");
         pp.scale.setTo(0.55, 0.55);
 	    pp.inputEnabled = true;
-        pp.events.onInputDown.add(listenerClickTH2, this);
+        pp.events.onInputDown.add(listenerClickPP, this);
     }
     if(researchTH2 == 1 && researchPP == 1){
         graphics = game.add.graphics(565, 500);
@@ -356,7 +519,7 @@ function create() {
         r = game.add.sprite(140, 520, "roads_2");
         r.scale.setTo(0.55, 0.55);
 	    r.inputEnabled = true;
-        r.events.onInputDown.add(listenerClickTH2, this);
+        r.events.onInputDown.add(listenerClickR, this);
     }
     if(researchTH2 == 1 && researchR == 1){
         graphics = game.add.graphics(125, 500);
@@ -393,7 +556,7 @@ function create() {
         h = game.add.sprite(350, 450, "housing_2");
         h.scale.setTo(0.30, 0.30);
 	    h.inputEnabled = true;
-        h.events.onInputDown.add(listenerClickTH2, this);
+        h.events.onInputDown.add(listenerClickH, this);
     }
     if(researchTH2 == 1 && researchH == 1){
         graphics = game.add.graphics(345, 445);
@@ -430,7 +593,7 @@ function create() {
         b = game.add.sprite(350, 600, "barracks_2");
         b.scale.setTo(0.60, 0.60);
 	    b.inputEnabled = true;
-        b.events.onInputDown.add(listenerClickTH2, this);
+        b.events.onInputDown.add(listenerClickB, this);
     }
     if(researchH == 1 && researchB == 1){
         graphics = game.add.graphics(345, 600);

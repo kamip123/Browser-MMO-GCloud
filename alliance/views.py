@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from mainPage.views import main_page
 from .models import Alliance, SubForum, Forum, Topic, PostForum
@@ -23,13 +24,13 @@ def add_forum_post(request, id_of_alliance):
                 topic = Topic.objects.get(id=id_of_topic)
                 topic.posts.add(new_post)
                 topic.save()
-                return redirect('../')
+                return JsonResponse({'succesfull': 1})
             else:
-                return redirect('../')
+                return JsonResponse({'succesfull': 0})
         else:
-            return redirect('../')
+            return JsonResponse({'succesfull': 0})
     else:
-        return redirect('../')
+        return JsonResponse({'succesfull': 0})
 
 
 @login_required(login_url=main_page)
@@ -46,13 +47,13 @@ def add_forum_topic(request, id_of_alliance):
                 sub_forum = SubForum.objects.get(id=id_of_sub_forum)
                 sub_forum.topics.add(new_topic)
                 sub_forum.save()
-                return redirect('../')
+                return JsonResponse({'succesfull': 1})
             else:
-                return redirect('../')
+                return JsonResponse({'succesfull': 0})
         else:
-            return redirect('../')
+            return JsonResponse({'succesfull': 0})
     else:
-        return redirect('../')
+        return JsonResponse({'succesfull': 0})
 
 
 @login_required(login_url=main_page)
@@ -70,13 +71,13 @@ def add_forum_sub_forum(request, id_of_alliance):
                 forum = Forum.objects.get(id=id_of_forum)
                 forum.sub_forums.add(new_subforum)
                 forum.save()
-                return redirect('../')
+                return JsonResponse({'succesfull': 1})
             else:
-                return redirect('../')
+                return JsonResponse({'succesfull': 0})
         else:
-            return redirect('../')
+            return JsonResponse({'succesfull': 0})
     else:
-        return redirect('../')
+        return JsonResponse({'succesfull': 0})
 
 
 @login_required(login_url=main_page)
