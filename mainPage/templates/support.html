@@ -52,10 +52,34 @@
 </div>
 
 <div class="container infoPanel">
-    <div class="row col-lg-12 text-center">
-        <h1>SUPPORT SUPPORT </h1>
+    <div class=" col-lg-12 support">
+        <h1>Ask a question: </h1>
+            <form class="site-from" action="" method="post">
+                {% csrf_token %}
+                <table>
+
+                    <tr>
+                        {{ form.question_type }}
+                    </tr>
+                    <tr>
+                        <td>World:</td>
+                        <td><select class="field">
+                            <option>Planet X</option>
+                        </select></td>
+                    </tr>
+                    <tr>
+                        <td>Messege:</td>
+                        <td>{{ form.text }}</td>
+                    </tr>
+                </table>
+                <input type="submit" value="Send" name="MessageContent">
+            </form>
+            <input type="submit" value="Send" name="CommentContent">
+
     </div>
 </div>
+
+
 
 <div class=" footer fixed-bottom">
     <footer>

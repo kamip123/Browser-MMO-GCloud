@@ -65,17 +65,23 @@
             <p class="allianceText"><a href="edycjaSojuszu"><u>Edit your alliance</u></a></p>
             <p class="allianceText"><a href="zaprosDoSojuszu"><u>Invite to your alliance</u></a></p>
         </div>
-        <div class="col-lg-10 text-center" style="height: 100%;">
+        <div class="col-lg-10 text-center alliancePanel" style="height: 100%;">
             {% if alliance == 1%}
-            <h1>You don't have an alliance. Why don't you create a new one ?</h1>
+            <h3 style="padding: 10px;">You don't have an alliance. Why don't you create a new one ?</h3>
             <form action='' method='POST' enctype='multipart/form-data'>
                 {% csrf_token %}
+                <p class="allianceLabel">Alliance name: </p>
+                <p>{{ form.name }}</p>
                 <p>{{ form.name.errors.as_text }}</p>
-                <p>Alliance name: {{ form.name }}</p>
+
+                <p class="allianceLabel">Alliance description: </p>
+                <p>{{ form.alliance_bio }}</p>
                 <p>{{ form.alliance_bio.errors.as_text }}</p>
-                <p>Alliance description: {{ form.alliance_bio }}</p>
+
+                <p class="allianceLabel">Alliance logo:</p>
+                <p class="allianceLabel"> {{ form.alliance_logo }}</p>
                 <p>{{ form.alliance_logo.errors.as_text }}</p>
-                <p>Alliance logo: {{ form.alliance_logo }}</p>
+
                 <input type="submit" value="Create" name="CreateForm">
             </form>
             {% else %}

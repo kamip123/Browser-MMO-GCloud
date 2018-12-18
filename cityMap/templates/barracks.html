@@ -83,7 +83,7 @@
                                 <td>
                                     <form @submit.prevent="AddInfantry" class="input-group">
                                         <input type="number" class="form-control" v-model.number="infantryToAdd" placeholder="Add Infantry" min="0" />
-                                        <button type="submit" class="btn btn-primary"><i class="fa fa-plus-circle"></i></button>
+                                        <button type="submit" class="btn"><i class="fa fa-plus-circle"></i></button>
                                     </form>
                                     <div v-show="inputMessageInfantry" id="infantryRequirementMessage" class="font-weight-bold small text-info"></div>
                                     <div v-show="errorAddInfantry" class="font-weight-bold small text-danger">You don't have enough resources!</div>
@@ -101,7 +101,7 @@
                                 <td>
                                     <form @submit.prevent="AddHeavyInfantry" class="input-group">
                                         <input type="number" class="form-control" v-model.number="hinfantryToAdd" placeholder="Add Heavy Infantry" min="0" />
-                                        <button type="submit" class="btn btn-primary"><i class="fa fa-plus-circle"></i></button>
+                                        <button type="submit" class="btn"><i class="fa fa-plus-circle"></i></button>
                                     </form>
                                     <div v-show="inputMessageHInfantry" id="hinfantryRequirementMessage" class="font-weight-bold small text-info"></div>
                                     <div v-show="errorAddHInfantry" class="font-weight-bold small text-danger">You don't have enough resources!</div>
@@ -119,7 +119,7 @@
                                 <td>
                                     <form @submit.prevent="AddPlanes" class="input-group">
                                         <input type="number" class="form-control" v-model.number="planesToAdd" placeholder="Add Planes" min="0" />
-                                        <button type="submit" class="btn btn-primary"><i class="fa fa-plus-circle"></i></button>
+                                        <button type="submit" class="btn "><i class="fa fa-plus-circle"></i></button>
                                     </form>
                                     <div v-show="inputMessagePlanes" id="planesRequirementMessage" class="font-weight-bold small text-info"></div>
                                     <div v-show="errorAddPlanes" class="font-weight-bold small text-danger">You don't have enough resources!</div>
@@ -138,7 +138,7 @@
                                 <td>
                                     <form @submit.prevent="AddLightTanks" class="input-group">
                                         <input type="number" class="form-control" v-model.number="ltanksToAdd" placeholder="Add Light Tanks" min="0" />
-                                        <button type="submit" class="btn btn-primary"><i class="fa fa-plus-circle"></i></button>
+                                        <button type="submit" class="btn "><i class="fa fa-plus-circle"></i></button>
                                     </form>
                                     <div v-show="inputMessageLTanks" id="ltanksRequirementMessage" class="font-weight-bold small text-info"></div>
                                     <div v-show="errorAddLTanks" class="font-weight-bold small text-danger">You don't have enough resources!</div>
@@ -157,7 +157,7 @@
                                 <td>
                                     <form @submit.prevent="AddHeavyTanks" class="input-group">
                                         <input type="number" class="form-control" v-model.number="htanksToAdd" placeholder="Add Heavy Tanks" min="0" />
-                                        <button type="submit" class="btn btn-primary"><i class="fa fa-plus-circle"></i></button>
+                                        <button type="submit" class="btn "><i class="fa fa-plus-circle"></i></button>
                                     </form>
                                     <div v-show="inputMessageHTanks" id="htanksRequirementMessage" class="font-weight-bold small text-info"></div>
                                     <div v-show="errorAddHTanks" class="font-weight-bold small text-danger">You don't have enough resources!</div>
@@ -176,7 +176,7 @@
                                 <td>
                                     <form @submit.prevent="AddMotorized" class="input-group">
                                         <input type="number" class="form-control" v-model.number="motorizedToAdd" placeholder="Add Motorized" min="0" />
-                                        <button type="submit" class="btn btn-primary"><i class="fa fa-plus-circle bg-primary"></i></button>
+                                        <button type="submit" class="btn "><i class="fa fa-plus-circle"></i></button>
                                     </form>
                                     <div v-show="inputMessageMotorized" id="motorizedRequirementMessage" class="font-weight-bold small text-info"></div>
                                     <div v-show="errorAddMotorized" class="font-weight-bold small text-danger">You don't have enough resources!</div>

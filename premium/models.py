@@ -9,6 +9,7 @@ class Premium(models.Model):
     price_half_year = models.FloatField()
     price_year = models.FloatField()
 
+
 class Tranzakcja(models.Model):
     buyer = models.ForeignKey(User, on_delete=models.CASCADE)
     type_of_premium = models.IntegerField(default=1)

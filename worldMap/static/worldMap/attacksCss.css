@@ -36,7 +36,14 @@ h3 {
 
 }
 
-.townHallPanel {
+.subs {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+.attackPanel {
     background-color: rgb(223, 206, 162);
     border: 15px solid transparent;
     border-image: url('../cityMap/assets/border8.png') 30 round;
@@ -65,7 +72,7 @@ table {
     max-width: 100%;
     display: block;
 }
-button {
+button{
     background-color: #8b0000;
     border: none;
     color: white;

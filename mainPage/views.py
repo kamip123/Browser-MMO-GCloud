@@ -5,7 +5,7 @@ from .models import Server
 from .models import CityPositions
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout
-from .forms import ExtendedUserCreationForm, CommentForm
+from .forms import ExtendedUserCreationForm, CommentForm, SupportTicketForm
 from django.http import HttpResponse
 from cityMap.models import CityOwned, Housing, Farms, PowerPlant, Mines, Roads, TownHall, Barracks
 from cityMap.models import Infantry, HInfantry, LTanks, HTanks, Motorized, Planes
@@ -135,7 +135,17 @@ def show_forum(request):
 
 
 def show_support(request):
-    return render(request, 'support.html')
+    form = SupportTicketForm()
+    if request.method == 'POST':
+        form = SupportTicketForm(request.POST)
+
+        if form.is_valid():
+            formm = form.save(commit=False)
+            formm.author = request.user
+            formm.question_type = form.cleaned_data['question_type']
+            formm.save()
+
+    return render(request, 'support.html', {'form': form})
 
 
 def show_faq(request):

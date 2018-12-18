@@ -148,8 +148,8 @@
                     <input type="submit" value="Signup" name="SignUpForm">
                     <p>Or register with:</p>
                     <div class="social-buttons">
-                        <a href="#fb" class="btn btn-fb" style="width:100px"><i class="fa fa-facebook"></i> Facebook</a>
-                        <a href="#tw" class="btn btn-tw" style="width:100px"><i class="fa fa-twitter"></i> Twitter</a>
+                        <a href="{% url 'social:begin' 'facebook' %}" class="btn btn-fb" style="width:100px"><i class="fa fa-facebook"></i> Facebook</a>
+                        <a href="{% url 'social:begin' 'github' %}" class="btn btn-gh" style="width:100px"><i class="fa fa-github"></i>GitHub</a>
                     </div>
                 </form>
             </div>

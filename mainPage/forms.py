@@ -1,13 +1,32 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from .models import Comment
+from .models import Comment, SupportTicket
 
 
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
         fields = ['text']
+
+
+class SupportTicketForm(forms.ModelForm):
+    CHOICES = (
+        (1, 'Error'),
+        (2, 'Forum'),
+        (3, 'Others'),
+        (4, 'Violation of the rules '),
+        (5, 'Premium'),
+        (6, 'Registration problems'),
+        (7, 'Question'),
+    )
+
+    question_type = forms.ChoiceField(label="", initial='', widget=forms.Select, choices=CHOICES, required=True)
+
+    class Meta:
+        model = SupportTicket
+        fields = ['text']
+
 
 
 class UniqueUserEmailField(forms.EmailField):

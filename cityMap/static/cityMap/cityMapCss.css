@@ -108,12 +108,14 @@ nav li {
     text-decoration: underline;
     font-weight: bold;
 }
-.subs{
+
+.subs {
     font-size: 1.1em;
     font-weight: bold;
     margin-top: 3px;
     margin-bottom: 3px;
 }
+
 input[type=button] {
     margin-top: 30px;
     margin-left: 50px;
@@ -130,6 +132,37 @@ input[type=button] {
 }
 
 input[type=button]:hover {
+    background-color: #bc0101;
+    cursor: pointer;
+}
+
+.cityPanel {
+    background-color: rgb(223, 206, 162);
+    border: 15px solid transparent;
+    border-image: url('../cityMap/assets/border8.png') 30 round;
+    margin: auto;
+    margin-top: 20px;
+    height: 500px;
+
+    padding: 10px 5px;
+
+}
+
+input[type=submit] {
+    margin: auto;
+    background-color: darkred;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-family: 'Lobster';
+
+}
+
+input[type=submit]:hover {
     background-color: #bc0101;
     cursor: pointer;
 }

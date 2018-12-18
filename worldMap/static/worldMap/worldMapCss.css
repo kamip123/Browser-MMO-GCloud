@@ -86,3 +86,19 @@ a, a:hover {
     border: 10px solid transparent;
     border-image: url('../cityMap/assets/border3.png') 30 round;
 }
+button{
+    background-color: #8b0000;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    margin: 3px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-family: 'Lobster';
+}
+
+button:hover {
+    background-color: #bc0101;
+}
