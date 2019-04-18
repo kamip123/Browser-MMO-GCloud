@@ -15,19 +15,29 @@ from paypal.standard.forms import PayPalPaymentsForm
 
 
 @csrf_exempt
-def payment_done(request):
+def payment_done(request, payment_id):
     return render(request, 'done.html')
 
 
 @csrf_exempt
-def payment_canceled(request):
+def payment_canceled(request, payment_id):
     return render(request, 'canceled.html')
 
 
-def payment_process(request, payment_id):
+def payment_process(request, typPremium):
+    #if request.method == 'POST':
+    user = request.user
+    profile = Profile.objects.get(user=request.user)
+    profile.is_premium = True
+    profile.until_premium = timezone.now()
+    #profile.until_premium = timezone.now() + timedelta(days = 30)
+    profile.save()
+    tranzakcja = Tranzakcja(buyer=user, type_of_premium=typPremium)
+    tranzakcja.save()
+    
     host = request.get_host()
-    premium = Premium.objects.get(id=payment_id)
-    tranzakcja_id = request.session.get('tranzakcja_id')
+    premium = Premium.objects.get(id=1)
+    tranzakcja_id = tranzakcja.id
     tranzakcja = Tranzakcja.objects.get(id=tranzakcja_id)
     paypal_dict = {
         "business": settings.PAYPAL_RECEIVER_EMAIL,
@@ -35,9 +45,9 @@ def payment_process(request, payment_id):
         "item_name": "Premium",
         "invoice": str(tranzakcja_id),
         'currency_code': 'USD',
-        "notify_url": 'http://{}{}'.format(host, 'paypal-ipn'),
-        "return_url": 'http://{}{}'.format(host, 'done'),
-        "cancel_return": 'http://{}{}'.format(host, 'canceled'),
+        "notify_url": request.build_absolute_uri(reverse('paypal-ipn')),
+        "return_url": request.build_absolute_uri(reverse('payment:done', kwargs={'payment_id': tranzakcja_id})),
+        "cancel_return": request.build_absolute_uri(reverse('payment:canceled', kwargs={'payment_id': tranzakcja_id})),
     }
 
     form = PayPalPaymentsForm(initial=paypal_dict)
@@ -47,16 +57,6 @@ def payment_process(request, payment_id):
 @login_required(login_url=main_page)
 def premium_page(request):
     premiumOptions = Premium.objects.get(id=1)
-    if request.method == 'POST':
-        user = request.user
-        profile = Profile.objects.get(user=request.user)
-        profile.is_premium = True
-        profile.until_premium = timezone.now()
-        #profile.until_premium = timezone.now() + timedelta(days = 30)
-        profile.save()
-        tranzakcja = Tranzakcja(buyer=user, type_of_premium=request.POST.get('typPremium', False))
-        tranzakcja.save()
-        request.session['tranzakcja_id'] = tranzakcja.id
     return render(request, 'indexPremium.html', {'premiumOptions': premiumOptions})
 
 

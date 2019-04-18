@@ -30,16 +30,3 @@ class Support(models.Model):
     ltanks = models.IntegerField(default=0)
     htanks = models.IntegerField(default=0)
     motorized = models.IntegerField(default=0)
-
-
-@receiver(post_save, sender=Attack)
-def delete_attack_recive(sender, instance, created, **kwargs):
-    if created:
-        delete_attack(instance.id, schedule=10)
-
-
-@background(schedule=1)
-def delete_attack(id_of_attack):
-    Attack.objects.get(id=id_of_attack).delete()
-
-

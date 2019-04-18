@@ -28,13 +28,13 @@ urlpatterns = [
     path('wiadomosci/', include('messagess.urls')),
     path('raporty/', include('raports.urls')),
     path('sojusz/', include('alliance.urls')),
-    path('premium/', include('premium.urls')),
+    path('premium/', include('premium.urls', namespace='payment')),
     path('profil/', include('profileUser.urls')),
     path('api/', include(router.urls)),
     path('rankingi/', include('rankings.urls')),
     path('kontakt/', include('kontakt.urls')),
     path('test/', include('scheduleTasks.urls')),
-    path('paypal/', include('paypal.standard.ipn.urls')),
+    url(r'^paypal/', include('paypal.standard.ipn.urls')),
     url(r'^oauth/', include('social_django.urls', namespace='social')),
 ]
 
